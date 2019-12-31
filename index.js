@@ -18,33 +18,50 @@
 
 // changeEnough([1, 0, 5, 219], 19.99)
 
-function retrieveMajor(semver) {
-	const version = semver.split('.')
-    console.log(version[0])
-    return version[0]
+// function retrieveMajor(semver) {
+// 	const version = semver.split('.')
+//     console.log(version[0])
+//     return version[0]
+// }
+
+// function retrieveMinor(semver) {
+// 	const version = semver.split('.')
+//     console.log(version[1])
+//     return version[1]
+// }
+
+// function retrievePatch(semver) {
+// 	const version = semver.split('.')
+//     console.log(version[2])
+//     return version[2]
+// }
+
+
+// retrieveMajor("6.1.9")
+// retrieveMinor("6.1.9")
+// retrievePatch("6.1.9")
+
+// retrieveMajor("2.1.0")
+// retrieveMinor("2.1.0")
+// retrievePatch("2.1.0")
+
+// retrieveMajor("5.12.13")
+// retrieveMinor("5.12.13")
+// retrievePatch("5.12.13")
+
+function canCapture([yourRook, opponentsRook]) {
+	if (yourRook.charAt(0) === opponentsRook.charAt(0) || yourRook.charAt(1) === opponentsRook.charAt(1)) {
+		return true
+	} else {
+		return false
+	}
 }
 
-function retrieveMinor(semver) {
-	const version = semver.split('.')
-    console.log(version[1])
-    return version[1]
-}
-
-function retrievePatch(semver) {
-	const version = semver.split('.')
-    console.log(version[2])
-    return version[2]
-}
-
-
-retrieveMajor("6.1.9")
-retrieveMinor("6.1.9")
-retrievePatch("6.1.9")
-
-retrieveMajor("2.1.0")
-retrieveMinor("2.1.0")
-retrievePatch("2.1.0")
-
-retrieveMajor("5.12.13")
-retrieveMinor("5.12.13")
-retrievePatch("5.12.13")
+canCapture(['A8', 'E8'])
+canCapture(['A1', 'B2'])
+canCapture(['H4', 'H3'])
+canCapture(['F5', 'C8'])
+canCapture(['G3', 'G7'])
+canCapture(['B3', 'B2'])
+canCapture(['F5', 'B2'])
+canCapture(['H5', 'C8'])
