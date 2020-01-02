@@ -49,19 +49,32 @@
 // retrieveMinor("5.12.13")
 // retrievePatch("5.12.13")
 
-function canCapture([yourRook, opponentsRook]) {
-	if (yourRook.charAt(0) === opponentsRook.charAt(0) || yourRook.charAt(1) === opponentsRook.charAt(1)) {
-		return true
-	} else {
-		return false
-	}
+// function canCapture([yourRook, opponentsRook]) {
+// 	if (yourRook.charAt(0) === opponentsRook.charAt(0) || yourRook.charAt(1) === opponentsRook.charAt(1)) {
+// 		return true
+// 	} else {
+// 		return false
+// 	}
+// }
+
+// canCapture(['A8', 'E8'])
+// canCapture(['A1', 'B2'])
+// canCapture(['H4', 'H3'])
+// canCapture(['F5', 'C8'])
+// canCapture(['G3', 'G7'])
+// canCapture(['B3', 'B2'])
+// canCapture(['F5', 'B2'])
+// canCapture(['H5', 'C8'])
+
+function removeVowels(str) {
+	var regex = /[aeiou]/gi;
+	console.log(str.replace(regex, ''))
+  return str.replace(regex, '')
 }
 
-canCapture(['A8', 'E8'])
-canCapture(['A1', 'B2'])
-canCapture(['H4', 'H3'])
-canCapture(['F5', 'C8'])
-canCapture(['G3', 'G7'])
-canCapture(['B3', 'B2'])
-canCapture(['F5', 'B2'])
-canCapture(['H5', 'C8'])
+removeVowels('ben')
+removeVowels('many')
+removeVowels('candy')
+removeVowels('hello')
+removeVowels('apple')
+removeVowels('fever')
