@@ -66,15 +66,33 @@
 // canCapture(['F5', 'B2'])
 // canCapture(['H5', 'C8'])
 
-function removeVowels(str) {
-	var regex = /[aeiou]/gi;
-	console.log(str.replace(regex, ''))
-  return str.replace(regex, '')
+// function removeVowels(str) {
+// 	var regex = /[aeiou]/gi;
+// 	console.log(str.replace(regex, ''))
+//   return str.replace(regex, '')
+// }
+
+// removeVowels('ben')
+// removeVowels('many')
+// removeVowels('candy')
+// removeVowels('hello')
+// removeVowels('apple')
+// removeVowels('fever')
+
+function netPresentValue(pv, ir, years) {
+	if (Math.sign(pv) === -1 || Math.sign(ir) === -1 || Math.sign(years) === -1) {
+		return false
+	} else {
+		const value = Math.round(pv *(1 - Math.pow((1 + ir), -years)) / ir)
+		console.log(`$${value}`)
+		return `$${value}`;
+	}
 }
 
-removeVowels('ben')
-removeVowels('many')
-removeVowels('candy')
-removeVowels('hello')
-removeVowels('apple')
-removeVowels('fever')
+netPresentValue(100, 0.10, 1)
+netPresentValue(100, 0.2, 1)
+netPresentValue(100, 0.1, 20)
+netPresentValue(10000, 0.05, 20)
+netPresentValue(250, 0.01, 1)
+netPresentValue(250, 0.01, -1)
+netPresentValue(15, 0.50, 100)
