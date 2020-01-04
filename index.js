@@ -97,13 +97,26 @@
 // netPresentValue(250, 0.01, -1)
 // netPresentValue(15, 0.50, 100)
 
-function keysAndValues(obj) {
-	console.log([Object.keys(obj), Object.values(obj)])
-	return ([Object.keys(obj), Object.values(obj)])
+// function keysAndValues(obj) {
+// 	console.log([Object.keys(obj), Object.values(obj)])
+// 	return ([Object.keys(obj), Object.values(obj)])
+// }
+
+// keysAndValues({a: 1, b: 2, c: 3})
+// keysAndValues({a: "Apple", b: "Microsoft", c: "Google"})
+// keysAndValues({key1: true, key2: false, key3: undefined})
+// keysAndValues({1: null, 2: null, 3: null})
+// keysAndValues({key1: "cat", key2: "dog", key3: null})
+
+
+function solveForExp(a, b) {
+	return Math.round(Math.log(b) / Math.log(a));
 }
 
-keysAndValues({a: 1, b: 2, c: 3})
-keysAndValues({a: "Apple", b: "Microsoft", c: "Google"})
-keysAndValues({key1: true, key2: false, key3: undefined})
-keysAndValues({1: null, 2: null, 3: null})
-keysAndValues({key1: "cat", key2: "dog", key3: null})
+solveForExp(4, 1024)
+solveForExp(2, 1024)
+solveForExp(9, 3486784401)
+solveForExp(4, 4294967296)
+solveForExp(8, 134217728)
+solveForExp(19, 47045881)
+solveForExp(10, 100000000)
