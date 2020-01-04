@@ -148,17 +148,29 @@
 // wordNest("profession", "profesprofessionsion")
 // wordNest("continuous", "contcontcontinuoconcocontinuousntinuoustinuoususinuousinuous")
 
-function sevenBoom(arr) {
-	const singleNum = arr.join('')
-	if (/7/.test(singleNum)) {
-			return "Boom!";
-		} else {
-			return "there is no 7 in the array";
-		}
+// function sevenBoom(arr) {
+// 	const singleNum = arr.join('')
+// 	if (/7/.test(singleNum)) {
+// 			return "Boom!";
+// 		} else {
+// 			return "there is no 7 in the array";
+// 		}
+// }
+
+// sevenBoom([2, 6, 7, 9, 3])
+// sevenBoom([33, 68, 400, 5])
+// sevenBoom([86, 48, 100, 66])
+// sevenBoom([76, 55, 44, 32])
+// sevenBoom([35, 4, 9, 37])
+
+function towerHanoi(discs) {
+	return (Math.pow(2, discs) -1)
 }
 
-sevenBoom([2, 6, 7, 9, 3])
-sevenBoom([33, 68, 400, 5])
-sevenBoom([86, 48, 100, 66])
-sevenBoom([76, 55, 44, 32])
-sevenBoom([35, 4, 9, 37])
+towerHanoi(3)
+towerHanoi(5)
+towerHanoi(8)
+towerHanoi(19)
+towerHanoi(9)
+towerHanoi(13)
+towerHanoi(0)
