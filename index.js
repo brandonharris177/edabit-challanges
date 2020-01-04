@@ -109,14 +109,41 @@
 // keysAndValues({key1: "cat", key2: "dog", key3: null})
 
 
-function solveForExp(a, b) {
-	return Math.round(Math.log(b) / Math.log(a));
+// function solveForExp(a, b) {
+// 	return Math.round(Math.log(b) / Math.log(a));
+// }
+
+// solveForExp(4, 1024)
+// solveForExp(2, 1024)
+// solveForExp(9, 3486784401)
+// solveForExp(4, 4294967296)
+// solveForExp(8, 134217728)
+// solveForExp(19, 47045881)
+// solveForExp(10, 100000000)
+
+function wordNest(word, nest) {
+	console.log((nest.length / word.length)-1);
+	return ((nest.length / word.length)-1);
 }
 
-solveForExp(4, 1024)
-solveForExp(2, 1024)
-solveForExp(9, 3486784401)
-solveForExp(4, 4294967296)
-solveForExp(8, 134217728)
-solveForExp(19, 47045881)
-solveForExp(10, 100000000)
+wordNest("engagement", "engenengagemengagemeengagementntentgagementagement")
+wordNest("passage", "passpassageage")
+wordNest("factory", "ffacfactofactfafactoryctoryoryrytoryactory")
+wordNest("deny", "ddededdddenyenyenyenynynyeny")
+wordNest("jinx", "jijijjijjijijjinxinxnxnxinxnxinxnxnx")
+wordNest("deal", "dedddealealealal")
+wordNest("paradox", "parparaparadoxdoxadox")
+wordNest("meet", "mmememmeeteeteteteet")
+wordNest("last", "lalastst")
+wordNest("silence", "sisilsisilencelenceencelence")
+wordNest("inflate", "inflate")
+wordNest("ruin", "rurrurrrrrrururuinininuinuinuinuinuininuinin")
+wordNest("episode", "episoepisepisepiepiepiepisoepisodedesodesodesodeodeodede")
+wordNest("dictate", "dictadicdidictdiddictadictadictateteteictatectateatectatetatete")
+wordNest("caller", "callcacacalccallcacaccallerallerllerllererallerlerllerllerer")
+wordNest("sweater", "sweatsweswsweatereateraterer")
+wordNest("measure", "measumememeasumemmeasmmeasureeasureureeasureasurereasureasurere")
+wordNest("relieve", "relierelierelrelierrelieveelieveveieveveve")
+wordNest("home", "hohohohhohohhhohhomeomemeomeomememeomemememe")
+wordNest("profession", "profesprofessionsion")
+wordNest("continuous", "contcontcontinuoconcocontinuousntinuoustinuoususinuousinuous")
