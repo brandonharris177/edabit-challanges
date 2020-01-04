@@ -121,29 +121,44 @@
 // solveForExp(19, 47045881)
 // solveForExp(10, 100000000)
 
-function wordNest(word, nest) {
-	console.log((nest.length / word.length)-1);
-	return ((nest.length / word.length)-1);
+// function wordNest(word, nest) {
+// 	console.log((nest.length / word.length)-1);
+// 	return ((nest.length / word.length)-1);
+// }
+
+// wordNest("engagement", "engenengagemengagemeengagementntentgagementagement")
+// wordNest("passage", "passpassageage")
+// wordNest("factory", "ffacfactofactfafactoryctoryoryrytoryactory")
+// wordNest("deny", "ddededdddenyenyenyenynynyeny")
+// wordNest("jinx", "jijijjijjijijjinxinxnxnxinxnxinxnxnx")
+// wordNest("deal", "dedddealealealal")
+// wordNest("paradox", "parparaparadoxdoxadox")
+// wordNest("meet", "mmememmeeteeteteteet")
+// wordNest("last", "lalastst")
+// wordNest("silence", "sisilsisilencelenceencelence")
+// wordNest("inflate", "inflate")
+// wordNest("ruin", "rurrurrrrrrururuinininuinuinuinuinuininuinin")
+// wordNest("episode", "episoepisepisepiepiepiepisoepisodedesodesodesodeodeodede")
+// wordNest("dictate", "dictadicdidictdiddictadictadictateteteictatectateatectatetatete")
+// wordNest("caller", "callcacacalccallcacaccallerallerllerllererallerlerllerllerer")
+// wordNest("sweater", "sweatsweswsweatereateraterer")
+// wordNest("measure", "measumememeasumemmeasmmeasureeasureureeasureasurereasureasurere")
+// wordNest("relieve", "relierelierelrelierrelieveelieveveieveveve")
+// wordNest("home", "hohohohhohohhhohhomeomemeomeomememeomemememe")
+// wordNest("profession", "profesprofessionsion")
+// wordNest("continuous", "contcontcontinuoconcocontinuousntinuoustinuoususinuousinuous")
+
+function sevenBoom(arr) {
+	const singleNum = arr.join('')
+	if (/7/.test(singleNum)) {
+			return "Boom!";
+		} else {
+			return "there is no 7 in the array";
+		}
 }
 
-wordNest("engagement", "engenengagemengagemeengagementntentgagementagement")
-wordNest("passage", "passpassageage")
-wordNest("factory", "ffacfactofactfafactoryctoryoryrytoryactory")
-wordNest("deny", "ddededdddenyenyenyenynynyeny")
-wordNest("jinx", "jijijjijjijijjinxinxnxnxinxnxinxnxnx")
-wordNest("deal", "dedddealealealal")
-wordNest("paradox", "parparaparadoxdoxadox")
-wordNest("meet", "mmememmeeteeteteteet")
-wordNest("last", "lalastst")
-wordNest("silence", "sisilsisilencelenceencelence")
-wordNest("inflate", "inflate")
-wordNest("ruin", "rurrurrrrrrururuinininuinuinuinuinuininuinin")
-wordNest("episode", "episoepisepisepiepiepiepisoepisodedesodesodesodeodeodede")
-wordNest("dictate", "dictadicdidictdiddictadictadictateteteictatectateatectatetatete")
-wordNest("caller", "callcacacalccallcacaccallerallerllerllererallerlerllerllerer")
-wordNest("sweater", "sweatsweswsweatereateraterer")
-wordNest("measure", "measumememeasumemmeasmmeasureeasureureeasureasurereasureasurere")
-wordNest("relieve", "relierelierelrelierrelieveelieveveieveveve")
-wordNest("home", "hohohohhohohhhohhomeomemeomeomememeomemememe")
-wordNest("profession", "profesprofessionsion")
-wordNest("continuous", "contcontcontinuoconcocontinuousntinuoustinuoususinuousinuous")
+sevenBoom([2, 6, 7, 9, 3])
+sevenBoom([33, 68, 400, 5])
+sevenBoom([86, 48, 100, 66])
+sevenBoom([76, 55, 44, 32])
+sevenBoom([35, 4, 9, 37])
