@@ -79,20 +79,31 @@
 // removeVowels('apple')
 // removeVowels('fever')
 
-function netPresentValue(pv, ir, years) {
-	if (Math.sign(pv) === -1 || Math.sign(ir) === -1 || Math.sign(years) === -1) {
-		return false
-	} else {
-		const value = Math.round(pv *(1 - Math.pow((1 + ir), -years)) / ir)
-		console.log(`$${value}`)
-		return `$${value}`;
-	}
+// function netPresentValue(pv, ir, years) {
+// 	if (Math.sign(pv) === -1 || Math.sign(ir) === -1 || Math.sign(years) === -1) {
+// 		return false
+// 	} else {
+// 		const value = Math.round(pv *(1 - Math.pow((1 + ir), -years)) / ir)
+// 		console.log(`$${value}`)
+// 		return `$${value}`;
+// 	}
+// }
+
+// netPresentValue(100, 0.10, 1)
+// netPresentValue(100, 0.2, 1)
+// netPresentValue(100, 0.1, 20)
+// netPresentValue(10000, 0.05, 20)
+// netPresentValue(250, 0.01, 1)
+// netPresentValue(250, 0.01, -1)
+// netPresentValue(15, 0.50, 100)
+
+function keysAndValues(obj) {
+	console.log([Object.keys(obj), Object.values(obj)])
+	return ([Object.keys(obj), Object.values(obj)])
 }
 
-netPresentValue(100, 0.10, 1)
-netPresentValue(100, 0.2, 1)
-netPresentValue(100, 0.1, 20)
-netPresentValue(10000, 0.05, 20)
-netPresentValue(250, 0.01, 1)
-netPresentValue(250, 0.01, -1)
-netPresentValue(15, 0.50, 100)
+keysAndValues({a: 1, b: 2, c: 3})
+keysAndValues({a: "Apple", b: "Microsoft", c: "Google"})
+keysAndValues({key1: true, key2: false, key3: undefined})
+keysAndValues({1: null, 2: null, 3: null})
+keysAndValues({key1: "cat", key2: "dog", key3: null})
