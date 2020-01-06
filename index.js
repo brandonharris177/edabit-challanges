@@ -163,14 +163,32 @@
 // sevenBoom([76, 55, 44, 32])
 // sevenBoom([35, 4, 9, 37])
 
-function towerHanoi(discs) {
-	return (Math.pow(2, discs) -1)
+// function towerHanoi(discs) {
+// 	return (Math.pow(2, discs) -1)
+// }
+
+// towerHanoi(3)
+// towerHanoi(5)
+// towerHanoi(8)
+// towerHanoi(19)
+// towerHanoi(9)
+// towerHanoi(13)
+// towerHanoi(0)
+
+function sumOfCubes(nums) {
+	const newNums = nums.map(num => num ** 3)
+	let sum = newNums.reduce(
+  ( accumulator, currentValue ) => accumulator + currentValue,
+  0)
+	return sum
 }
 
-towerHanoi(3)
-towerHanoi(5)
-towerHanoi(8)
-towerHanoi(19)
-towerHanoi(9)
-towerHanoi(13)
-towerHanoi(0)
+sumOfCubes([1, 5, 9])
+sumOfCubes([3, 4, 5])
+sumOfCubes([1, 1, 1])
+sumOfCubes([2])
+sumOfCubes([5, 1, 2])
+sumOfCubes([32])
+sumOfCubes([5, 9, 4, 4, 9])
+sumOfCubes([0, 1, 2])
+sumOfCubes([])
