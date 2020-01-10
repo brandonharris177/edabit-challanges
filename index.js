@@ -193,19 +193,30 @@
 // sumOfCubes([0, 1, 2])
 // sumOfCubes([])
 
-function countVowels(str) {
-	const vowels = /[a/e/i/o/u]/gi;
-	const found = str.match(vowels);
-	return found.length
+// function countVowels(str) {
+// 	const vowels = /[a/e/i/o/u]/gi;
+// 	const found = str.match(vowels);
+// 	return found.length
+// }
+
+// countVowels("Celebration")
+// countVowels("Palm")
+// countVowels("Prediction")
+// countVowels("Suite")
+// countVowels("Quote")
+// countVowels("Portrait")
+// countVowels("Steam")
+// countVowels("Tape")
+// countVowels("Nightmare")
+// countVowels("Convention")
+
+function concat(...args) {
+	array = [...args]
+	return array.flat();
 }
 
-countVowels("Celebration")
-countVowels("Palm")
-countVowels("Prediction")
-countVowels("Suite")
-countVowels("Quote")
-countVowels("Portrait")
-countVowels("Steam")
-countVowels("Tape")
-countVowels("Nightmare")
-countVowels("Convention")
+concat([1, 2, 3], [4, 5], [6, 7])
+concat([1], [2], [3], [4], [5], [6], [7])
+concat([1, 2], [3, 4])
+concat([4, 4, 4, 4, 4])
+concat(['a'], ['b', 'c'])
