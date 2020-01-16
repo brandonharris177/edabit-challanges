@@ -210,13 +210,36 @@
 // countVowels("Nightmare")
 // countVowels("Convention")
 
-function concat(...args) {
-	array = [...args]
-	return array.flat();
+// function concat(...args) {
+// 	array = [...args]
+// 	return array.flat();
+// }
+
+// concat([1, 2, 3], [4, 5], [6, 7])
+// concat([1], [2], [3], [4], [5], [6], [7])
+// concat([1, 2], [3, 4])
+// concat([4, 4, 4, 4, 4])
+// concat(['a'], ['b', 'c'])
+
+function filterArray(arr) {
+	arr2 =[]
+	arr.forEach(ele => {
+		if (typeof(ele) === "number") {
+			arr2.push(ele)
+		} else {
+			console.log(typeof(ele))
+		}
+	})
+	return arr2
 }
 
-concat([1, 2, 3], [4, 5], [6, 7])
-concat([1], [2], [3], [4], [5], [6], [7])
-concat([1, 2], [3, 4])
-concat([4, 4, 4, 4, 4])
-concat(['a'], ['b', 'c'])
+filterArray([1, 2, "a", "b"])
+filterArray([1, "a", "b", 0, 15])
+filterArray([1, 2, "aasf", "1", "123", 123])
+filterArray(["jsyt", 4, "yt", 6])
+filterArray(["r", 5, "y", "e", 8, 9])
+filterArray(["a", "e", "i", "o", "u"])
+filterArray([4, "z", "f", 5])
+filterArray(["abc", 123])
+filterArray(["$%^", 567, "&&&"])
+filterArray(["w", "r", "u", 43, "s", "a", 76, "d", 88])
