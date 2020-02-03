@@ -221,25 +221,68 @@
 // concat([4, 4, 4, 4, 4])
 // concat(['a'], ['b', 'c'])
 
-function filterArray(arr) {
-	arr2 =[]
-	arr.forEach(ele => {
-		if (typeof(ele) === "number") {
-			arr2.push(ele)
-		} else {
-			console.log(typeof(ele))
-		}
+// function filterArray(arr) {
+// 	arr2 =[]
+// 	arr.forEach(ele => {
+// 		if (typeof(ele) === "number") {
+// 			arr2.push(ele)
+// 		} else {
+// 			console.log(typeof(ele))
+// 		}
+// 	})
+// 	return arr2
+// }
+
+// filterArray([1, 2, "a", "b"])
+// filterArray([1, "a", "b", 0, 15])
+// filterArray([1, 2, "aasf", "1", "123", 123])
+// filterArray(["jsyt", 4, "yt", 6])
+// filterArray(["r", 5, "y", "e", 8, 9])
+// filterArray(["a", "e", "i", "o", "u"])
+// filterArray([4, "z", "f", 5])
+// filterArray(["abc", 123])
+// filterArray(["$%^", 567, "&&&"])
+// filterArray(["w", "r", "u", 43, "s", "a", 76, "d", 88])
+
+// function triangle(n) {
+// 	return(n*(n+1)/2)
+// }
+
+// triangle(1)
+// triangle(2)
+// triangle(3) 
+// triangle(8)
+// triangle(2153)
+
+// function convertBinary(str) {
+// 	var am = str.replace(/[a-m]/gi, '0')
+// 	var nz = am.replace(/[n-z]/gi, '1')
+// 	console.log(nz)
+// 	return nz 
+// }
+
+// convertBinary("house")
+// convertBinary("excLAIM")
+// convertBinary("moon")
+// convertBinary("MOOn")
+// convertBinary("topsyTurvy")
+
+function doubleChar(str) {
+	let split = str.split('')
+	let repeat = split.map(char => {
+		return char.repeat(2)
 	})
-	return arr2
+	join = repeat.join("")
+	return(join)
 }
 
-filterArray([1, 2, "a", "b"])
-filterArray([1, "a", "b", 0, 15])
-filterArray([1, 2, "aasf", "1", "123", 123])
-filterArray(["jsyt", 4, "yt", 6])
-filterArray(["r", 5, "y", "e", 8, 9])
-filterArray(["a", "e", "i", "o", "u"])
-filterArray([4, "z", "f", 5])
-filterArray(["abc", 123])
-filterArray(["$%^", 567, "&&&"])
-filterArray(["w", "r", "u", 43, "s", "a", 76, "d", 88])
+doubleChar("String")
+doubleChar("Hello World!")
+doubleChar("1234!_ ")
+doubleChar("##^&%%*&%%$#@@!")
+doubleChar("scandal")
+doubleChar("economics")
+doubleChar(" ")
+doubleChar("_______")
+doubleChar("equip gallon read")
+doubleChar("baby increase")
