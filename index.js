@@ -267,22 +267,56 @@
 // convertBinary("MOOn")
 // convertBinary("topsyTurvy")
 
-function doubleChar(str) {
-	let split = str.split('')
-	let repeat = split.map(char => {
-		return char.repeat(2)
-	})
-	join = repeat.join("")
-	return(join)
+// function doubleChar(str) {
+// 	let split = str.split('')
+// 	let repeat = split.map(char => {
+// 		return char.repeat(2)
+// 	})
+// 	join = repeat.join("")
+// 	return(join)
+// }
+
+// doubleChar("String")
+// doubleChar("Hello World!")
+// doubleChar("1234!_ ")
+// doubleChar("##^&%%*&%%$#@@!")
+// doubleChar("scandal")
+// doubleChar("economics")
+// doubleChar(" ")
+// doubleChar("_______")
+// doubleChar("equip gallon read")
+// doubleChar("baby increase")
+
+// function getBudgets(arr) {
+// 	let budgets = arr.map(person => {
+// 		return person.budget
+// 	});
+// 	const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+// 	console.log(budgets.reduce(reducer));
+// }
+
+// getBudgets([{name: "John",  age: 21, budget: 23000}, {name: "Steve",  age: 32, budget: 40000}, {name: "Martin",  age: 16, budget: 2700}])
+// getBudgets([{name: "John",  age: 21, budget: 29000}, {name: "Steve",  age: 32, budget: 32000}, {name: "Martin",  age: 16, budget: 1600}])
+// getBudgets([{name: "John",  age: 21, budget: 19401}, {name: "Steve",  age: 32, budget: 12321}, {name: "Martin",  age: 16, budget: 1204}])
+// getBudgets([{name: "John",  age: 21, budget: 10234}, {name: "Steve",  age: 32, budget: 21754}, {name: "Martin",  age: 16, budget: 4935}])
+
+function myPi(n) {
+	return  (Number.parseFloat(Math.PI).toFixed(n))
 }
 
-doubleChar("String")
-doubleChar("Hello World!")
-doubleChar("1234!_ ")
-doubleChar("##^&%%*&%%$#@@!")
-doubleChar("scandal")
-doubleChar("economics")
-doubleChar(" ")
-doubleChar("_______")
-doubleChar("equip gallon read")
-doubleChar("baby increase")
+myPi(0)
+myPi(1)
+myPi(2)
+myPi(3)
+myPi(5)
+myPi(6)
+myPi(7)
+myPi(8)
+myPi(9)
+myPi(10)
+myPi(11)
+myPi(12)
+myPi(13)
+myPi(14)
+myPi(15)
