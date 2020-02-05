@@ -321,22 +321,54 @@
 // myPi(14)
 // myPi(15)
 
-function charIndex(word, char) {
-	arr = []
-	if (word.includes(char)) {
-		arr.push(word.indexOf(char))
-		arr.push(word.lastIndexOf(char))
-		console.log(arr)
-		return arr
-	} else {
-		return undefined
-	}
+// function charIndex(word, char) {
+// 	arr = []
+// 	if (word.includes(char)) {
+// 		arr.push(word.indexOf(char))
+// 		arr.push(word.lastIndexOf(char))
+// 		console.log(arr)
+// 		return arr
+// 	} else {
+// 		return undefined
+// 	}
+// }
+
+// charIndex('hello', 'l')
+// charIndex('circumlocution', 'r')
+// charIndex('circumlocution', 'i')
+// charIndex('circumlocution', 'c')
+// charIndex('happy', 'h')
+// charIndex('happy', 'p')
+// charIndex('happy', 'e')
+
+// function societyName(friends) {
+// 	const secretSociety = friends.map((friend) => friend[0])
+// 	.sort()
+// 	.join('')
+// 	return secretSociety
+// }
+
+// societyName(['Adam', 'Sarah', 'Malcolm'])
+// societyName(['Phoebe', 'Chandler', 'Rachel', 'Ross', 'Monica', 'Joey'])
+// societyName(['Harry', 'Newt', 'Luna', 'Cho'])
+// societyName(['Sherlock', 'Irene', 'John'])
+// societyName(['Sheldon', 'Amy', 'Penny', 'Howard', 'Raj'])
+
+function set(arr) {
+	newArr = []
+	arr.map(char => {
+		if (newArr.indexOf(char) === -1) {	
+			newArr.push(char)
+		} 
+	})
+	console.log(newArr)
 }
 
-charIndex('hello', 'l')
-charIndex('circumlocution', 'r')
-charIndex('circumlocution', 'i')
-charIndex('circumlocution', 'c')
-charIndex('happy', 'h')
-charIndex('happy', 'p')
-charIndex('happy', 'e')
+set([1, 3, 3, 5, 5])
+set([4, 4, 4, 4])
+set([5, 7, 8, 9, 10, 15])
+set([5, 9, 9])
+set([1, 2, 3, 4, 5, 5, 6, 6, 7])
+set([1, 1, 2, 2, 2])
+set(['A', 'A', 'A', 'A'])
+set(['A', 'B', 'C', 'D'])
