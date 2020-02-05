@@ -301,22 +301,42 @@
 // getBudgets([{name: "John",  age: 21, budget: 19401}, {name: "Steve",  age: 32, budget: 12321}, {name: "Martin",  age: 16, budget: 1204}])
 // getBudgets([{name: "John",  age: 21, budget: 10234}, {name: "Steve",  age: 32, budget: 21754}, {name: "Martin",  age: 16, budget: 4935}])
 
-function myPi(n) {
-	return  (Number.parseFloat(Math.PI).toFixed(n))
+// function myPi(n) {
+// 	return  (Number.parseFloat(Math.PI).toFixed(n))
+// }
+
+// myPi(0)
+// myPi(1)
+// myPi(2)
+// myPi(3)
+// myPi(5)
+// myPi(6)
+// myPi(7)
+// myPi(8)
+// myPi(9)
+// myPi(10)
+// myPi(11)
+// myPi(12)
+// myPi(13)
+// myPi(14)
+// myPi(15)
+
+function charIndex(word, char) {
+	arr = []
+	if (word.includes(char)) {
+		arr.push(word.indexOf(char))
+		arr.push(word.lastIndexOf(char))
+		console.log(arr)
+		return arr
+	} else {
+		return undefined
+	}
 }
 
-myPi(0)
-myPi(1)
-myPi(2)
-myPi(3)
-myPi(5)
-myPi(6)
-myPi(7)
-myPi(8)
-myPi(9)
-myPi(10)
-myPi(11)
-myPi(12)
-myPi(13)
-myPi(14)
-myPi(15)
+charIndex('hello', 'l')
+charIndex('circumlocution', 'r')
+charIndex('circumlocution', 'i')
+charIndex('circumlocution', 'c')
+charIndex('happy', 'h')
+charIndex('happy', 'p')
+charIndex('happy', 'e')
