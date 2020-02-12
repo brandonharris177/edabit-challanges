@@ -354,21 +354,71 @@
 // societyName(['Sherlock', 'Irene', 'John'])
 // societyName(['Sheldon', 'Amy', 'Penny', 'Howard', 'Raj'])
 
-function set(arr) {
-	newArr = []
-	arr.map(char => {
-		if (newArr.indexOf(char) === -1) {	
-			newArr.push(char)
-		} 
-	})
-	console.log(newArr)
+// function set(arr) {
+// 	newArr = []
+// 	arr.map(char => {
+// 		if (newArr.indexOf(char) === -1) {	
+// 			newArr.push(char)
+// 		} 
+// 	})
+// 	console.log(newArr)
+// }
+
+// set([1, 3, 3, 5, 5])
+// set([4, 4, 4, 4])
+// set([5, 7, 8, 9, 10, 15])
+// set([5, 9, 9])
+// set([1, 2, 3, 4, 5, 5, 6, 6, 7])
+// set([1, 1, 2, 2, 2])
+// set(['A', 'A', 'A', 'A'])
+// set(['A', 'B', 'C', 'D'])
+
+// function numLayers(n) {
+// 	width = (Math.PI*n*Math.pow(2, (3*(n-1))/2))/1000
+// 	console.log(width)
+// }
+
+// const rnd = n => n > 1e16 ? n.toExponential() :
+// 	(Number.isInteger(n) && !(''+n).includes('+')) ? n+'.0' : n;
+// const numLayers = n => rnd(2**n / 2000) + 'm';
+
+// function numLayers(n) {
+// 	width = Math.pow(2, n)*.0005
+// 	console.log(width)
+// }
+
+// numLayers(0)
+// numLayers(1)
+// numLayers(2)
+// numLayers(3)
+// numLayers(93)
+// numLayers(94)
+// numLayers(95)
+// numLayers(96)
+// numLayers(97)
+// numLayers(98)
+// numLayers(99)
+// numLayers(100)
+
+function century(year) {
+	let adjYear = year*0.01
+	let century = adjYear.toFixed(0) 
+	if (Math.ceil(adjYear) === adjYear) {
+		console.log("same", adjYear, century)
+		return (century)
+	} else {
+		let correctCentury = (century+1)
+		console.log("diferent", adjYear, correctCentury)
+	}
 }
 
-set([1, 3, 3, 5, 5])
-set([4, 4, 4, 4])
-set([5, 7, 8, 9, 10, 15])
-set([5, 9, 9])
-set([1, 2, 3, 4, 5, 5, 6, 6, 7])
-set([1, 1, 2, 2, 2])
-set(['A', 'A', 'A', 'A'])
-set(['A', 'B', 'C', 'D'])
+century(1756)
+century(1555)
+century(1000)
+century(1001)
+century(2005)
+century(1789)
+century(1510)
+century(1615)
+century(2000)
+century(1997)
