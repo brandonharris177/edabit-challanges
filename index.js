@@ -402,13 +402,13 @@
 
 function century(year) {
 	let adjYear = year*0.01
-	let century = adjYear.toFixed(0) 
+	let century = Math.floor(adjYear)
 	if (Math.ceil(adjYear) === adjYear) {
-		console.log("same", adjYear, century)
-		return (century)
+		console.log(`${century}th century`)
 	} else {
-		let correctCentury = (century+1)
-		console.log("diferent", adjYear, correctCentury)
+		console.log("adjYear", adjYear)
+		console.log(century)
+		console.log(`${++century}th century`)
 	}
 }
 
