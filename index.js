@@ -400,25 +400,46 @@
 // numLayers(99)
 // numLayers(100)
 
-function century(year) {
-	let adjYear = year*0.01
-	let century = Math.floor(adjYear)
-	if (Math.ceil(adjYear) === adjYear) {
-		console.log(`${century}th century`)
+// function century(year) {
+// 	let adjYear = year*0.01
+// 	let century = Math.floor(adjYear)
+// 	if (Math.ceil(adjYear) === adjYear) {
+// 		console.log(`${century}th century`)
+// 	} else {
+// 		console.log("adjYear", adjYear)
+// 		console.log(century)
+// 		console.log(`${++century}th century`)
+// 	}
+// }
+
+// century(1756)
+// century(1555)
+// century(1000)
+// century(1001)
+// century(2005)
+// century(1789)
+// century(1510)
+// century(1615)
+// century(2000)
+// century(1997)
+
+function hasValidPrice(product) {
+	if (product && product.price && product.price >= 0 && typeof(product.price) === "number") {
+		console.log(typeof(product.price))
+		return true
 	} else {
-		console.log("adjYear", adjYear)
-		console.log(century)
-		console.log(`${++century}th century`)
+		if (String(product.price) === "0") {
+			return true
+		} else {
+			return false
+		}
 	}
 }
 
-century(1756)
-century(1555)
-century(1000)
-century(1001)
-century(2005)
-century(1789)
-century(1510)
-century(1615)
-century(2000)
-century(1997)
+// hasValidPrice({ "product": "Milk", price: 1.50 })
+hasValidPrice({ "product": "Cheese", price: -1 })
+// hasValidPrice({ "product": "Eggs", price: 0 })
+// hasValidPrice({ "product": "Flour" })
+// hasValidPrice({ "product": "Cerials", price: '3.0' })
+// hasValidPrice({ "product": "Beer", price: NaN })
+// hasValidPrice()
