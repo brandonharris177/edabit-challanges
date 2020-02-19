@@ -423,23 +423,43 @@
 // century(2000)
 // century(1997)
 
-function hasValidPrice(product) {
-	if (product && product.price && product.price >= 0 && typeof(product.price) === "number") {
-		console.log(typeof(product.price))
-		return true
-	} else {
-		if (String(product.price) === "0") {
-			return true
-		} else {
-			return false
-		}
-	}
-}
+// function hasValidPrice(product) {
+// 	if (product && product.price && product.price >= 0 && typeof(product.price) === "number") {
+// 		console.log(typeof(product.price))
+// 		return true
+// 	} else {
+// 		if (String(product.price) === "0") {
+// 			return true
+// 		} else {
+// 			return false
+// 		}
+// 	}
+// }
 
 // hasValidPrice({ "product": "Milk", price: 1.50 })
-hasValidPrice({ "product": "Cheese", price: -1 })
+// hasValidPrice({ "product": "Cheese", price: -1 })
 // hasValidPrice({ "product": "Eggs", price: 0 })
 // hasValidPrice({ "product": "Flour" })
 // hasValidPrice({ "product": "Cerials", price: '3.0' })
 // hasValidPrice({ "product": "Beer", price: NaN })
 // hasValidPrice()
+
+function constructFence(price) {
+	let singleNum = price.replace(/,/gi, "")
+	let integer = (1000000/(parseInt(singleNum.replace(price[0], ""))))
+	const H = "H"
+	let fence = H.repeat(Math.floor(integer));
+	console.log("int", integer);
+	console.log(fence);
+}
+
+constructFence('$50,000')
+constructFence('$100,000')
+constructFence('$1,000,000')
+constructFence('$500,000')
+constructFence('$20,000')
+constructFence('$10,000')
+constructFence('$5000')
+constructFence('$1000')
+
+
