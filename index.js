@@ -444,22 +444,51 @@
 // hasValidPrice({ "product": "Beer", price: NaN })
 // hasValidPrice()
 
-function constructFence(price) {
-	let singleNum = price.replace(/,/gi, "")
-	let integer = (1000000/(parseInt(singleNum.replace(price[0], ""))))
-	const H = "H"
-	let fence = H.repeat(Math.floor(integer));
-	console.log("int", integer);
-	console.log(fence);
+// function constructFence(price) {
+// 	let singleNum = price.replace(/,/gi, "")
+// 	let integer = (1000000/(parseInt(singleNum.replace(price[0], ""))))
+// 	const H = "H"
+// 	let fence = H.repeat(Math.floor(integer));
+// 	console.log("int", integer);
+// 	console.log(fence);
+// }
+
+// constructFence('$50,000')
+// constructFence('$100,000')
+// constructFence('$1,000,000')
+// constructFence('$500,000')
+// constructFence('$20,000')
+// constructFence('$10,000')
+// constructFence('$5000')
+// constructFence('$1000')
+
+function indexMultiplier(arr) {
+	if (arr.length) {
+		let count = 0
+		let newArray = arr.map(num => num*count++)
+		console.log(newArray)
+		let sum = newArray.reduce(function (accumulator, currentValue) {
+			return accumulator + currentValue
+		  }, 0)
+		console.log(sum)
+	} else {
+		return 0
+	}	
 }
 
-constructFence('$50,000')
-constructFence('$100,000')
-constructFence('$1,000,000')
-constructFence('$500,000')
-constructFence('$20,000')
-constructFence('$10,000')
-constructFence('$5000')
-constructFence('$1000')
-
-
+indexMultiplier([9, 3, 7, -7])
+indexMultiplier([3, 8, 6, -4])
+indexMultiplier([10, -9, -2, 0, 2])
+indexMultiplier([4, 4, 2, 2, -4])
+indexMultiplier([9, 4, 7, 5, -1, -3])
+indexMultiplier([-9, 5, 9, 5, -7, 7])
+indexMultiplier([-1, -2, 8, -5])
+indexMultiplier([7, 10, -5, -4, 6, 2])
+indexMultiplier([0, 1, 0, 1, 0, 1, 0, 1])
+indexMultiplier([-2, 5, -7, -23, 0, 14])
+indexMultiplier([53, -43, 39, -2, -11, 3])
+indexMultiplier([40, 32, -18, 48, -15])
+indexMultiplier([1, -20, -11, 4, -12, 38, -30, 34])
+indexMultiplier([-21, 30, 20, 6, -16])
+indexMultiplier([8, -24, -8, -23, 20, 32, -29, -20])
+indexMultiplier([])
