@@ -462,33 +462,95 @@
 // constructFence('$5000')
 // constructFence('$1000')
 
-function indexMultiplier(arr) {
-	if (arr.length) {
-		let count = 0
-		let newArray = arr.map(num => num*count++)
-		console.log(newArray)
-		let sum = newArray.reduce(function (accumulator, currentValue) {
-			return accumulator + currentValue
-		  }, 0)
-		console.log(sum)
+// function indexMultiplier(arr) {
+// 	if (arr.length) {
+// 		let count = 0
+// 		let newArray = arr.map(num => num*count++)
+// 		console.log(newArray)
+// 		let sum = newArray.reduce(function (accumulator, currentValue) {
+// 			return accumulator + currentValue
+// 		  }, 0)
+// 		console.log(sum)
+// 	} else {
+// 		return 0
+// 	}	
+// }
+
+// indexMultiplier([9, 3, 7, -7])
+// indexMultiplier([3, 8, 6, -4])
+// indexMultiplier([10, -9, -2, 0, 2])
+// indexMultiplier([4, 4, 2, 2, -4])
+// indexMultiplier([9, 4, 7, 5, -1, -3])
+// indexMultiplier([-9, 5, 9, 5, -7, 7])
+// indexMultiplier([-1, -2, 8, -5])
+// indexMultiplier([7, 10, -5, -4, 6, 2])
+// indexMultiplier([0, 1, 0, 1, 0, 1, 0, 1])
+// indexMultiplier([-2, 5, -7, -23, 0, 14])
+// indexMultiplier([53, -43, 39, -2, -11, 3])
+// indexMultiplier([40, 32, -18, 48, -15])
+// indexMultiplier([1, -20, -11, 4, -12, 38, -30, 34])
+// indexMultiplier([-21, 30, 20, 6, -16])
+// indexMultiplier([8, -24, -8, -23, 20, 32, -29, -20])
+// indexMultiplier([])
+
+// function getDistance(a, b) {
+// 	const calc = Math.sqrt(Math.pow((a.x-b.x), 2)+Math.pow((a.y-b.y), 2)).toFixed(3)
+// 	const answer = Number(calc)
+// 	console.log(answer)
+// }
+
+// getDistance({x: -2, y: 1}, {x: 4, y: 3})
+// getDistance({x: 0, y: 0}, {x: 1, y: 1})
+// getDistance({x: 10, y: -5}, {x: 8, y: 16})
+// getDistance({x: 4, y: 3}, {x: 3, y: -2})
+// getDistance({x: -1, y: -1}, {x: 10, y: 10})
+// getDistance({x: 100, y: 100}, {x: 100, y: 100})
+// getDistance({x: 14239, y: -11222}, {x: -12301, y: 12888})
+
+function countTowers(towers) {
+	let base = towers[towers.length-1]
+	if(base[0]) {
+		const regex = /#/g;
+		const found = base[0].match(regex);
+		console.log(found.length/2)
 	} else {
 		return 0
-	}	
+	}
+	
 }
 
-indexMultiplier([9, 3, 7, -7])
-indexMultiplier([3, 8, 6, -4])
-indexMultiplier([10, -9, -2, 0, 2])
-indexMultiplier([4, 4, 2, 2, -4])
-indexMultiplier([9, 4, 7, 5, -1, -3])
-indexMultiplier([-9, 5, 9, 5, -7, 7])
-indexMultiplier([-1, -2, 8, -5])
-indexMultiplier([7, 10, -5, -4, 6, 2])
-indexMultiplier([0, 1, 0, 1, 0, 1, 0, 1])
-indexMultiplier([-2, 5, -7, -23, 0, 14])
-indexMultiplier([53, -43, 39, -2, -11, 3])
-indexMultiplier([40, 32, -18, 48, -15])
-indexMultiplier([1, -20, -11, 4, -12, 38, -30, 34])
-indexMultiplier([-21, 30, 20, 6, -16])
-indexMultiplier([8, -24, -8, -23, 20, 32, -29, -20])
-indexMultiplier([])
+countTowers([
+	["     ##          "],
+	["##   ##        ##"],
+	["##   ##   ##   ##"],
+	["##   ##   ##   ##"]
+])
+
+countTowers([
+	["                         ##"],
+	["##             ##   ##   ##"],
+	["##        ##   ##   ##   ##"],
+	["##   ##   ##   ##   ##   ##"]
+])
+
+countTowers([
+	["##"],
+	["##"]
+])
+
+countTowers([
+	[""]
+])
+
+countTowers([
+	["                                              "],
+	["##   ##   ##   ##   ##   ##   ##   ##   ##   ##"],
+	["##   ##   ##   ##   ##   ##   ##   ##   ##   ##"],
+	["##   ##   ##   ##   ##   ##   ##   ##   ##   ##"]
+])
+countTowers([
+	["##   ##          "],
+	["##   ##          "],
+	["##   ##   ##   ##"],
+	["##   ##   ##   ##"]
+])
