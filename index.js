@@ -507,50 +507,78 @@
 // getDistance({x: 100, y: 100}, {x: 100, y: 100})
 // getDistance({x: 14239, y: -11222}, {x: -12301, y: 12888})
 
-function countTowers(towers) {
-	let base = towers[towers.length-1]
-	if(base[0]) {
-		const regex = /#/g;
-		const found = base[0].match(regex);
-		console.log(found.length/2)
-	} else {
-		return 0
-	}
+// function countTowers(towers) {
+// 	let base = towers[towers.length-1]
+// 	if(base[0]) {
+// 		const regex = /#/g;
+// 		const found = base[0].match(regex);
+// 		console.log(found.length/2)
+// 	} else {
+// 		return 0
+// 	}
 	
+// }
+
+// countTowers([
+// 	["     ##          "],
+// 	["##   ##        ##"],
+// 	["##   ##   ##   ##"],
+// 	["##   ##   ##   ##"]
+// ])
+
+// countTowers([
+// 	["                         ##"],
+// 	["##             ##   ##   ##"],
+// 	["##        ##   ##   ##   ##"],
+// 	["##   ##   ##   ##   ##   ##"]
+// ])
+
+// countTowers([
+// 	["##"],
+// 	["##"]
+// ])
+
+// countTowers([
+// 	[""]
+// ])
+
+// countTowers([
+// 	["                                              "],
+// 	["##   ##   ##   ##   ##   ##   ##   ##   ##   ##"],
+// 	["##   ##   ##   ##   ##   ##   ##   ##   ##   ##"],
+// 	["##   ##   ##   ##   ##   ##   ##   ##   ##   ##"]
+// ])
+// countTowers([
+// 	["##   ##          "],
+// 	["##   ##          "],
+// 	["##   ##   ##   ##"],
+// 	["##   ##   ##   ##"]
+// ])
+
+function hasHiddenFee(prices, t) {
+	let signs = prices.map(number => {
+		return parseInt(number.slice(1))
+	})
+	// console.log(signs)
+	let sum = (signs.reduce((accumulator, currentValue) => accumulator + currentValue));
+	console.log(sum)
+	let totalnumber = parseInt(t.slice(1))
+	if (sum === totalnumber) {
+		return false
+	} else {
+		return true
+	}
 }
 
-countTowers([
-	["     ##          "],
-	["##   ##        ##"],
-	["##   ##   ##   ##"],
-	["##   ##   ##   ##"]
-])
-
-countTowers([
-	["                         ##"],
-	["##             ##   ##   ##"],
-	["##        ##   ##   ##   ##"],
-	["##   ##   ##   ##   ##   ##"]
-])
-
-countTowers([
-	["##"],
-	["##"]
-])
-
-countTowers([
-	[""]
-])
-
-countTowers([
-	["                                              "],
-	["##   ##   ##   ##   ##   ##   ##   ##   ##   ##"],
-	["##   ##   ##   ##   ##   ##   ##   ##   ##   ##"],
-	["##   ##   ##   ##   ##   ##   ##   ##   ##   ##"]
-])
-countTowers([
-	["##   ##          "],
-	["##   ##          "],
-	["##   ##   ##   ##"],
-	["##   ##   ##   ##"]
-])
+hasHiddenFee(["$2", "$4", "$1", "$8"], "$15")
+hasHiddenFee(["$1", "$2", "$3"], "$6")
+hasHiddenFee(["$1"], "$4")
+hasHiddenFee(["$15", "$40", "$19", "$50", "$22", "$41", "$35", "$10", "$38", "$41"], "$311")
+hasHiddenFee(["$25", "$6", "$19", "$9", "$32", "$15", "$10", "$9", "$7", "$8", "$37", "$23", "$18"], "$232")
+hasHiddenFee(["$31", "$30", "$21", "$12", "$10", "$38", "$42", "$27", "$51"], "$297")
+hasHiddenFee(["$9", "$37", "$21", "$4", "$14", "$10", "$36", "$33", "$17", "$41", "$50", "$48", "$2", "$45", "$6", "$22", "$23"], "$499")
+hasHiddenFee(["$44"], "$82")
+hasHiddenFee(["$15", "$30", "$34"], "$79")
+hasHiddenFee(["$35", "$29", "$9", "$47", "$43", "$4", "$37", "$32", "$49", "$37", "$32", "$38", "$43", "$19", "$26", "$46", "$46", "$31", "$24", "$6"], "$696")
+hasHiddenFee(["$50", "$28", "$11", "$51", "$8", "$44"], "$192")
+hasHiddenFee(["$50", "$14", "$45", "$43", "$7", "$45", "$34", "$28", "$46", "$50", "$36", "$23"], "$432")
