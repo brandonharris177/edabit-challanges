@@ -555,30 +555,78 @@
 // 	["##   ##   ##   ##"]
 // ])
 
-function hasHiddenFee(prices, t) {
-	let signs = prices.map(number => {
-		return parseInt(number.slice(1))
-	})
-	// console.log(signs)
-	let sum = (signs.reduce((accumulator, currentValue) => accumulator + currentValue));
-	console.log(sum)
-	let totalnumber = parseInt(t.slice(1))
-	if (sum === totalnumber) {
-		return false
-	} else {
-		return true
+// function hasHiddenFee(prices, t) {
+// 	let signs = prices.map(number => {
+// 		return parseInt(number.slice(1))
+// 	})
+// 	// console.log(signs)
+// 	let sum = (signs.reduce((accumulator, currentValue) => accumulator + currentValue));
+// 	console.log(sum)
+// 	let totalnumber = parseInt(t.slice(1))
+// 	if (sum === totalnumber) {
+// 		return false
+// 	} else {
+// 		return true
+// 	}
+// }
+
+// hasHiddenFee(["$2", "$4", "$1", "$8"], "$15")
+// hasHiddenFee(["$1", "$2", "$3"], "$6")
+// hasHiddenFee(["$1"], "$4")
+// hasHiddenFee(["$15", "$40", "$19", "$50", "$22", "$41", "$35", "$10", "$38", "$41"], "$311")
+// hasHiddenFee(["$25", "$6", "$19", "$9", "$32", "$15", "$10", "$9", "$7", "$8", "$37", "$23", "$18"], "$232")
+// hasHiddenFee(["$31", "$30", "$21", "$12", "$10", "$38", "$42", "$27", "$51"], "$297")
+// hasHiddenFee(["$9", "$37", "$21", "$4", "$14", "$10", "$36", "$33", "$17", "$41", "$50", "$48", "$2", "$45", "$6", "$22", "$23"], "$499")
+// hasHiddenFee(["$44"], "$82")
+// hasHiddenFee(["$15", "$30", "$34"], "$79")
+// hasHiddenFee(["$35", "$29", "$9", "$47", "$43", "$4", "$37", "$32", "$49", "$37", "$32", "$38", "$43", "$19", "$26", "$46", "$46", "$31", "$24", "$6"], "$696")
+// hasHiddenFee(["$50", "$28", "$11", "$51", "$8", "$44"], "$192")
+// hasHiddenFee(["$50", "$14", "$45", "$43", "$7", "$45", "$34", "$28", "$46", "$50", "$36", "$23"], "$432")
+
+function sweetestIcecream(arr) {
+	const flavors = {
+        'Plain': 0,
+        'Vanilla':5,
+        'ChocolateChip':5,
+        'Strawberry':10,
+        'Chocolate':10
+    }
+
+    let newArr = arr.map(iceCream => {
+        return (flavors[iceCream.flavor] + iceCream.numSprinkles)
+    })
+
+    console.log(Math.max(...newArr))
+}
+
+class IceCream {
+	constructor(flavor, numSprinkles) {
+		this.flavor = flavor
+		this.numSprinkles = numSprinkles
 	}
 }
 
-hasHiddenFee(["$2", "$4", "$1", "$8"], "$15")
-hasHiddenFee(["$1", "$2", "$3"], "$6")
-hasHiddenFee(["$1"], "$4")
-hasHiddenFee(["$15", "$40", "$19", "$50", "$22", "$41", "$35", "$10", "$38", "$41"], "$311")
-hasHiddenFee(["$25", "$6", "$19", "$9", "$32", "$15", "$10", "$9", "$7", "$8", "$37", "$23", "$18"], "$232")
-hasHiddenFee(["$31", "$30", "$21", "$12", "$10", "$38", "$42", "$27", "$51"], "$297")
-hasHiddenFee(["$9", "$37", "$21", "$4", "$14", "$10", "$36", "$33", "$17", "$41", "$50", "$48", "$2", "$45", "$6", "$22", "$23"], "$499")
-hasHiddenFee(["$44"], "$82")
-hasHiddenFee(["$15", "$30", "$34"], "$79")
-hasHiddenFee(["$35", "$29", "$9", "$47", "$43", "$4", "$37", "$32", "$49", "$37", "$32", "$38", "$43", "$19", "$26", "$46", "$46", "$31", "$24", "$6"], "$696")
-hasHiddenFee(["$50", "$28", "$11", "$51", "$8", "$44"], "$192")
-hasHiddenFee(["$50", "$14", "$45", "$43", "$7", "$45", "$34", "$28", "$46", "$50", "$36", "$23"], "$432")
+ice1 = new IceCream("Chocolate", 13)
+ice2 = new IceCream("Vanilla", 0)
+ice3 = new IceCream("Strawberry", 7)
+ice4 = new IceCream("Plain", 18)
+ice5 = new IceCream("ChocolateChip", 3)
+ice6 = new IceCream("Chocolate", 23)
+ice7 = new IceCream("Strawberry", 0)
+ice8 = new IceCream("Plain", 34)
+ice9 = new IceCream("Plain", 81)
+ice10 = new IceCream("Vanilla", 12)
+
+sweetestIcecream([ice1, ice2, ice3, ice4, ice5])
+sweetestIcecream([ice7, ice10, ice1, ice6, ice8, ice10, ice2, ice2])
+sweetestIcecream([ice10, ice10, ice6, ice8, ice4])
+sweetestIcecream([ice2, ice10, ice6, ice9, ice7])
+sweetestIcecream([ice10, ice6, ice4, ice1, ice7, ice8, ice6])
+sweetestIcecream([ice3, ice1])
+sweetestIcecream([ice6, ice7, ice5, ice4, ice3])
+sweetestIcecream([ice4, ice8, ice9])
+sweetestIcecream([ice5, ice7])
+sweetestIcecream([ice5, ice3, ice6, ice2, ice7, ice2, ice7, ice2])
+sweetestIcecream([ice1, ice9, ice10, ice9, ice7, ice1, ice9])
+sweetestIcecream([ice1, ice4])
+sweetestIcecream([ice7, ice4])
