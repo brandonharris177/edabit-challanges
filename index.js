@@ -633,10 +633,72 @@
 
 // Fix this incorrect code so that all tests pass!
 
-function flatten(arr) {
-    return ([].concat(...arr))
-  }
+// function flatten(arr) {
+//     return ([].concat(...arr))
+//   }
 
-flatten([[1, 2], [3, 4]])
-flatten([['a', 'b'], ['c', 'd']])
-flatten([[true, false], [false, false]])
+// flatten([[1, 2], [3, 4]])
+// flatten([['a', 'b'], ['c', 'd']])
+// flatten([[true, false], [false, false]])
+
+// function getBirthdayCake(name, age) {
+//   let message = `# ${age} Happy Birthday ${name}! ${age} #`
+//   if (age%2 === 0) {
+//     let hashes = "#".repeat(message.length)
+//     let birthDayMessage = [hashes, message, hashes]
+//     return birthDayMessage
+//   } else {
+//     let hashes = "#".repeat(message.length)
+//     let birthDayMessage = [hashes, message, hashes]
+//     return birthDayMessage
+//   }
+// }
+
+// getBirthdayCake("Princess", 40)
+// getBirthdayCake("Maxwell", 85)
+// getBirthdayCake("Zenobia", 63)
+// getBirthdayCake("Adrian", 91)
+
+// function testJackpot(result) {
+//   let test = result[0]
+//   console.log(test)
+//   console.log(result.every(test))
+// 	// if (result.every(test)){
+//   //   console.log("true")
+//   // } else {
+//   //   console.log("false")
+//   // }
+// }
+
+// testJackpot(['@', '@', '@', '@'])
+// testJackpot(['!', '!', '!', '!'])
+// testJackpot(['abc', 'abc', 'abc', 'abc'])
+// testJackpot(['karaoke', 'karaoke', 'karaoke', 'karaoke'])
+// testJackpot(['SS', 'SS', 'SS', 'SS'])
+// testJackpot([':(', ':)', ':|', ':|'])
+// testJackpot(['&&', '&', '&&&', '&&&&'])
+// testJackpot(['hee', 'heh', 'heh', 'heh'])
+// testJackpot(['SS', 'SS', 'SS', 'Ss'])
+// testJackpot(['SS', 'SS', 'Ss', 'Ss'])
+
+function testJackpot(result) {
+  let test = result[0]
+  let newArray = result.filter(word => word === test)
+  // console.log(newArray)
+  if (newArray.length === 4) {
+    console.log("true")
+  } else {
+    console.log("false")
+  }
+}
+
+testJackpot(['@', '@', '@', '@'])
+testJackpot(['!', '!', '!', '!'])
+testJackpot(['abc', 'abc', 'abc', 'abc'])
+testJackpot(['karaoke', 'karaoke', 'karaoke', 'karaoke'])
+testJackpot(['SS', 'SS', 'SS', 'SS'])
+testJackpot([':(', ':)', ':|', ':|'])
+testJackpot(['&&', '&', '&&&', '&&&&'])
+testJackpot(['hee', 'heh', 'heh', 'heh'])
+testJackpot(['SS', 'SS', 'SS', 'Ss'])
+testJackpot(['SS', 'SS', 'Ss', 'Ss'])
