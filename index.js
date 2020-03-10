@@ -681,24 +681,35 @@
 // testJackpot(['SS', 'SS', 'SS', 'Ss'])
 // testJackpot(['SS', 'SS', 'Ss', 'Ss'])
 
-function testJackpot(result) {
-  let test = result[0]
-  let newArray = result.filter(word => word === test)
-  // console.log(newArray)
-  if (newArray.length === 4) {
-    console.log("true")
-  } else {
-    console.log("false")
-  }
+// function testJackpot(result) {
+//   let test = result[0]
+//   let newArray = result.filter(word => word === test)
+//   // console.log(newArray)
+//   if (newArray.length === 4) {
+//     console.log("true")
+//   } else {
+//     console.log("false")
+//   }
+// }
+
+// testJackpot(['@', '@', '@', '@'])
+// testJackpot(['!', '!', '!', '!'])
+// testJackpot(['abc', 'abc', 'abc', 'abc'])
+// testJackpot(['karaoke', 'karaoke', 'karaoke', 'karaoke'])
+// testJackpot(['SS', 'SS', 'SS', 'SS'])
+// testJackpot([':(', ':)', ':|', ':|'])
+// testJackpot(['&&', '&', '&&&', '&&&&'])
+// testJackpot(['hee', 'heh', 'heh', 'heh'])
+// testJackpot(['SS', 'SS', 'SS', 'Ss'])
+// testJackpot(['SS', 'SS', 'Ss', 'Ss'])
+
+function reverseArr(num) {
+  let reverse = num.toString().split("").reverse();
+	const final = reverse.map(number => parseInt(number))
+  console.log(final);
 }
 
-testJackpot(['@', '@', '@', '@'])
-testJackpot(['!', '!', '!', '!'])
-testJackpot(['abc', 'abc', 'abc', 'abc'])
-testJackpot(['karaoke', 'karaoke', 'karaoke', 'karaoke'])
-testJackpot(['SS', 'SS', 'SS', 'SS'])
-testJackpot([':(', ':)', ':|', ':|'])
-testJackpot(['&&', '&', '&&&', '&&&&'])
-testJackpot(['hee', 'heh', 'heh', 'heh'])
-testJackpot(['SS', 'SS', 'SS', 'Ss'])
-testJackpot(['SS', 'SS', 'Ss', 'Ss'])
+reverseArr(1485979)
+reverseArr(623478)
+reverseArr(12345)
+reverseArr(202069)
