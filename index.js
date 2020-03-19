@@ -703,13 +703,39 @@
 // testJackpot(['SS', 'SS', 'SS', 'Ss'])
 // testJackpot(['SS', 'SS', 'Ss', 'Ss'])
 
-function reverseArr(num) {
-  let reverse = num.toString().split("").reverse();
-	const final = reverse.map(number => parseInt(number))
-  console.log(final);
+// function reverseArr(num) {
+//   let reverse = num.toString().split("").reverse();
+// 	const final = reverse.map(number => parseInt(number))
+//   console.log(final);
+// }
+
+// reverseArr(1485979)
+// reverseArr(623478)
+// reverseArr(12345)
+// reverseArr(202069)
+
+// function indexShuffle(str) {
+//   let split = str.split("")
+//   split.indexOf(i/2)
+// };
+
+// indexShuffle("abcdef")
+// indexShuffle("abababab")
+// indexShuffle("it was a beautiful day")
+// indexShuffle("maybe")
+// indexShuffle("holiday")
+
+function boxSeq(step) {
+	if (step%2 === 0) {
+    console.log(step)
+  } else {
+    console.log(step+2)
+  }
 }
 
-reverseArr(1485979)
-reverseArr(623478)
-reverseArr(12345)
-reverseArr(202069)
+boxSeq(5)
+boxSeq(0)
+boxSeq(6)
+boxSeq(99)
+boxSeq(2)
+boxSeq(1)
