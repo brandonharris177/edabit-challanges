@@ -725,17 +725,39 @@
 // indexShuffle("maybe")
 // indexShuffle("holiday")
 
-function boxSeq(step) {
-	if (step%2 === 0) {
-    console.log(step)
-  } else {
-    console.log(step+2)
-  }
-}
+// function boxSeq(step) {
+// 	if (step%2 === 0) {
+//     console.log(step)
+//   } else {
+//     console.log(step+2)
+//   }
+// }
 
-boxSeq(5)
-boxSeq(0)
-boxSeq(6)
-boxSeq(99)
-boxSeq(2)
-boxSeq(1)
+// boxSeq(5)
+// boxSeq(0)
+// boxSeq(6)
+// boxSeq(99)
+// boxSeq(2)
+// boxSeq(1)
+
+class Circle {
+    constructor(radius){
+      this.radius = radius;
+    }
+    getArea(){return(Math.PI*(this.radius**2))};
+    getPerimeter(){return(2*Math.PI*this.radius)};
+  }
+
+  function round(number) {
+    var factor = Math.pow(10, 5);
+    return Math.round(number * factor) / factor;
+  }
+  let circo = new Circle(20);
+    circo.getArea()
+    circo.getPerimeter()
+  let circo1 = new Circle(2);
+    circo1.getArea()
+    circo1.getPerimeter()
+  let circo2 = new Circle(4.4);
+    circo2.getArea()
+    circo2.getPerimeter()
