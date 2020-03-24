@@ -740,24 +740,46 @@
 // boxSeq(2)
 // boxSeq(1)
 
-class Circle {
-    constructor(radius){
-      this.radius = radius;
-    }
-    getArea(){return(Math.PI*(this.radius**2))};
-    getPerimeter(){return(2*Math.PI*this.radius)};
-  }
+// class Circle {
+//     constructor(radius){
+//       this.radius = radius;
+//     }
+//     getArea(){return(Math.PI*(this.radius**2))};
+//     getPerimeter(){return(2*Math.PI*this.radius)};
+//   }
 
-  function round(number) {
-    var factor = Math.pow(10, 5);
-    return Math.round(number * factor) / factor;
-  }
-  let circo = new Circle(20);
-    circo.getArea()
-    circo.getPerimeter()
-  let circo1 = new Circle(2);
-    circo1.getArea()
-    circo1.getPerimeter()
-  let circo2 = new Circle(4.4);
-    circo2.getArea()
-    circo2.getPerimeter()
+//   function round(number) {
+//     var factor = Math.pow(10, 5);
+//     return Math.round(number * factor) / factor;
+//   }
+//   let circo = new Circle(20);
+//     circo.getArea()
+//     circo.getPerimeter()
+//   let circo1 = new Circle(2);
+//     circo1.getArea()
+//     circo1.getPerimeter()
+//   let circo2 = new Circle(4.4);
+//     circo2.getArea()
+//     circo2.getPerimeter()
+
+function removeLeadingTrailing(n) {
+  number = Number.parseFloat(n, 10).toString();
+  console.log(number)
+}
+
+removeLeadingTrailing("230.000")
+removeLeadingTrailing("00402")
+removeLeadingTrailing("03.1400")
+removeLeadingTrailing("30")
+removeLeadingTrailing("30.0000")
+removeLeadingTrailing("24340")
+removeLeadingTrailing("0404040")
+removeLeadingTrailing("0")
+removeLeadingTrailing("00")
+removeLeadingTrailing("0.000000")
+removeLeadingTrailing("0000.000")
+removeLeadingTrailing("00.0001")
+removeLeadingTrailing("10000")
+removeLeadingTrailing("1345")
+removeLeadingTrailing("30.000020")
+removeLeadingTrailing("00200.1900001")
