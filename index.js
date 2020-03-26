@@ -762,24 +762,43 @@
 //     circo2.getArea()
 //     circo2.getPerimeter()
 
-function removeLeadingTrailing(n) {
-  number = Number.parseFloat(n, 10).toString();
-  console.log(number)
+// function removeLeadingTrailing(n) {
+//   number = Number.parseFloat(n, 10).toString();
+//   console.log(number)
+// }
+
+// removeLeadingTrailing("230.000")
+// removeLeadingTrailing("00402")
+// removeLeadingTrailing("03.1400")
+// removeLeadingTrailing("30")
+// removeLeadingTrailing("30.0000")
+// removeLeadingTrailing("24340")
+// removeLeadingTrailing("0404040")
+// removeLeadingTrailing("0")
+// removeLeadingTrailing("00")
+// removeLeadingTrailing("0.000000")
+// removeLeadingTrailing("0000.000")
+// removeLeadingTrailing("00.0001")
+// removeLeadingTrailing("10000")
+// removeLeadingTrailing("1345")
+// removeLeadingTrailing("30.000020")
+// removeLeadingTrailing("00200.1900001")
+
+function reverseAndNot(num) {
+  let array = []
+  const reverseNum = 
+    num
+      .toString()
+      .split('')
+      .reverse()
+      .join('')
+  const numString = 
+    num
+      .toString()
+  array.push(reverseNum)
+  array.push(numString)
+  console.log(parseFloat(array.join("")))
 }
 
-removeLeadingTrailing("230.000")
-removeLeadingTrailing("00402")
-removeLeadingTrailing("03.1400")
-removeLeadingTrailing("30")
-removeLeadingTrailing("30.0000")
-removeLeadingTrailing("24340")
-removeLeadingTrailing("0404040")
-removeLeadingTrailing("0")
-removeLeadingTrailing("00")
-removeLeadingTrailing("0.000000")
-removeLeadingTrailing("0000.000")
-removeLeadingTrailing("00.0001")
-removeLeadingTrailing("10000")
-removeLeadingTrailing("1345")
-removeLeadingTrailing("30.000020")
-removeLeadingTrailing("00200.1900001")
+reverseAndNot(123)
+reverseAndNot(123456789)
