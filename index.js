@@ -803,36 +803,51 @@
 // reverseAndNot(123)
 // reverseAndNot(123456789)
 
-function noddyFunction(str) {
-  const regex = /d/i
-  if(regex.test(str)) {
-    return false
-  } else {
-    return true
-  }}
+// function noddyFunction(str) {
+//   const regex = /d/i
+//   if(regex.test(str)) {
+//     return false
+//   } else {
+//     return true
+//   }}
 
-noddyFunction("fantastic")
-noddyFunction("waterfall")
-noddyFunction("nature")
-noddyFunction("Benevolent")
-noddyFunction("courageous")
-noddyFunction("virtue")
-noddyFunction("CREATURE")
-noddyFunction("Planet")
-noddyFunction("possibility")
-noddyFunction("Inspiration")
-noddyFunction("Hope")
-noddyFunction("nurture")
+// noddyFunction("fantastic")
+// noddyFunction("waterfall")
+// noddyFunction("nature")
+// noddyFunction("Benevolent")
+// noddyFunction("courageous")
+// noddyFunction("virtue")
+// noddyFunction("CREATURE")
+// noddyFunction("Planet")
+// noddyFunction("possibility")
+// noddyFunction("Inspiration")
+// noddyFunction("Hope")
+// noddyFunction("nurture")
 
-noddyFunction("disaster")
-noddyFunction("wonderful")
-noddyFunction("noddy")
-noddyFunction("blessed")
-noddyFunction("Wonder")
-noddyFunction("ADVENTUROUS")
-noddyFunction("End")
-noddyFunction("Kindness")
-noddyFunction("UNDERSTANDING")
-noddyFunction("Edabit")
+// noddyFunction("disaster")
+// noddyFunction("wonderful")
+// noddyFunction("noddy")
+// noddyFunction("blessed")
+// noddyFunction("Wonder")
+// noddyFunction("ADVENTUROUS")
+// noddyFunction("End")
+// noddyFunction("Kindness")
+// noddyFunction("UNDERSTANDING")
+// noddyFunction("Edabit")
 
-// made by @Joshua Señoron
+function pingPong(arr, win) {
+  const pongs = 'Ping!,Pong!,';
+  arr2 = pongs.repeat(arr.length).split(',')
+    if (win === true) {
+      arr2.pop()
+      console.log(arr2)
+    } else {
+      arr2.pop()
+      arr2.pop()
+      console.log(arr2)
+    }
+}
+
+pingPong(["Ping!", "Ping!", "Ping!"], true)
+pingPong(["Ping!", "Ping!"], false)
+pingPong(["Ping!"], true)
