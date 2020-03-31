@@ -852,21 +852,29 @@
 // pingPong(["Ping!", "Ping!"], false)
 // pingPong(["Ping!"], true)
 
-function catchZeroDivision(expr) { 
-	console.log (isFinite(eval(expr)))
-}
+// function catchZeroDivision(expr) { 
+// 	console.log (isFinite(eval(expr)))
+// }
 
-catchZeroDivision("2 / 0")
-catchZeroDivision("4 / (2 + 3 - 5)")
-catchZeroDivision("2 * 5 - 3")
-catchZeroDivision("3 / 0")
-catchZeroDivision("23 - 23 / 23")
-catchZeroDivision("0 + 1 + 2 + 3 + 0")
-catchZeroDivision("0+0+0+0+0+0+0")
-catchZeroDivision("0-0-0-0-0-0-0-0-0-0")
-catchZeroDivision("4 / 3")
-catchZeroDivision("5343456787543234567 / 743044830483009043909003")
-catchZeroDivision("0 / 0")
-catchZeroDivision("(-100 + 50 + 50) / (60 - 50 - 10)")
-catchZeroDivision("0 + 0 + (3 / (3 - 3))")
-catchZeroDivision("7 / ((7**2) - ((-7)**2))")
+// catchZeroDivision("2 / 0")
+// catchZeroDivision("4 / (2 + 3 - 5)")
+// catchZeroDivision("2 * 5 - 3")
+// catchZeroDivision("3 / 0")
+// catchZeroDivision("23 - 23 / 23")
+// catchZeroDivision("0 + 1 + 2 + 3 + 0")
+// catchZeroDivision("0+0+0+0+0+0+0")
+// catchZeroDivision("0-0-0-0-0-0-0-0-0-0")
+// catchZeroDivision("4 / 3")
+// catchZeroDivision("5343456787543234567 / 743044830483009043909003")
+// catchZeroDivision("0 / 0")
+// catchZeroDivision("(-100 + 50 + 50) / (60 - 50 - 10)")
+// catchZeroDivision("0 + 0 + (3 / (3 - 3))")
+// catchZeroDivision("7 / ((7**2) - ((-7)**2))")
+
+function catchZeroDivision(expr) { 
+  if (isFinite(eval(expr))) {
+    return false
+  } else {
+    return true
+  }
+}
