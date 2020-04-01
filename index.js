@@ -871,10 +871,30 @@
 // catchZeroDivision("0 + 0 + (3 / (3 - 3))")
 // catchZeroDivision("7 / ((7**2) - ((-7)**2))")
 
-function catchZeroDivision(expr) { 
-  if (isFinite(eval(expr))) {
-    return false
-  } else {
-    return true
-  }
+// function catchZeroDivision(expr) { 
+//   if (isFinite(eval(expr))) {
+//     return false
+//   } else {
+//     return true
+//   }
+// }
+
+// const vreplace = function(sentance, vowel) {
+// 	const regex = /a|e|i|o|u/gi;
+//   console.log(sentance.replace(regex, vowel));
+// }
+
+// vreplace("apples and bananas", "u")
+// vreplace("cheese casserole", "o")
+
+const vreplace = function(sentance, vowel) {
+	const regex = /a|e|i|o|u/gi;
+  console.log(sentance.replace(regex, vowel));
 }
+
+let Test1 = "apples and bananas".vreplace("u")
+console.log(Test1)
+let Test2 = "stuffed jalapeno poppers".vreplace("e")
+let Test3 = "shrimp tempura".vreplace("a")
+let Test4 = "tuna sashimi".vreplace("i")
+let Test5 = "chocolate cake".vreplace("a")
