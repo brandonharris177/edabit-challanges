@@ -887,14 +887,29 @@
 // vreplace("apples and bananas", "u")
 // vreplace("cheese casserole", "o")
 
-const vreplace = function(sentance, vowel) {
-	const regex = /a|e|i|o|u/gi;
-  console.log(sentance.replace(regex, vowel));
-}
+// const vreplace = function(sentance, vowel) {
+// 	const regex = /a|e|i|o|u/gi;
+//   console.log(sentance.replace(regex, vowel));
+// }
 
-let Test1 = "apples and bananas".vreplace("u")
-console.log(Test1)
-let Test2 = "stuffed jalapeno poppers".vreplace("e")
-let Test3 = "shrimp tempura".vreplace("a")
-let Test4 = "tuna sashimi".vreplace("i")
-let Test5 = "chocolate cake".vreplace("a")
+// let Test1 = "apples and bananas".vreplace("u")
+// console.log(Test1)
+// let Test2 = "stuffed jalapeno poppers".vreplace("e")
+// let Test3 = "shrimp tempura".vreplace("a")
+// let Test4 = "tuna sashimi".vreplace("i")
+// let Test5 = "chocolate cake".vreplace("a")
+
+function checkEquals(arr1, arr2) {
+  if (arr1.toString() === arr2.toString()) {
+    console.log(true)
+    return true
+   } else {
+    console.log(false)
+    return false
+   }
+  }
+
+checkEquals([1, 2], [1, 3])
+checkEquals([1, 2], [1, 2])
+checkEquals([4, 5, 6], [4, 5, 6])
+checkEquals([4, 7, 6], [4, 5, 6])
