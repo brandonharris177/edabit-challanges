@@ -852,21 +852,103 @@
 // pingPong(["Ping!", "Ping!"], false)
 // pingPong(["Ping!"], true)
 
-function catchZeroDivision(expr) { 
-	console.log (isFinite(eval(expr)))
+// function catchZeroDivision(expr) { 
+// 	console.log (isFinite(eval(expr)))
+// }
+
+// catchZeroDivision("2 / 0")
+// catchZeroDivision("4 / (2 + 3 - 5)")
+// catchZeroDivision("2 * 5 - 3")
+// catchZeroDivision("3 / 0")
+// catchZeroDivision("23 - 23 / 23")
+// catchZeroDivision("0 + 1 + 2 + 3 + 0")
+// catchZeroDivision("0+0+0+0+0+0+0")
+// catchZeroDivision("0-0-0-0-0-0-0-0-0-0")
+// catchZeroDivision("4 / 3")
+// catchZeroDivision("5343456787543234567 / 743044830483009043909003")
+// catchZeroDivision("0 / 0")
+// catchZeroDivision("(-100 + 50 + 50) / (60 - 50 - 10)")
+// catchZeroDivision("0 + 0 + (3 / (3 - 3))")
+// catchZeroDivision("7 / ((7**2) - ((-7)**2))")
+
+// function catchZeroDivision(expr) { 
+//   if (isFinite(eval(expr))) {
+//     return false
+//   } else {
+//     return true
+//   }
+// }
+
+// const vreplace = function(sentance, vowel) {
+// 	const regex = /a|e|i|o|u/gi;
+//   console.log(sentance.replace(regex, vowel));
+// }
+
+// vreplace("apples and bananas", "u")
+// vreplace("cheese casserole", "o")
+
+// const vreplace = function(sentance, vowel) {
+// 	const regex = /a|e|i|o|u/gi;
+//   console.log(sentance.replace(regex, vowel));
+// }
+
+// let Test1 = "apples and bananas".vreplace("u")
+// console.log(Test1)
+// let Test2 = "stuffed jalapeno poppers".vreplace("e")
+// let Test3 = "shrimp tempura".vreplace("a")
+// let Test4 = "tuna sashimi".vreplace("i")
+// let Test5 = "chocolate cake".vreplace("a")
+
+// function checkEquals(arr1, arr2) {
+//   if (arr1.toString() === arr2.toString()) {
+//     console.log(true)
+//     return true
+//    } else {
+//     console.log(false)
+//     return false
+//    }
+//   }
+
+// checkEquals([1, 2], [1, 3])
+// checkEquals([1, 2], [1, 2])
+// checkEquals([4, 5, 6], [4, 5, 6])
+// checkEquals([4, 7, 6], [4, 5, 6])
+
+// function testJackpot(result) {
+//   let newArray = result.filter(character => character === result[0])
+//   if (newArray.length === 4) {
+//     console.log(newArray)
+//   } else {
+//     return false
+//   }
+// }
+
+// testJackpot(['@', '@', '@', '@'])
+// testJackpot(['!', '!', '!', '!'])
+// testJackpot(['abc', 'abc', 'abc', 'abc'])
+// testJackpot(['karaoke', 'karaoke', 'karaoke', 'karaoke'])
+// testJackpot(['SS', 'SS', 'SS', 'SS'])
+// testJackpot([':(', ':)', ':|', ':|'])
+// testJackpot(['&&', '&', '&&&', '&&&&'])
+// testJackpot(['hee', 'heh', 'heh', 'heh'])
+// testJackpot(['SS', 'SS', 'SS', 'Ss'])
+// testJackpot(['SS', 'SS', 'Ss', 'Ss'])
+
+function getDecimalPlaces(num) {
+  const afterDecimal = (num.split('.'))
+  if (afterDecimal[1]) {
+    console.log(afterDecimal[1].length)
+  } else {
+    console.log(0)
+  }
 }
 
-catchZeroDivision("2 / 0")
-catchZeroDivision("4 / (2 + 3 - 5)")
-catchZeroDivision("2 * 5 - 3")
-catchZeroDivision("3 / 0")
-catchZeroDivision("23 - 23 / 23")
-catchZeroDivision("0 + 1 + 2 + 3 + 0")
-catchZeroDivision("0+0+0+0+0+0+0")
-catchZeroDivision("0-0-0-0-0-0-0-0-0-0")
-catchZeroDivision("4 / 3")
-catchZeroDivision("5343456787543234567 / 743044830483009043909003")
-catchZeroDivision("0 / 0")
-catchZeroDivision("(-100 + 50 + 50) / (60 - 50 - 10)")
-catchZeroDivision("0 + 0 + (3 / (3 - 3))")
-catchZeroDivision("7 / ((7**2) - ((-7)**2))")
+getDecimalPlaces("3.22")
+getDecimalPlaces("400")
+getDecimalPlaces("43.50")
+getDecimalPlaces("100,000,000")
+getDecimalPlaces("3.1415")
+getDecimalPlaces("0")
+getDecimalPlaces("01")
+getDecimalPlaces("00010.00010")
+getDecimalPlaces("3,141.592")
