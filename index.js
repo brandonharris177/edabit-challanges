@@ -899,17 +899,56 @@
 // let Test4 = "tuna sashimi".vreplace("i")
 // let Test5 = "chocolate cake".vreplace("a")
 
-function checkEquals(arr1, arr2) {
-  if (arr1.toString() === arr2.toString()) {
-    console.log(true)
-    return true
-   } else {
-    console.log(false)
-    return false
-   }
-  }
+// function checkEquals(arr1, arr2) {
+//   if (arr1.toString() === arr2.toString()) {
+//     console.log(true)
+//     return true
+//    } else {
+//     console.log(false)
+//     return false
+//    }
+//   }
 
-checkEquals([1, 2], [1, 3])
-checkEquals([1, 2], [1, 2])
-checkEquals([4, 5, 6], [4, 5, 6])
-checkEquals([4, 7, 6], [4, 5, 6])
+// checkEquals([1, 2], [1, 3])
+// checkEquals([1, 2], [1, 2])
+// checkEquals([4, 5, 6], [4, 5, 6])
+// checkEquals([4, 7, 6], [4, 5, 6])
+
+// function testJackpot(result) {
+//   let newArray = result.filter(character => character === result[0])
+//   if (newArray.length === 4) {
+//     console.log(newArray)
+//   } else {
+//     return false
+//   }
+// }
+
+// testJackpot(['@', '@', '@', '@'])
+// testJackpot(['!', '!', '!', '!'])
+// testJackpot(['abc', 'abc', 'abc', 'abc'])
+// testJackpot(['karaoke', 'karaoke', 'karaoke', 'karaoke'])
+// testJackpot(['SS', 'SS', 'SS', 'SS'])
+// testJackpot([':(', ':)', ':|', ':|'])
+// testJackpot(['&&', '&', '&&&', '&&&&'])
+// testJackpot(['hee', 'heh', 'heh', 'heh'])
+// testJackpot(['SS', 'SS', 'SS', 'Ss'])
+// testJackpot(['SS', 'SS', 'Ss', 'Ss'])
+
+function getDecimalPlaces(num) {
+  const afterDecimal = (num.split('.'))
+  if (afterDecimal[1]) {
+    console.log(afterDecimal[1].length)
+  } else {
+    console.log(0)
+  }
+}
+
+getDecimalPlaces("3.22")
+getDecimalPlaces("400")
+getDecimalPlaces("43.50")
+getDecimalPlaces("100,000,000")
+getDecimalPlaces("3.1415")
+getDecimalPlaces("0")
+getDecimalPlaces("01")
+getDecimalPlaces("00010.00010")
+getDecimalPlaces("3,141.592")
