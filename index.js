@@ -934,21 +934,32 @@
 // testJackpot(['SS', 'SS', 'SS', 'Ss'])
 // testJackpot(['SS', 'SS', 'Ss', 'Ss'])
 
-function getDecimalPlaces(num) {
-  const afterDecimal = (num.split('.'))
-  if (afterDecimal[1]) {
-    console.log(afterDecimal[1].length)
-  } else {
-    console.log(0)
-  }
+// function getDecimalPlaces(num) {
+//   const afterDecimal = (num.split('.'))
+//   if (afterDecimal[1]) {
+//     console.log(afterDecimal[1].length)
+//   } else {
+//     console.log(0)
+//   }
+// }
+
+// getDecimalPlaces("3.22")
+// getDecimalPlaces("400")
+// getDecimalPlaces("43.50")
+// getDecimalPlaces("100,000,000")
+// getDecimalPlaces("3.1415")
+// getDecimalPlaces("0")
+// getDecimalPlaces("01")
+// getDecimalPlaces("00010.00010")
+// getDecimalPlaces("3,141.592")
+
+function formatMath(expr) {
+  var expr2 = expr.replace("x", "*");
+  answer = eval(expr2)
+  console.log(`${expr} = ${answer}`)
 }
 
-getDecimalPlaces("3.22")
-getDecimalPlaces("400")
-getDecimalPlaces("43.50")
-getDecimalPlaces("100,000,000")
-getDecimalPlaces("3.1415")
-getDecimalPlaces("0")
-getDecimalPlaces("01")
-getDecimalPlaces("00010.00010")
-getDecimalPlaces("3,141.592")
+formatMath("3 + 4")
+formatMath("3 - 2")
+formatMath("4 x 5")
+formatMath("6 / 3")
