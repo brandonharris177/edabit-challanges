@@ -953,13 +953,32 @@
 // getDecimalPlaces("00010.00010")
 // getDecimalPlaces("3,141.592")
 
-function formatMath(expr) {
-  var expr2 = expr.replace("x", "*");
-  answer = eval(expr2)
-  console.log(`${expr} = ${answer}`)
+// function formatMath(expr) {
+//   var expr2 = expr.replace("x", "*");
+//   answer = eval(expr2)
+//   console.log(`${expr} = ${answer}`)
+// }
+
+// formatMath("3 + 4")
+// formatMath("3 - 2")
+// formatMath("4 x 5")
+// formatMath("6 / 3")
+
+function returnEndOfNumber(num) {
+  lastDigit = num % 10;
+  if (lastDigit === 1){
+    console.log(`${num.toString()}-ST`);
+  } else if (lastDigit === 2) {
+    console.log(`${num.toString()}-ND`);
+  } else if(lastDigit === 3) {
+    console.log(`${num.toString()}-RD`);
+  } else {
+    console.log(`${num.toString()}-TH`);
+  }
 }
 
-formatMath("3 + 4")
-formatMath("3 - 2")
-formatMath("4 x 5")
-formatMath("6 / 3")
+returnEndOfNumber(334)
+returnEndOfNumber(12341)
+returnEndOfNumber(1)
+returnEndOfNumber(3222)
+returnEndOfNumber(563)
