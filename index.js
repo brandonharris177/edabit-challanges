@@ -964,21 +964,54 @@
 // formatMath("4 x 5")
 // formatMath("6 / 3")
 
-function returnEndOfNumber(num) {
-  lastDigit = num % 10;
-  if (lastDigit === 1){
-    console.log(`${num.toString()}-ST`);
-  } else if (lastDigit === 2) {
-    console.log(`${num.toString()}-ND`);
-  } else if(lastDigit === 3) {
-    console.log(`${num.toString()}-RD`);
-  } else {
-    console.log(`${num.toString()}-TH`);
+// function returnEndOfNumber(num) {
+//   lastDigit = num % 10;
+//   if (lastDigit === 1){
+//     console.log(`${num.toString()}-ST`);
+//   } else if (lastDigit === 2) {
+//     console.log(`${num.toString()}-ND`);
+//   } else if(lastDigit === 3) {
+//     console.log(`${num.toString()}-RD`);
+//   } else {
+//     console.log(`${num.toString()}-TH`);
+//   }
+// }
+
+// returnEndOfNumber(334)
+// returnEndOfNumber(12341)
+// returnEndOfNumber(1)
+// returnEndOfNumber(3222)
+// returnEndOfNumber(563)
+
+// function countOnes(i) {
+//   // console.log(typeof i, "number")
+//   // let int = parseInt(i)
+//   // console.log(typeof int, "intiger")
+//   if (i === 0) { 
+//     let bianary = (i >>> 0).toString(2);
+//     console.log(bianary)
+//   } else {
+//     console.log(0)
+//   }
+// }
+	
+
+// countOnes(12)
+// countOnes(0)
+// countOnes(100)
+// countOnes(101)
+// countOnes(999)
+// countOnes(1e9)
+// countOnes(123456789)
+// countOnes(1234567890)
+
+function progressDays(runs) {
+  for (let i = 0; i < 9; i++) {
   }
 }
 
-returnEndOfNumber(334)
-returnEndOfNumber(12341)
-returnEndOfNumber(1)
-returnEndOfNumber(3222)
-returnEndOfNumber(563)
+progressDays([3, 4, 1, 2])
+progressDays([10, 11, 12, 9, 10])
+progressDays([6, 5, 4, 3, 2, 9])
+progressDays([9, 9])
+progressDays([12, 11, 10, 12, 11, 13])
