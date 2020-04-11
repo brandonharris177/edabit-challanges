@@ -1006,9 +1006,29 @@
 // countOnes(1234567890)
 
 function progressDays(runs) {
-  for (let i = 0; i < 9; i++) {
-  }
-}
+  let total = []
+  let count = 0
+  innerProgressDays()
+  function innerProgressDays() {
+    if (runs[count] < runs[count+1]) {
+      total.push(1)
+      if (count < runs.length) {
+        count++
+        innerProgressDays()
+      } else {
+        return(total.length)
+      };
+    } else {
+      if (count < runs.length) {
+        count++
+        innerProgressDays()
+      } else {
+        return(total.length)
+      };
+    };
+  };
+  console.log(total.length)
+};
 
 progressDays([3, 4, 1, 2])
 progressDays([10, 11, 12, 9, 10])
