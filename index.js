@@ -1005,33 +1005,59 @@
 // countOnes(123456789)
 // countOnes(1234567890)
 
-function progressDays(runs) {
-  let total = []
-  let count = 0
-  innerProgressDays()
-  function innerProgressDays() {
-    if (runs[count] < runs[count+1]) {
-      total.push(1)
-      if (count < runs.length) {
-        count++
-        innerProgressDays()
-      } else {
-        return(total.length)
-      };
-    } else {
-      if (count < runs.length) {
-        count++
-        innerProgressDays()
-      } else {
-        return(total.length)
-      };
-    };
-  };
-  console.log(total.length)
-};
+// function progressDays(runs) {
+//   let total = []
+//   let count = 0
+//   innerProgressDays()
+//   function innerProgressDays() {
+//     if (runs[count] < runs[count+1]) {
+//       total.push(1)
+//       if (count < runs.length) {
+//         count++
+//         innerProgressDays()
+//       } else {
+//         return(total.length)
+//       };
+//     } else {
+//       if (count < runs.length) {
+//         count++
+//         innerProgressDays()
+//       } else {
+//         return(total.length)
+//       };
+//     };
+//   };
+//   console.log(total.length)
+// };
 
-progressDays([3, 4, 1, 2])
-progressDays([10, 11, 12, 9, 10])
-progressDays([6, 5, 4, 3, 2, 9])
-progressDays([9, 9])
-progressDays([12, 11, 10, 12, 11, 13])
+// progressDays([3, 4, 1, 2])
+// progressDays([10, 11, 12, 9, 10])
+// progressDays([6, 5, 4, 3, 2, 9])
+// progressDays([9, 9])
+// progressDays([12, 11, 10, 12, 11, 13])
+
+function getDay(day) {
+  let date = new Date(day).toString().split(" ")
+
+    if (date[0] === "Sun"){
+      return "Sunday"
+    } else if (date[0] === "Mon") {
+      return "Monday"
+    } else if (date[0] === "Tue") {
+      return "Tuesday"
+    } else if (date[0] === "Wed") {
+      return "Wednesday"
+    } else if (date[0] === "Thu") {
+      return "Thursday"
+    } else if (date[0] === "Fri") {
+      return "Friday"
+    } else if (date[0] === "Sat") {
+      return "Saturday"
+    }
+}
+
+getDay('12/07/2016')
+getDay('12/08/2011')
+getDay('09/04/2016')
+getDay('06/08/2012')
+getDay('08/13/2019')
