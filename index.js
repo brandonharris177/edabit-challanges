@@ -1036,28 +1036,70 @@
 // progressDays([9, 9])
 // progressDays([12, 11, 10, 12, 11, 13])
 
-function getDay(day) {
-  let date = new Date(day).toString().split(" ")
+// function getDay(day) {
+//   let date = new Date(day).toString().split(" ")
 
-    if (date[0] === "Sun"){
-      return "Sunday"
-    } else if (date[0] === "Mon") {
-      return "Monday"
-    } else if (date[0] === "Tue") {
-      return "Tuesday"
-    } else if (date[0] === "Wed") {
-      return "Wednesday"
-    } else if (date[0] === "Thu") {
-      return "Thursday"
-    } else if (date[0] === "Fri") {
-      return "Friday"
-    } else if (date[0] === "Sat") {
-      return "Saturday"
+//     if (date[0] === "Sun"){
+//       return "Sunday"
+//     } else if (date[0] === "Mon") {
+//       return "Monday"
+//     } else if (date[0] === "Tue") {
+//       return "Tuesday"
+//     } else if (date[0] === "Wed") {
+//       return "Wednesday"
+//     } else if (date[0] === "Thu") {
+//       return "Thursday"
+//     } else if (date[0] === "Fri") {
+//       return "Friday"
+//     } else if (date[0] === "Sat") {
+//       return "Saturday"
+//     }
+// }
+
+// getDay('12/07/2016')
+// getDay('12/08/2011')
+// getDay('09/04/2016')
+// getDay('06/08/2012')
+// getDay('08/13/2019')
+
+function isSlidey(n) {
+  let string = n.toString()
+  let count = 0
+  if (string.length === 1) {
+    console.log("false")
+  } else {
+    innerCheck(count)
+  }
+  function innerCheck(count) {
+    let original = Number.parseInt(string[count], 10);
+    let oneMore = Number.parseInt(string[count+1], 10)+1;
+    let oneLess = Number.parseInt(string[count+1], 10)-1;
+    if (count+1 === string.length) {
+      console.log("true")
+    } else if (original === oneMore || original === oneLess) {
+      count++
+      innerCheck(count)
+    } else {
+      console.log('false')
     }
+  }
 }
 
-getDay('12/07/2016')
-getDay('12/08/2011')
-getDay('09/04/2016')
-getDay('06/08/2012')
-getDay('08/13/2019')
+isSlidey(123454321)
+isSlidey(54345)
+isSlidey(987654321)
+isSlidey(1123)
+isSlidey(1357)
+isSlidey(1)
+isSlidey(0)
+isSlidey(13578987)
+isSlidey(232323232)
+isSlidey(2323232322)
+isSlidey(2343456567878)
+isSlidey(999999999999)
+isSlidey(223322332233)
+isSlidey(7766554433)
+isSlidey(32)
+isSlidey(21)
+isSlidey(33)
+isSlidey(30)
