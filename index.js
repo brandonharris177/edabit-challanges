@@ -934,21 +934,172 @@
 // testJackpot(['SS', 'SS', 'SS', 'Ss'])
 // testJackpot(['SS', 'SS', 'Ss', 'Ss'])
 
-function getDecimalPlaces(num) {
-  const afterDecimal = (num.split('.'))
-  if (afterDecimal[1]) {
-    console.log(afterDecimal[1].length)
+// function getDecimalPlaces(num) {
+//   const afterDecimal = (num.split('.'))
+//   if (afterDecimal[1]) {
+//     console.log(afterDecimal[1].length)
+//   } else {
+//     console.log(0)
+//   }
+// }
+
+// getDecimalPlaces("3.22")
+// getDecimalPlaces("400")
+// getDecimalPlaces("43.50")
+// getDecimalPlaces("100,000,000")
+// getDecimalPlaces("3.1415")
+// getDecimalPlaces("0")
+// getDecimalPlaces("01")
+// getDecimalPlaces("00010.00010")
+// getDecimalPlaces("3,141.592")
+
+// function formatMath(expr) {
+//   var expr2 = expr.replace("x", "*");
+//   answer = eval(expr2)
+//   console.log(`${expr} = ${answer}`)
+// }
+
+// formatMath("3 + 4")
+// formatMath("3 - 2")
+// formatMath("4 x 5")
+// formatMath("6 / 3")
+
+// function returnEndOfNumber(num) {
+//   lastDigit = num % 10;
+//   if (lastDigit === 1){
+//     console.log(`${num.toString()}-ST`);
+//   } else if (lastDigit === 2) {
+//     console.log(`${num.toString()}-ND`);
+//   } else if(lastDigit === 3) {
+//     console.log(`${num.toString()}-RD`);
+//   } else {
+//     console.log(`${num.toString()}-TH`);
+//   }
+// }
+
+// returnEndOfNumber(334)
+// returnEndOfNumber(12341)
+// returnEndOfNumber(1)
+// returnEndOfNumber(3222)
+// returnEndOfNumber(563)
+
+// function countOnes(i) {
+//   // console.log(typeof i, "number")
+//   // let int = parseInt(i)
+//   // console.log(typeof int, "intiger")
+//   if (i === 0) { 
+//     let bianary = (i >>> 0).toString(2);
+//     console.log(bianary)
+//   } else {
+//     console.log(0)
+//   }
+// }
+	
+
+// countOnes(12)
+// countOnes(0)
+// countOnes(100)
+// countOnes(101)
+// countOnes(999)
+// countOnes(1e9)
+// countOnes(123456789)
+// countOnes(1234567890)
+
+// function progressDays(runs) {
+//   let total = []
+//   let count = 0
+//   innerProgressDays()
+//   function innerProgressDays() {
+//     if (runs[count] < runs[count+1]) {
+//       total.push(1)
+//       if (count < runs.length) {
+//         count++
+//         innerProgressDays()
+//       } else {
+//         return(total.length)
+//       };
+//     } else {
+//       if (count < runs.length) {
+//         count++
+//         innerProgressDays()
+//       } else {
+//         return(total.length)
+//       };
+//     };
+//   };
+//   console.log(total.length)
+// };
+
+// progressDays([3, 4, 1, 2])
+// progressDays([10, 11, 12, 9, 10])
+// progressDays([6, 5, 4, 3, 2, 9])
+// progressDays([9, 9])
+// progressDays([12, 11, 10, 12, 11, 13])
+
+// function getDay(day) {
+//   let date = new Date(day).toString().split(" ")
+
+//     if (date[0] === "Sun"){
+//       return "Sunday"
+//     } else if (date[0] === "Mon") {
+//       return "Monday"
+//     } else if (date[0] === "Tue") {
+//       return "Tuesday"
+//     } else if (date[0] === "Wed") {
+//       return "Wednesday"
+//     } else if (date[0] === "Thu") {
+//       return "Thursday"
+//     } else if (date[0] === "Fri") {
+//       return "Friday"
+//     } else if (date[0] === "Sat") {
+//       return "Saturday"
+//     }
+// }
+
+// getDay('12/07/2016')
+// getDay('12/08/2011')
+// getDay('09/04/2016')
+// getDay('06/08/2012')
+// getDay('08/13/2019')
+
+function isSlidey(n) {
+  let string = n.toString()
+  let count = 0
+  if (string.length === 1) {
+    console.log("false")
   } else {
-    console.log(0)
+    innerCheck(count)
+  }
+  function innerCheck(count) {
+    let original = Number.parseInt(string[count], 10);
+    let oneMore = Number.parseInt(string[count+1], 10)+1;
+    let oneLess = Number.parseInt(string[count+1], 10)-1;
+    if (count+1 === string.length) {
+      console.log("true")
+    } else if (original === oneMore || original === oneLess) {
+      count++
+      innerCheck(count)
+    } else {
+      console.log('false')
+    }
   }
 }
 
-getDecimalPlaces("3.22")
-getDecimalPlaces("400")
-getDecimalPlaces("43.50")
-getDecimalPlaces("100,000,000")
-getDecimalPlaces("3.1415")
-getDecimalPlaces("0")
-getDecimalPlaces("01")
-getDecimalPlaces("00010.00010")
-getDecimalPlaces("3,141.592")
+isSlidey(123454321)
+isSlidey(54345)
+isSlidey(987654321)
+isSlidey(1123)
+isSlidey(1357)
+isSlidey(1)
+isSlidey(0)
+isSlidey(13578987)
+isSlidey(232323232)
+isSlidey(2323232322)
+isSlidey(2343456567878)
+isSlidey(999999999999)
+isSlidey(223322332233)
+isSlidey(7766554433)
+isSlidey(32)
+isSlidey(21)
+isSlidey(33)
+isSlidey(30)
