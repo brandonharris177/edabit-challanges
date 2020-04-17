@@ -1062,44 +1062,87 @@
 // getDay('06/08/2012')
 // getDay('08/13/2019')
 
-function isSlidey(n) {
-  let string = n.toString()
+// function isSlidey(n) {
+//   let string = n.toString()
+//   let count = 0
+//   if (string.length === 1) {
+//     console.log("false")
+//   } else {
+//     innerCheck(count)
+//   }
+//   function innerCheck(count) {
+//     let original = Number.parseInt(string[count], 10);
+//     let oneMore = Number.parseInt(string[count+1], 10)+1;
+//     let oneLess = Number.parseInt(string[count+1], 10)-1;
+//     if (count+1 === string.length) {
+//       console.log("true")
+//     } else if (original === oneMore || original === oneLess) {
+//       count++
+//       innerCheck(count)
+//     } else {
+//       console.log('false')
+//     }
+//   }
+// }
+
+// isSlidey(123454321)
+// isSlidey(54345)
+// isSlidey(987654321)
+// isSlidey(1123)
+// isSlidey(1357)
+// isSlidey(1)
+// isSlidey(0)
+// isSlidey(13578987)
+// isSlidey(232323232)
+// isSlidey(2323232322)
+// isSlidey(2343456567878)
+// isSlidey(999999999999)
+// isSlidey(223322332233)
+// isSlidey(7766554433)
+// isSlidey(32)
+// isSlidey(21)
+// isSlidey(33)
+// isSlidey(30)
+
+function filterUnique(arr) {
   let count = 0
-  if (string.length === 1) {
-    console.log("false")
-  } else {
-    innerCheck(count)
-  }
-  function innerCheck(count) {
-    let original = Number.parseInt(string[count], 10);
-    let oneMore = Number.parseInt(string[count+1], 10)+1;
-    let oneLess = Number.parseInt(string[count+1], 10)-1;
-    if (count+1 === string.length) {
-      console.log("true")
-    } else if (original === oneMore || original === oneLess) {
-      count++
-      innerCheck(count)
+  let newArray =[]
+  innerFilter(count)
+  function innerFilter(count) {
+    if (count === arr.length) {
+      console.log(`one time ${newArray}`)
     } else {
-      console.log('false')
+      let innerCount = 0
+      innerFilter2(arr[count], innerCount)
+      count++
+      innerFilter(count)
+    }
+    console.log(newArray)
+  }
+
+  function innerFilter2(innerString, innerCount) {
+    // console.log(innerCount)
+    let innerArray = innerString.split("")
+    if (innerCount+1 === innerString.length) {
+      // console.log("return unique")
+      newArray.push(innerString)
+      // console.log(newArray)
+    } else {
+      // console.log("numbers", innerCount+1, innerString.length)
+      // console.log(innerArray)
+      let result = innerArray.filter(character => character === innerArray[innerCount])
+      if (result.length > 1) {
+        // console.log("match found")
+      } else {
+        innerCount++
+        innerFilter2(innerString, innerCount)
+      }
     }
   }
 }
 
-isSlidey(123454321)
-isSlidey(54345)
-isSlidey(987654321)
-isSlidey(1123)
-isSlidey(1357)
-isSlidey(1)
-isSlidey(0)
-isSlidey(13578987)
-isSlidey(232323232)
-isSlidey(2323232322)
-isSlidey(2343456567878)
-isSlidey(999999999999)
-isSlidey(223322332233)
-isSlidey(7766554433)
-isSlidey(32)
-isSlidey(21)
-isSlidey(33)
-isSlidey(30)
+filterUnique(['abc', 'abcdb', 'aea', 'bbb'])
+filterUnique(['88', '999', '989', '9988', '9898'])
+filterUnique(['ABCDE', 'DDEB', 'BED', 'CCA', 'BAC'])
+filterUnique(['qrrs', 'srrq', 'qqrs', 'qq', 'ss', 'rs'])
+filterUnique(['abab', 'ba', 'ab', 'cc'])
