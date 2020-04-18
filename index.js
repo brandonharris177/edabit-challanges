@@ -1104,45 +1104,63 @@
 // isSlidey(33)
 // isSlidey(30)
 
-function filterUnique(arr) {
-  let count = 0
-  let newArray =[]
-  innerFilter(count)
-  function innerFilter(count) {
-    if (count === arr.length) {
-      console.log(`one time ${newArray}`)
-    } else {
-      let innerCount = 0
-      innerFilter2(arr[count], innerCount)
-      count++
-      innerFilter(count)
-    }
-    console.log(newArray)
-  }
+// function filterUnique(arr) {
+//   let count = 0
+//   let newArray =[]
+//   innerFilter(count)
+//   function innerFilter(count) {
+//     if (count === arr.length) {
+//       console.log(`one time ${newArray}`)
+//     } else {
+//       let innerCount = 0
+//       innerFilter2(arr[count], innerCount)
+//       count++
+//       innerFilter(count)
+//     }
+//     console.log(newArray)
+//   }
 
-  function innerFilter2(innerString, innerCount) {
-    // console.log(innerCount)
-    let innerArray = innerString.split("")
-    if (innerCount+1 === innerString.length) {
-      // console.log("return unique")
-      newArray.push(innerString)
-      // console.log(newArray)
-    } else {
-      // console.log("numbers", innerCount+1, innerString.length)
-      // console.log(innerArray)
-      let result = innerArray.filter(character => character === innerArray[innerCount])
-      if (result.length > 1) {
-        // console.log("match found")
-      } else {
-        innerCount++
-        innerFilter2(innerString, innerCount)
-      }
-    }
-  }
+//   function innerFilter2(innerString, innerCount) {
+//     // console.log(innerCount)
+//     let innerArray = innerString.split("")
+//     if (innerCount+1 === innerString.length) {
+//       // console.log("return unique")
+//       newArray.push(innerString)
+//       // console.log(newArray)
+//     } else {
+//       // console.log("numbers", innerCount+1, innerString.length)
+//       // console.log(innerArray)
+//       let result = innerArray.filter(character => character === innerArray[innerCount])
+//       if (result.length > 1) {
+//         // console.log("match found")
+//       } else {
+//         innerCount++
+//         innerFilter2(innerString, innerCount)
+//       }
+//     }
+//   }
+// }
+
+// filterUnique(['abc', 'abcdb', 'aea', 'bbb'])
+// filterUnique(['88', '999', '989', '9988', '9898'])
+// filterUnique(['ABCDE', 'DDEB', 'BED', 'CCA', 'BAC'])
+// filterUnique(['qrrs', 'srrq', 'qqrs', 'qq', 'ss', 'rs'])
+// filterUnique(['abab', 'ba', 'ab', 'cc'])
+
+// function rev(n) {
+//   let absNum = Math.abs(n).toString().split("").reverse().join(",")
+//   console.log(absNum)
+// }
+
+// rev(215)
+// rev(122225)
+// rev(215)
+// rev(-215)
+// rev(-2152)
+// rev(-122157)
+// rev(666)
+// rev(999)
+
+function howManySeconds(hours) {
+	return(hours*3600);
 }
-
-filterUnique(['abc', 'abcdb', 'aea', 'bbb'])
-filterUnique(['88', '999', '989', '9988', '9898'])
-filterUnique(['ABCDE', 'DDEB', 'BED', 'CCA', 'BAC'])
-filterUnique(['qrrs', 'srrq', 'qqrs', 'qq', 'ss', 'rs'])
-filterUnique(['abab', 'ba', 'ab', 'cc'])
