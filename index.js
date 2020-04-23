@@ -1161,6 +1161,63 @@
 // rev(666)
 // rev(999)
 
-function howManySeconds(hours) {
-	return(hours*3600);
+// function howManySeconds(hours) {
+// 	return(hours*3600);
+// }
+
+function getEquivalent(note) {
+	let chars = ["A", "B", "C", "D", "E", "F", "G"]
+	let count = 0
+	let Equivalent = ""
+	if (note[1] === "b") {
+		await innerGetEquivalent(count, note, Equivalent)
+		function innerGetEquivalent(count, note, Equivalent) {
+			if (note[0] === "A"){
+				Equivalent = "G#"
+				console.log(Equivalent)
+				return Equivalent
+			} else {
+				if (note[0] === chars[count]) {
+					Equivalent = `${chars[--count]}#`
+					console.log(Equivalent)
+					return Equivalent
+				} else {
+					count++
+					innerGetEquivalent(count, note)
+				}
+			}
+		}
+	} else {
+		await innerGetEquivalent(count, note, Equivalent)
+		function innerGetEquivalent(count, note, Equivalent) {
+			if (note[0] === "G"){
+				Equivalent = "Ab"
+				console.log(Equivalent)
+				return Equivalent
+			} else {
+				if (note[0] === chars[count]) {
+					Equivalent = `${chars[++count]}b`
+					console.log(Equivalent)
+					return Equivalent
+				} else {
+					count++
+					innerGetEquivalent(count, note, Equivalent)
+				}
+			}
+		}
+	}
+	console.log(Equivalent)
 }
+
+getEquivalent("C#")
+getEquivalent("Db")
+getEquivalent("D#") 
+getEquivalent("Eb") 
+getEquivalent("F#") 
+getEquivalent("Gb") 
+getEquivalent("G#") //AB
+getEquivalent("Ab") //G#
+getEquivalent("A#")
+getEquivalent("Bb")
+
+//this is not imporant
