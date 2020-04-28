@@ -1165,60 +1165,82 @@
 // 	return(hours*3600);
 // }
 
-function getEquivalent(note) {
-	let chars = ["A", "B", "C", "D", "E", "F", "G"]
-	let count = 0
-	let Equivalent = ""
-	if (note[1] === "b") {
-		await innerGetEquivalent(count, note, Equivalent)
-		function innerGetEquivalent(count, note, Equivalent) {
-			if (note[0] === "A"){
-				Equivalent = "G#"
-				console.log(Equivalent)
-				return Equivalent
-			} else {
-				if (note[0] === chars[count]) {
-					Equivalent = `${chars[--count]}#`
-					console.log(Equivalent)
-					return Equivalent
-				} else {
-					count++
-					innerGetEquivalent(count, note)
-				}
-			}
-		}
+// function getEquivalent(note) {
+// 	let chars = ["A", "B", "C", "D", "E", "F", "G"]
+// 	let count = 0
+// 	let Equivalent = ""
+// 	if (note[1] === "b") {
+// 		innerGetEquivalent(count, note, Equivalent)
+// 		function innerGetEquivalent(count, note, Equivalent) {
+// 			if (note[0] === "A"){
+// 				Equivalent = "G#"
+// 				console.log(Equivalent)
+// 				return Equivalent
+// 			} else {
+// 				if (note[0] === chars[count]) {
+// 					Equivalent = `${chars[--count]}#`
+// 					console.log(Equivalent)
+// 					return Equivalent
+// 				} else {
+// 					count++
+// 					innerGetEquivalent(count, note)
+// 				}
+// 			}
+// 			return Equivalent
+// 		}
+// 	} else {
+// 		innerGetEquivalent(count, note, Equivalent)
+// 		function innerGetEquivalent(count, note, Equivalent) {
+// 			if (note[0] === "G"){
+// 				Equivalent = "Ab"
+// 				console.log(Equivalent)
+// 				return Equivalent
+// 			} else {
+// 				if (note[0] === chars[count]) {
+// 					Equivalent = `${chars[++count]}b`
+// 					console.log(Equivalent)
+// 					return Equivalent
+// 				} else {
+// 					count++
+// 					innerGetEquivalent(count, note, Equivalent)
+// 				}
+// 			}
+// 			return Equivalent
+// 		}
+// 	}
+// 	setTimeout(function(){ console.log(Equivalent) }, 3000);
+// }
+
+// getEquivalent("C#")
+// getEquivalent("Db")
+// getEquivalent("D#") 
+// getEquivalent("Eb") 
+// getEquivalent("F#") 
+// getEquivalent("Gb") 
+// getEquivalent("G#") //AB
+// getEquivalent("Ab") //G#
+// getEquivalent("A#")
+// getEquivalent("Bb")
+
+
+// function addUp(num) {
+// 	let sum = 0
+// 	for (var i = 1; i < num; i++) {
+// 		sum = (sum += i)
+// 		console.log(sum)
+// 	}
+// 	return sum
+// }
+
+function isSastry(number) {
+	let stringNumber= number.toString(10);
+	let successor= (number+1).toString(10);
+	let concatination=parseInt(stringNumber.concat(successor));
+
+	if(Math.sqrt(concatination)%1 === 0){
+		return true
 	} else {
-		await innerGetEquivalent(count, note, Equivalent)
-		function innerGetEquivalent(count, note, Equivalent) {
-			if (note[0] === "G"){
-				Equivalent = "Ab"
-				console.log(Equivalent)
-				return Equivalent
-			} else {
-				if (note[0] === chars[count]) {
-					Equivalent = `${chars[++count]}b`
-					console.log(Equivalent)
-					return Equivalent
-				} else {
-					count++
-					innerGetEquivalent(count, note, Equivalent)
-				}
-			}
-		}
+		return false
 	}
-	console.log(Equivalent)
 }
 
-getEquivalent("C#")
-getEquivalent("Db")
-getEquivalent("D#") 
-getEquivalent("Eb") 
-getEquivalent("F#") 
-getEquivalent("Gb") 
-getEquivalent("G#") //AB
-getEquivalent("Ab") //G#
-getEquivalent("A#")
-getEquivalent("Bb")
-
-//this is not imporant
-//equaly unimportant
