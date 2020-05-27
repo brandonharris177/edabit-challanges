@@ -1232,15 +1232,41 @@
 // 	return sum
 // }
 
-function isSastry(number) {
-	let stringNumber= number.toString(10);
-	let successor= (number+1).toString(10);
-	let concatination=parseInt(stringNumber.concat(successor));
+// function isSastry(number) {
+// 	let stringNumber= number.toString(10);
+// 	let successor= (number+1).toString(10);
+// 	let concatination=parseInt(stringNumber.concat(successor));
 
-	if(Math.sqrt(concatination)%1 === 0){
-		return true
-	} else {
-		return false
-	}
-}
+// 	if(Math.sqrt(concatination)%1 === 0){
+// 		return true
+// 	} else {
+// 		return false
+// 	}
+// }
 
+// function countTrue(arr) {
+// 	stringArray = []
+
+// 	arr.forEach(value => {
+// 		const newValue = new Boolean(value);
+// 		value = newValue.toString();
+// 		stringArray.push(value)
+// 	})
+
+// 	 let trueArray = stringArray.filter(value => value === "true")
+// 	 return (trueArray.length)
+// }
+
+// countTrue([true, false, false, true, false])
+// countTrue([false, false, false, false])
+// countTrue([])
+// countTrue([false, false, true, true, false, false, false, true, true, true, true, false, true, true, false])
+// countTrue([true, false, true, true, false, false, false, false, false])
+// countTrue([false, true, true, false, true, true, false, true, false, true, false, true, false, true, false])
+// countTrue([true, false, true, true, true, false, true, true, false, false])
+// countTrue([false, false, false, false, true, false, true, false, true, false, false])
+// countTrue([true, false, false, false, true, false, false, true, false, false, false])
+// countTrue([true, true, false, true, false, false, false, false, true, false])
+// countTrue([true, false, true, true, false, true, true, true, true, false, true, false, true, false])
+// countTrue([true, false, true, true, true, true, false, true, true, false, true, false, false, false, false])
+// countTrue([true, true, false, false, false, false, true, false, true, true, false, true])
