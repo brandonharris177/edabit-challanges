@@ -1062,44 +1062,211 @@
 // getDay('06/08/2012')
 // getDay('08/13/2019')
 
-function isSlidey(n) {
-  let string = n.toString()
-  let count = 0
-  if (string.length === 1) {
-    console.log("false")
-  } else {
-    innerCheck(count)
-  }
-  function innerCheck(count) {
-    let original = Number.parseInt(string[count], 10);
-    let oneMore = Number.parseInt(string[count+1], 10)+1;
-    let oneLess = Number.parseInt(string[count+1], 10)-1;
-    if (count+1 === string.length) {
-      console.log("true")
-    } else if (original === oneMore || original === oneLess) {
-      count++
-      innerCheck(count)
-    } else {
-      console.log('false')
-    }
-  }
-}
+// function isSlidey(n) {
+//   let string = n.toString()
+//   let count = 0
+//   if (string.length === 1) {
+//     console.log("false")
+//   } else {
+//     innerCheck(count)
+//   }
+//   function innerCheck(count) {
+//     let original = Number.parseInt(string[count], 10);
+//     let oneMore = Number.parseInt(string[count+1], 10)+1;
+//     let oneLess = Number.parseInt(string[count+1], 10)-1;
+//     if (count+1 === string.length) {
+//       console.log("true")
+//     } else if (original === oneMore || original === oneLess) {
+//       count++
+//       innerCheck(count)
+//     } else {
+//       console.log('false')
+//     }
+//   }
+// }
 
-isSlidey(123454321)
-isSlidey(54345)
-isSlidey(987654321)
-isSlidey(1123)
-isSlidey(1357)
-isSlidey(1)
-isSlidey(0)
-isSlidey(13578987)
-isSlidey(232323232)
-isSlidey(2323232322)
-isSlidey(2343456567878)
-isSlidey(999999999999)
-isSlidey(223322332233)
-isSlidey(7766554433)
-isSlidey(32)
-isSlidey(21)
-isSlidey(33)
-isSlidey(30)
+// isSlidey(123454321)
+// isSlidey(54345)
+// isSlidey(987654321)
+// isSlidey(1123)
+// isSlidey(1357)
+// isSlidey(1)
+// isSlidey(0)
+// isSlidey(13578987)
+// isSlidey(232323232)
+// isSlidey(2323232322)
+// isSlidey(2343456567878)
+// isSlidey(999999999999)
+// isSlidey(223322332233)
+// isSlidey(7766554433)
+// isSlidey(32)
+// isSlidey(21)
+// isSlidey(33)
+// isSlidey(30)
+
+// function filterUnique(arr) {
+//   let count = 0
+//   let newArray =[]
+//   innerFilter(count)
+//   function innerFilter(count) {
+//     if (count === arr.length) {
+//       console.log(`one time ${newArray}`)
+//     } else {
+//       let innerCount = 0
+//       innerFilter2(arr[count], innerCount)
+//       count++
+//       innerFilter(count)
+//     }
+//     console.log(newArray)
+//   }
+
+//   function innerFilter2(innerString, innerCount) {
+//     // console.log(innerCount)
+//     let innerArray = innerString.split("")
+//     if (innerCount+1 === innerString.length) {
+//       // console.log("return unique")
+//       newArray.push(innerString)
+//       // console.log(newArray)
+//     } else {
+//       // console.log("numbers", innerCount+1, innerString.length)
+//       // console.log(innerArray)
+//       let result = innerArray.filter(character => character === innerArray[innerCount])
+//       if (result.length > 1) {
+//         // console.log("match found")
+//       } else {
+//         innerCount++
+//         innerFilter2(innerString, innerCount)
+//       }
+//     }
+//   }
+// }
+
+// filterUnique(['abc', 'abcdb', 'aea', 'bbb'])
+// filterUnique(['88', '999', '989', '9988', '9898'])
+// filterUnique(['ABCDE', 'DDEB', 'BED', 'CCA', 'BAC'])
+// filterUnique(['qrrs', 'srrq', 'qqrs', 'qq', 'ss', 'rs'])
+// filterUnique(['abab', 'ba', 'ab', 'cc'])
+
+// function rev(n) {
+//   let absNum = Math.abs(n).toString().split("").reverse().join(",")
+//   console.log(absNum)
+// }
+
+// rev(215)
+// rev(122225)
+// rev(215)
+// rev(-215)
+// rev(-2152)
+// rev(-122157)
+// rev(666)
+// rev(999)
+
+// function howManySeconds(hours) {
+// 	return(hours*3600);
+// }
+
+// function getEquivalent(note) {
+// 	let chars = ["A", "B", "C", "D", "E", "F", "G"]
+// 	let count = 0
+// 	let Equivalent = ""
+// 	if (note[1] === "b") {
+// 		innerGetEquivalent(count, note, Equivalent)
+// 		function innerGetEquivalent(count, note, Equivalent) {
+// 			if (note[0] === "A"){
+// 				Equivalent = "G#"
+// 				console.log(Equivalent)
+// 				return Equivalent
+// 			} else {
+// 				if (note[0] === chars[count]) {
+// 					Equivalent = `${chars[--count]}#`
+// 					console.log(Equivalent)
+// 					return Equivalent
+// 				} else {
+// 					count++
+// 					innerGetEquivalent(count, note)
+// 				}
+// 			}
+// 			return Equivalent
+// 		}
+// 	} else {
+// 		innerGetEquivalent(count, note, Equivalent)
+// 		function innerGetEquivalent(count, note, Equivalent) {
+// 			if (note[0] === "G"){
+// 				Equivalent = "Ab"
+// 				console.log(Equivalent)
+// 				return Equivalent
+// 			} else {
+// 				if (note[0] === chars[count]) {
+// 					Equivalent = `${chars[++count]}b`
+// 					console.log(Equivalent)
+// 					return Equivalent
+// 				} else {
+// 					count++
+// 					innerGetEquivalent(count, note, Equivalent)
+// 				}
+// 			}
+// 			return Equivalent
+// 		}
+// 	}
+// 	setTimeout(function(){ console.log(Equivalent) }, 3000);
+// }
+
+// getEquivalent("C#")
+// getEquivalent("Db")
+// getEquivalent("D#") 
+// getEquivalent("Eb") 
+// getEquivalent("F#") 
+// getEquivalent("Gb") 
+// getEquivalent("G#") //AB
+// getEquivalent("Ab") //G#
+// getEquivalent("A#")
+// getEquivalent("Bb")
+
+
+// function addUp(num) {
+// 	let sum = 0
+// 	for (var i = 1; i < num; i++) {
+// 		sum = (sum += i)
+// 		console.log(sum)
+// 	}
+// 	return sum
+// }
+
+// function isSastry(number) {
+// 	let stringNumber= number.toString(10);
+// 	let successor= (number+1).toString(10);
+// 	let concatination=parseInt(stringNumber.concat(successor));
+
+// 	if(Math.sqrt(concatination)%1 === 0){
+// 		return true
+// 	} else {
+// 		return false
+// 	}
+// }
+
+// function countTrue(arr) {
+// 	stringArray = []
+
+// 	arr.forEach(value => {
+// 		const newValue = new Boolean(value);
+// 		value = newValue.toString();
+// 		stringArray.push(value)
+// 	})
+
+// 	 let trueArray = stringArray.filter(value => value === "true")
+// 	 return (trueArray.length)
+// }
+
+// countTrue([true, false, false, true, false])
+// countTrue([false, false, false, false])
+// countTrue([])
+// countTrue([false, false, true, true, false, false, false, true, true, true, true, false, true, true, false])
+// countTrue([true, false, true, true, false, false, false, false, false])
+// countTrue([false, true, true, false, true, true, false, true, false, true, false, true, false, true, false])
+// countTrue([true, false, true, true, true, false, true, true, false, false])
+// countTrue([false, false, false, false, true, false, true, false, true, false, false])
+// countTrue([true, false, false, false, true, false, false, true, false, false, false])
+// countTrue([true, true, false, true, false, false, false, false, true, false])
+// countTrue([true, false, true, true, false, true, true, true, true, false, true, false, true, false])
+// countTrue([true, false, true, true, true, true, false, true, true, false, true, false, false, false, false])
+// countTrue([true, true, false, false, false, false, true, false, true, true, false, true])
