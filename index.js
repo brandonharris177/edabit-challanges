@@ -1270,3 +1270,45 @@
 // countTrue([true, false, true, true, false, true, true, true, true, false, true, false, true, false])
 // countTrue([true, false, true, true, true, true, false, true, true, false, true, false, false, false, false])
 // countTrue([true, true, false, false, false, false, true, false, true, true, false, true])
+
+// function Book(title, author) {
+// 	// Write your properties and methods here
+//     this.title = title;
+//     this.author = author;
+	
+// 	this.getTitle = function() {
+// 		return(`Title: ${this.title}`)
+//     };
+    
+// 	this.getAuthor = function () {
+// 		return(`Author: ${this.author}`)
+//     };
+// }
+
+// // Instantiate your Book constructor here
+
+// const PP = new Book("Pride and Prejudice", "Jane Austen")
+// const H = new Book("Hamlet", "William Shakespeare")
+// const WP = new Book("War and Peace", "Leo Tolstoy")
+
+// console.log(PP.title)
+// console.log(PP.author)
+// console.log(PP.getTitle(), 'Title: Pride and Prejudice')
+// console.log(PP.getAuthor(), 'Author: Jane Austen')
+
+function oddishOrEvenish(num) {
+    const array = num.toString().split("")
+    const numArray = array.map((string) => {
+        return parseInt(string, 10);
+    })
+    const sum = numArray.reduce(function(x, y) {
+        return(x + y)
+    }, 0);
+    if (sum%2 === 0) {
+        return "Evenish"
+    } else {
+        return "Oddish"
+    } 
+}
+
+oddishOrEvenish(123)
