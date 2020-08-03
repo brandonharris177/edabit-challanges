@@ -1296,19 +1296,19 @@
 // console.log(PP.getTitle(), 'Title: Pride and Prejudice')
 // console.log(PP.getAuthor(), 'Author: Jane Austen')
 
-function oddishOrEvenish(num) {
-    const array = num.toString().split("")
-    const numArray = array.map((string) => {
-        return parseInt(string, 10);
-    })
-    const sum = numArray.reduce(function(x, y) {
-        return(x + y)
-    }, 0);
-    if (sum%2 === 0) {
-        return "Evenish"
-    } else {
-        return "Oddish"
-    } 
-}
+// function oddishOrEvenish(num) {
+//     const array = num.toString().split("")
+//     const numArray = array.map((string) => {
+//         return parseInt(string, 10);
+//     })
+//     const sum = numArray.reduce(function(x, y) {
+//         return(x + y)
+//     }, 0);
+//     if (sum%2 === 0) {
+//         return "Evenish"
+//     } else {
+//         return "Oddish"
+//     } 
+// }
 
-oddishOrEvenish(123)
+// oddishOrEvenish(123)
