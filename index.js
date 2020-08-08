@@ -1312,3 +1312,18 @@
 // }
 
 // oddishOrEvenish(123)
+
+// function aveSpd(upTime, upSpd, downSpd) {
+//     const distance = upSpd * (upTime/60)  
+//     const downTime = (distance * 60)/downSpd
+// 	const totalDist = distance*2
+//     const totalTime = upTime + downTime
+// 	const final = totalDist/(totalTime/60)
+// 	return final
+// }
+
+// aveSpd(60, 5, 10)
+// aveSpd(18, 10, 30)
+// aveSpd(18, 20, 60)
+// aveSpd(30, 10, 30)
+// aveSpd(30, 8, 24)
