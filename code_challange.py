@@ -22,3 +22,51 @@ def all_pairs(array, target):
 array1 = [3, 5, 2, -4, 8, 11]
 
 print(all_pairs(array1, 7))
+
+
+#  codechallenge
+
+def reverseInParentheses(inputString):
+    final_string = []
+    
+    hash_table = {}
+    
+    index = 0
+    depth = 0
+    max_depth = 0
+    while index < len(inputString):
+        if inputString[index] == "(" or inputString[index] == ")":
+            if inputString[index] == "(":
+                depth += 1
+                if depth > max_depth:
+                    max_depth = depth
+            if depth in hash_table:
+                hash_table[depth].append(index)
+            else:
+                hash_table[depth] = []
+                hash_table[depth].append(index)
+            if inputString[index] == ")":
+                depth -= 1
+        index += 1
+        
+    print(hash_table)
+    
+    while max_depth != 0:
+        while len(hash_table[max_depth]) > 0:      
+            index2 = int(hash_table[max_depth].pop())
+            index1 = int(hash_table[max_depth].pop())
+            str = inputString[index1: index2]
+            reverse_str = ''.join(reversed(str)) 
+            reverse_pointer = 0
+            inputString = inputString[:index1] + reverse_str + inputString[index2:]
+            reverse_pointer += 1
+        max_depth -= 1
+        
+    inputString = inputString.replace('(', '')
+    inputString = inputString.replace(')', '')
+    
+    print(inputString)
+    return inputString
+            
+                
+    
