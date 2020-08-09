@@ -71,4 +71,19 @@
 #             team2 = team2 + a[num]
             
 #     return[team1, team2]
+
+# def addBorder(picture):
+#     length = len(picture[0])
+#     frame = "*" * length
+    
+#     picture.insert(0, frame)
+#     picture.append(frame)
+    
+#     framed_picture =[]
+    
+#     for line in picture:
+#         add_frame = "*"+line+"*"
+#         framed_picture.append(add_frame)
+        
+#     return framed_picture
             
