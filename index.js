@@ -1327,3 +1327,12 @@
 // aveSpd(18, 20, 60)
 // aveSpd(30, 10, 30)
 // aveSpd(30, 8, 24)
+
+// function trace(arr) {
+// 	let sum = 0
+// 	var i;
+// 	for (i = 0; i < arr.length; i++) {
+// 		sum = sum + arr[i][i]
+// 	}
+// 	return sum
+// }
