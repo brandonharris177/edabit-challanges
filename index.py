@@ -60,4 +60,15 @@
     
     # print(inputString)
     # return inputString
-        
+
+# def alternatingSums(a):
+#     team1 = 0
+#     team2 = 0
+#     for num in range(0, len(a)):
+#         if num == 0 or num%2 == 0:
+#             team1 = team1 + a[num]
+#         elif num%2 == 1:
+#             team2 = team2 + a[num]
+            
+#     return[team1, team2]
+            
