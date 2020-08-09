@@ -60,4 +60,30 @@
     
     # print(inputString)
     # return inputString
+
+# def alternatingSums(a):
+#     team1 = 0
+#     team2 = 0
+#     for num in range(0, len(a)):
+#         if num == 0 or num%2 == 0:
+#             team1 = team1 + a[num]
+#         elif num%2 == 1:
+#             team2 = team2 + a[num]
+            
+#     return[team1, team2]
+
+# def addBorder(picture):
+#     length = len(picture[0])
+#     frame = "*" * length
+    
+#     picture.insert(0, frame)
+#     picture.append(frame)
+    
+#     framed_picture =[]
+    
+#     for line in picture:
+#         add_frame = "*"+line+"*"
+#         framed_picture.append(add_frame)
         
+#     return framed_picture
+            
