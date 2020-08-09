@@ -1336,3 +1336,12 @@
 // 	}
 // 	return sum
 // }
+
+// function factorial(int) {
+// 	let product = 1
+// 	while (int !== 0) {
+// 		product = product * int
+// 		int -= 1
+// 	}
+// 	return product
+// }
