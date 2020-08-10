@@ -105,4 +105,14 @@
 #     if list1 != list2:
 #         similar = False
             
-#     return similar         
+#     return similar  
+
+# def arrayChange(inputArray):
+#     count = 0
+#     for num in range(1, len(inputArray)):
+#         if inputArray[num-1] >= inputArray[num]:
+#             old_num = inputArray[num]
+#             inputArray[num] = inputArray[num-1] + 1
+#             difference = inputArray[num] - old_num
+#             count = count + difference
+#     return count      
