@@ -1346,3 +1346,19 @@
 // 	return product
 // }
 
+// function neutralise(s1, s2) {
+// 	let string = ""
+// 	var i;
+// 	for (i = 0; i < s1.length; i++) {
+// 		if (s1[i] !== s2[i]) {
+// 			string = string.concat(0)
+// 		}
+// 		else if (s1[i] === "+") {
+// 			string = string.concat("+")
+// 		}
+// 		else if (s1[i] === "-") {
+// 			string = string.concat("-")
+// 		}
+// 	}
+// 	return string
+// }
