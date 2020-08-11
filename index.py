@@ -116,3 +116,47 @@
 #             difference = inputArray[num] - old_num
 #             count = count + difference
 #     return count      
+
+# def palindromeRearranging(inputString):
+#     hash_table = {}
+    
+#     for letter in inputString:
+#         if letter in hash_table:
+#             hash_table[letter] += 1
+#         else:
+#             hash_table[letter] = 1
+            
+#     exemption = 0
+#     can_rearrange = True
+            
+#     for value in hash_table.values():
+#         if value == 1 or value%2 == 1:
+#             exemption += 1
+#             if exemption > 1:
+#                 can_rearrange = False
+#                 break
+                
+#     return can_rearrange
+
+def areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight):
+    equallyStrong = False
+    you = []
+    freind = []
+    if yourLeft > yourRight:
+        you.append(yourLeft)
+        you.append(yourRight)
+    else:
+        you.append(yourRight)
+        you.append(yourLeft)
+    
+    if friendsLeft > friendsRight:
+        freind.append(friendsLeft)
+        freind.append(friendsRight)
+    else:
+        freind.append(friendsRight)
+        freind.append(friendsLeft)
+    
+    if you[0] == freind[0] and you[1] == freind[1]:
+        equallyStrong = True
+    
+    return equallyStrong

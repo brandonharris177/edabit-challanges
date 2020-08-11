@@ -1373,3 +1373,52 @@
 // 	}
 // 	return count/2
 // }
+
+// function getLength(arr) {
+// 	if (arr.length === 0) {
+// 		return 0
+// 	}
+// 	let count = 0
+// 	while (arr.length > 0) {
+// 		let last = arr.pop()
+// 		if (typeof last === "object") {
+// 			var i;
+// 			for (i = 0; i < last.length; i++) {
+// 				arr.push(last[i])
+// 				} 
+// 			}
+// 		else {
+// 				count += 1
+//         }
+// 	}
+// 	return count
+// }
+
+// getLength([1, [2,3]])
+// getLength([1, [2, [3, 4]]])
+// getLength([1, [2, [3, [4, [5, 6]]]]])
+// getLength([1, 7, 8])
+// getLength([2])
+// getLength([2, [3], 4, [7]])
+// getLength([2, [3, [5, 7]], 4, [7]])
+// getLength([2, [3, [4, [5]]], [9]])
+// getLength([])
+
+function numInStr(arr) {
+	let numbers = []
+	var i;
+	for (i = 0; i < arr.length; i++) {
+		let num = /[0-9]/.test(arr[i])
+		if (num === true) {
+			numbers.push(arr[i])
+		}
+	}
+	return numbers
+}
+
+numInStr(['abc', 'abc10'])
+numInStr(['abc', 'ab10c',  'a10bc', 'bcd'])
+numInStr(['1', 'a' , ' ' ,'b'])
+numInStr(['rct', 'ABC', 'Test', 'xYz'])
+numInStr(['this IS','10xYZ', 'xy2K77', 'Z1K2W0', 'xYz'])
+numInStr(['-/>', '10bc', 'abc '])
