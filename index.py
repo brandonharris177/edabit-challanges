@@ -137,3 +137,26 @@
 #                 break
                 
 #     return can_rearrange
+
+def areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight):
+    equallyStrong = False
+    you = []
+    freind = []
+    if yourLeft > yourRight:
+        you.append(yourLeft)
+        you.append(yourRight)
+    else:
+        you.append(yourRight)
+        you.append(yourLeft)
+    
+    if friendsLeft > friendsRight:
+        freind.append(friendsLeft)
+        freind.append(friendsRight)
+    else:
+        freind.append(friendsRight)
+        freind.append(friendsLeft)
+    
+    if you[0] == freind[0] and you[1] == freind[1]:
+        equallyStrong = True
+    
+    return equallyStrong
