@@ -1373,3 +1373,33 @@
 // 	}
 // 	return count/2
 // }
+
+// function getLength(arr) {
+// 	if (arr.length === 0) {
+// 		return 0
+// 	}
+// 	let count = 0
+// 	while (arr.length > 0) {
+// 		let last = arr.pop()
+// 		if (typeof last === "object") {
+// 			var i;
+// 			for (i = 0; i < last.length; i++) {
+// 				arr.push(last[i])
+// 				} 
+// 			}
+// 		else {
+// 				count += 1
+//         }
+// 	}
+// 	return count
+// }
+
+// getLength([1, [2,3]])
+// getLength([1, [2, [3, 4]]])
+// getLength([1, [2, [3, [4, [5, 6]]]]])
+// getLength([1, 7, 8])
+// getLength([2])
+// getLength([2, [3], 4, [7]])
+// getLength([2, [3, [5, 7]], 4, [7]])
+// getLength([2, [3, [4, [5]]], [9]])
+// getLength([])
