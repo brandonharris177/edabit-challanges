@@ -161,11 +161,50 @@
     
 #     return equallyStrong
 
-def arrayMaximalAdjacentDifference(inputArray):
-    max_distance = 0
-    for num in range(0, len(inputArray)-1):
-        difference = abs(inputArray[num] - inputArray[num+1])
-        if difference > max_distance:
-            max_distance = difference
+# def arrayMaximalAdjacentDifference(inputArray):
+#     max_distance = 0
+#     for num in range(0, len(inputArray)-1):
+#         difference = abs(inputArray[num] - inputArray[num+1])
+#         if difference > max_distance:
+#             max_distance = difference
     
-    return max_distance
+#     return max_distance
+
+# import re
+
+def isIPv4Address(inputString):
+    
+    letter = re.search("[a-zA-Z]", inputString)
+    special = re.search("[+]", inputString)
+    
+    if letter != None or special != None:
+        print(letter)
+        print(special)
+        print("fail1")
+        return False
+    
+    count = 0
+        
+    for char in inputString:
+        if char == ".":
+            count += 1
+            
+    if count != 3:
+        return False
+            
+    IParray = inputString.replace(".", " ")
+    IParray = IParray.split()
+    
+    if len(IParray) != 4:
+        print("fail2")
+        return False
+    
+    print(IParray)
+        
+    for num in IParray:
+        if str(int(num)) != num or int(num) > 255:
+            print("fail3")
+            return False
+            
+    return True
+            
