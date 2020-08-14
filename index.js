@@ -1404,21 +1404,46 @@
 // getLength([2, [3, [4, [5]]], [9]])
 // getLength([])
 
-function numInStr(arr) {
-	let numbers = []
-	var i;
-	for (i = 0; i < arr.length; i++) {
-		let num = /[0-9]/.test(arr[i])
-		if (num === true) {
-			numbers.push(arr[i])
+// function numInStr(arr) {
+// 	let numbers = []
+// 	var i;
+// 	for (i = 0; i < arr.length; i++) {
+// 		let num = /[0-9]/.test(arr[i])
+// 		if (num === true) {
+// 			numbers.push(arr[i])
+// 		}
+// 	}
+// 	return numbers
+// }
+
+// numInStr(['abc', 'abc10'])
+// numInStr(['abc', 'ab10c',  'a10bc', 'bcd'])
+// numInStr(['1', 'a' , ' ' ,'b'])
+// numInStr(['rct', 'ABC', 'Test', 'xYz'])
+// numInStr(['this IS','10xYZ', 'xy2K77', 'Z1K2W0', 'xYz'])
+// numInStr(['-/>', '10bc', 'abc '])
+
+function countBoomerangs(arr) {
+	let index = 0
+	let count = 0
+	while (index < arr.length-2) {
+		if (arr[index] === arr[index+2] && arr[index] !== arr[index+1]) {
+			count += 1
 		}
+		index += 1
 	}
-	return numbers
+	return count
 }
 
-numInStr(['abc', 'abc10'])
-numInStr(['abc', 'ab10c',  'a10bc', 'bcd'])
-numInStr(['1', 'a' , ' ' ,'b'])
-numInStr(['rct', 'ABC', 'Test', 'xYz'])
-numInStr(['this IS','10xYZ', 'xy2K77', 'Z1K2W0', 'xYz'])
-numInStr(['-/>', '10bc', 'abc '])
+countBoomerangs([9, 5, 9, 5, 1, 1, 1])
+countBoomerangs([5, 6, 6, 7, 6, 3, 9])
+countBoomerangs([4, 4, 4, 9, 9, 9, 9])
+countBoomerangs([5, 9, 5, 9, 5])
+countBoomerangs([4, 4, 4, 8, 4, 8, 4])
+countBoomerangs([2, 2, 2, 2, 2, 2, 3])
+countBoomerangs([2, 2, 2, 2, 3, 2, 3])
+countBoomerangs([1, 2, 1, 1, 1, 2, 1])
+countBoomerangs([5, 1, 1, 1, 1, 4, 1])
+countBoomerangs([3, 7, 3, 2, 1, 5, 1, 2, 2, -2, 2])
+countBoomerangs([1, 7, 1, 7, 1, 7, 1])
+countBoomerangs([5, 5, 5])
