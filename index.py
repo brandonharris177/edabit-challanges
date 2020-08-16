@@ -209,33 +209,54 @@
 #     return True
 
 
-def avoidObstacles(inputArray):
+# def avoidObstacles(inputArray):
     
-    inputArray.sort()
-    arraySet = set(inputArray)
+#     inputArray.sort()
+#     arraySet = set(inputArray)
 
-    longest_jump = 1
+#     longest_jump = 1
 
-    while longest_jump in arraySet:
-        longest_jump += 1
+#     while longest_jump in arraySet:
+#         longest_jump += 1
 
-    jump_point = longest_jump
-    changed = False
-    additional = 0
+#     jump_point = longest_jump
+#     changed = False
+#     additional = 0
     
-    while jump_point < inputArray[-1]:
-        jump_point = jump_point + longest_jump
-        while jump_point in arraySet:
-            changed = True
-            additional += 1
-            jump_point += 1
-        if changed == True:
-            longest_jump = longest_jump + additional
-            additional = 0
-            while longest_jump in arraySet:
-                longest_jump += 1
-            jump_point = longest_jump
-            changed = False
+#     while jump_point < inputArray[-1]:
+#         jump_point = jump_point + longest_jump
+#         while jump_point in arraySet:
+#             changed = True
+#             additional += 1
+#             jump_point += 1
+#         if changed == True:
+#             longest_jump = longest_jump + additional
+#             additional = 0
+#             while longest_jump in arraySet:
+#                 longest_jump += 1
+#             jump_point = longest_jump
+#             changed = False
                 
-    return longest_jump
+#     return longest_jump
+
+def boxBlur(image):
+    def getSum(row, column):
+        surroundings = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 0], [0, 1], [1, -1], [1, 0], [1, 1]]
+        total = 0
+        for coordinate in surroundings:
+            total = total + image[row + coordinate[0]][column + coordinate[1]]
+        total = total/9
+        return math.floor(total)
+        
+    blurredImage = []
+    index = -1
+              
+    for row in range(1, len(image)-1):
+        blurredImage.append([])
+        index += 1
+        for column in range(1, len(image[row])-1):
+            value = getSum(row, column)
+            blurredImage[index].append(value)
+            
+    return blurredImage
             
