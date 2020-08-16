@@ -1448,10 +1448,25 @@
 // countBoomerangs([1, 7, 1, 7, 1, 7, 1])
 // countBoomerangs([5, 5, 5])
 
-function intWithinBounds(n, lower, upper) {
-	if (n >= lower & n < upper & Math.round(n) === n) {
-		return true
-	} else {
-		return false
+// function intWithinBounds(n, lower, upper) {
+// 	if (n >= lower & n < upper & Math.round(n) === n) {
+// 		return true
+// 	} else {
+// 		return false
+// 	}
+// }
+
+function padMatrix(arr) {
+	var i;
+	for (i = 0; i < arr.length; i++) {
+		arr[i].push(0)
+		arr[i].unshift(0)
 	}
+	let border = []
+	for (i = 0; i < arr[0].length; i++) {
+		border.push(0)
+	}
+	arr.push(border)
+	arr.unshift(border)
+	return arr
 }
