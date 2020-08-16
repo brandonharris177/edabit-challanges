@@ -172,39 +172,91 @@
 
 # import re
 
-def isIPv4Address(inputString):
+# def isIPv4Address(inputString):
     
-    letter = re.search("[a-zA-Z]", inputString)
-    special = re.search("[+]", inputString)
+#     letter = re.search("[a-zA-Z]", inputString)
+#     special = re.search("[+]", inputString)
     
-    if letter != None or special != None:
-        print(letter)
-        print(special)
-        print("fail1")
-        return False
+#     if letter != None or special != None:
+#         print(letter)
+#         print(special)
+#         print("fail1")
+#         return False
     
-    count = 0
+#     count = 0
         
-    for char in inputString:
-        if char == ".":
-            count += 1
+#     for char in inputString:
+#         if char == ".":
+#             count += 1
             
-    if count != 3:
-        return False
+#     if count != 3:
+#         return False
             
-    IParray = inputString.replace(".", " ")
-    IParray = IParray.split()
+#     IParray = inputString.replace(".", " ")
+#     IParray = IParray.split()
     
-    if len(IParray) != 4:
-        print("fail2")
-        return False
+#     if len(IParray) != 4:
+#         print("fail2")
+#         return False
     
-    print(IParray)
+#     print(IParray)
         
-    for num in IParray:
-        if str(int(num)) != num or int(num) > 255:
-            print("fail3")
-            return False
+#     for num in IParray:
+#         if str(int(num)) != num or int(num) > 255:
+#             print("fail3")
+#             return False
             
-    return True
+#     return True
+
+
+# def avoidObstacles(inputArray):
+    
+#     inputArray.sort()
+#     arraySet = set(inputArray)
+
+#     longest_jump = 1
+
+#     while longest_jump in arraySet:
+#         longest_jump += 1
+
+#     jump_point = longest_jump
+#     changed = False
+#     additional = 0
+    
+#     while jump_point < inputArray[-1]:
+#         jump_point = jump_point + longest_jump
+#         while jump_point in arraySet:
+#             changed = True
+#             additional += 1
+#             jump_point += 1
+#         if changed == True:
+#             longest_jump = longest_jump + additional
+#             additional = 0
+#             while longest_jump in arraySet:
+#                 longest_jump += 1
+#             jump_point = longest_jump
+#             changed = False
+                
+#     return longest_jump
+
+def boxBlur(image):
+    def getSum(row, column):
+        surroundings = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 0], [0, 1], [1, -1], [1, 0], [1, 1]]
+        total = 0
+        for coordinate in surroundings:
+            total = total + image[row + coordinate[0]][column + coordinate[1]]
+        total = total/9
+        return math.floor(total)
+        
+    blurredImage = []
+    index = -1
+              
+    for row in range(1, len(image)-1):
+        blurredImage.append([])
+        index += 1
+        for column in range(1, len(image[row])-1):
+            value = getSum(row, column)
+            blurredImage[index].append(value)
+            
+    return blurredImage
             

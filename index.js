@@ -1423,27 +1423,50 @@
 // numInStr(['this IS','10xYZ', 'xy2K77', 'Z1K2W0', 'xYz'])
 // numInStr(['-/>', '10bc', 'abc '])
 
-function countBoomerangs(arr) {
-	let index = 0
-	let count = 0
-	while (index < arr.length-2) {
-		if (arr[index] === arr[index+2] && arr[index] !== arr[index+1]) {
-			count += 1
-		}
-		index += 1
-	}
-	return count
-}
+// function countBoomerangs(arr) {
+// 	let index = 0
+// 	let count = 0
+// 	while (index < arr.length-2) {
+// 		if (arr[index] === arr[index+2] && arr[index] !== arr[index+1]) {
+// 			count += 1
+// 		}
+// 		index += 1
+// 	}
+// 	return count
+// }
 
-countBoomerangs([9, 5, 9, 5, 1, 1, 1])
-countBoomerangs([5, 6, 6, 7, 6, 3, 9])
-countBoomerangs([4, 4, 4, 9, 9, 9, 9])
-countBoomerangs([5, 9, 5, 9, 5])
-countBoomerangs([4, 4, 4, 8, 4, 8, 4])
-countBoomerangs([2, 2, 2, 2, 2, 2, 3])
-countBoomerangs([2, 2, 2, 2, 3, 2, 3])
-countBoomerangs([1, 2, 1, 1, 1, 2, 1])
-countBoomerangs([5, 1, 1, 1, 1, 4, 1])
-countBoomerangs([3, 7, 3, 2, 1, 5, 1, 2, 2, -2, 2])
-countBoomerangs([1, 7, 1, 7, 1, 7, 1])
-countBoomerangs([5, 5, 5])
+// countBoomerangs([9, 5, 9, 5, 1, 1, 1])
+// countBoomerangs([5, 6, 6, 7, 6, 3, 9])
+// countBoomerangs([4, 4, 4, 9, 9, 9, 9])
+// countBoomerangs([5, 9, 5, 9, 5])
+// countBoomerangs([4, 4, 4, 8, 4, 8, 4])
+// countBoomerangs([2, 2, 2, 2, 2, 2, 3])
+// countBoomerangs([2, 2, 2, 2, 3, 2, 3])
+// countBoomerangs([1, 2, 1, 1, 1, 2, 1])
+// countBoomerangs([5, 1, 1, 1, 1, 4, 1])
+// countBoomerangs([3, 7, 3, 2, 1, 5, 1, 2, 2, -2, 2])
+// countBoomerangs([1, 7, 1, 7, 1, 7, 1])
+// countBoomerangs([5, 5, 5])
+
+// function intWithinBounds(n, lower, upper) {
+// 	if (n >= lower & n < upper & Math.round(n) === n) {
+// 		return true
+// 	} else {
+// 		return false
+// 	}
+// }
+
+function padMatrix(arr) {
+	var i;
+	for (i = 0; i < arr.length; i++) {
+		arr[i].push(0)
+		arr[i].unshift(0)
+	}
+	let border = []
+	for (i = 0; i < arr[0].length; i++) {
+		border.push(0)
+	}
+	arr.push(border)
+	arr.unshift(border)
+	return arr
+}
