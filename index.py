@@ -239,24 +239,46 @@
                 
 #     return longest_jump
 
-def boxBlur(image):
+# def boxBlur(image):
+#     def getSum(row, column):
+#         surroundings = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 0], [0, 1], [1, -1], [1, 0], [1, 1]]
+#         total = 0
+#         for coordinate in surroundings:
+#             total = total + image[row + coordinate[0]][column + coordinate[1]]
+#         total = total/9
+#         return math.floor(total)
+        
+#     blurredImage = []
+#     index = -1
+              
+#     for row in range(1, len(image)-1):
+#         blurredImage.append([])
+#         index += 1
+#         for column in range(1, len(image[row])-1):
+#             value = getSum(row, column)
+#             blurredImage[index].append(value)
+            
+#     return blurredImage
+
+def minesweeper(matrix):
     def getSum(row, column):
-        surroundings = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 0], [0, 1], [1, -1], [1, 0], [1, 1]]
+        surroundings = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]]
         total = 0
         for coordinate in surroundings:
-            total = total + image[row + coordinate[0]][column + coordinate[1]]
-        total = total/9
-        return math.floor(total)
-        
-    blurredImage = []
-    index = -1
+            if 0 <= row + coordinate[0] < len(matrix) and 0 <= column + coordinate[1] < len(matrix[row]):
+                if matrix[row + coordinate[0]][column + coordinate[1]] == True:
+                    total+=1
+        return total
               
-    for row in range(1, len(image)-1):
-        blurredImage.append([])
+    mineMatrix = []
+    index = -1
+    
+    for row in range(0, len(matrix)):
+        mineMatrix.append([])
         index += 1
-        for column in range(1, len(image[row])-1):
+        for column in range(0, len(matrix[row])):
             value = getSum(row, column)
-            blurredImage[index].append(value)
-            
-    return blurredImage
+            mineMatrix[index].append(value)
+         
+    return mineMatrix
             
