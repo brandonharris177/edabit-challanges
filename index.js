@@ -1456,17 +1456,31 @@
 // 	}
 // }
 
-function padMatrix(arr) {
-	var i;
-	for (i = 0; i < arr.length; i++) {
-		arr[i].push(0)
-		arr[i].unshift(0)
+// function padMatrix(arr) {
+// 	var i;
+// 	for (i = 0; i < arr.length; i++) {
+// 		arr[i].push(0)
+// 		arr[i].unshift(0)
+// 	}
+// 	let border = []
+// 	for (i = 0; i < arr[0].length; i++) {
+// 		border.push(0)
+// 	}
+// 	arr.push(border)
+// 	arr.unshift(border)
+// 	return arr
+// }
+
+// (a,b,c) -- dimensions of the brick
+// (w,h) -- dimensions of the hole
+function doesBrickFit(a,b,c, w,h) {
+	let brick = [a, b, c]
+	brick.sort()
+	let minArea = brick[0] * brick[1]
+	let hole = w * h
+	if (minArea <= hole) {
+		return true
+	} else {
+		return false
 	}
-	let border = []
-	for (i = 0; i < arr[0].length; i++) {
-		border.push(0)
-	}
-	arr.push(border)
-	arr.unshift(border)
-	return arr
 }
