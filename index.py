@@ -282,9 +282,19 @@
          
 #     return mineMatrix
 
-def arrayReplace(inputArray, elemToReplace, substitutionElem):
-    for index in range(0, len(inputArray)):
-        if inputArray[index] == elemToReplace:
-            inputArray[index] = substitutionElem
+# def arrayReplace(inputArray, elemToReplace, substitutionElem):
+#     for index in range(0, len(inputArray)):
+#         if inputArray[index] == elemToReplace:
+#             inputArray[index] = substitutionElem
             
-    return inputArray
+#     return inputArray
+
+def evenDigitsOnly(n):
+    even = True
+    strN = str(n)
+    for digit in strN:
+        if int(digit)%2 == 1:
+            even = False
+            break
+            
+    return even
