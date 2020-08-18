@@ -260,25 +260,31 @@
             
 #     return blurredImage
 
-def minesweeper(matrix):
-    def getSum(row, column):
-        surroundings = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]]
-        total = 0
-        for coordinate in surroundings:
-            if 0 <= row + coordinate[0] < len(matrix) and 0 <= column + coordinate[1] < len(matrix[row]):
-                if matrix[row + coordinate[0]][column + coordinate[1]] == True:
-                    total+=1
-        return total
+# def minesweeper(matrix):
+#     def getSum(row, column):
+#         surroundings = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]]
+#         total = 0
+#         for coordinate in surroundings:
+#             if 0 <= row + coordinate[0] < len(matrix) and 0 <= column + coordinate[1] < len(matrix[row]):
+#                 if matrix[row + coordinate[0]][column + coordinate[1]] == True:
+#                     total+=1
+#         return total
               
-    mineMatrix = []
-    index = -1
+#     mineMatrix = []
+#     index = -1
     
-    for row in range(0, len(matrix)):
-        mineMatrix.append([])
-        index += 1
-        for column in range(0, len(matrix[row])):
-            value = getSum(row, column)
-            mineMatrix[index].append(value)
+#     for row in range(0, len(matrix)):
+#         mineMatrix.append([])
+#         index += 1
+#         for column in range(0, len(matrix[row])):
+#             value = getSum(row, column)
+#             mineMatrix[index].append(value)
          
-    return mineMatrix
+#     return mineMatrix
+
+def arrayReplace(inputArray, elemToReplace, substitutionElem):
+    for index in range(0, len(inputArray)):
+        if inputArray[index] == elemToReplace:
+            inputArray[index] = substitutionElem
             
+    return inputArray
