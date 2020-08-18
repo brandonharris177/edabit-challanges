@@ -1473,15 +1473,29 @@
 
 // (a,b,c) -- dimensions of the brick
 // (w,h) -- dimensions of the hole
-function doesBrickFit(a,b,c, w,h) {
-	let brick = [a, b, c]
-	brick.sort()
-	let minArea = brick[0] * brick[1]
-	let hole = w * h
-	if (minArea <= hole) {
-		return true
-	} else {
-		return false
-	}
-}
 
+// function doesBrickFit(a,b,c, w,h) {
+// 	let brick = [a, b, c]
+// 	brick.sort()
+// 	let minArea = brick[0] * brick[1]
+// 	let hole = w * h
+// 	if (minArea <= hole) {
+// 		return true
+// 	} else {
+// 		return false
+// 	}
+// }
+
+function lcm(n1, n2) {
+	let largestNum = n1
+	let smallestNum = n2
+	if (n2 > n1) {
+		largestNum = n2
+		smallestNum = n1
+	}
+	let LCM = largestNum
+	while (LCM%smallestNum !== 0) {
+		LCM = LCM + largestNum
+	}
+	return LCM
+}
