@@ -289,12 +289,32 @@
             
 #     return inputArray
 
-def evenDigitsOnly(n):
-    even = True
-    strN = str(n)
-    for digit in strN:
-        if int(digit)%2 == 1:
-            even = False
-            break
+# def evenDigitsOnly(n):
+#     even = True
+#     strN = str(n)
+#     for digit in strN:
+#         if int(digit)%2 == 1:
+#             even = False
+#             break
             
-    return even
+#     return even
+
+import re
+
+def variableName(name):
+    startsWith = re.search("^[a-zA-Z]", name)
+    if startsWith == None:
+        startsWith = re.search("_", name)
+        if startsWith == None:
+            return False
+    
+    for char in name:    
+        match = re.search("[a-zA-Z]", char)
+        if match == None:
+            match = re.search("_", char)
+            if match == None:
+                match = re.search("[0-9]", char)
+                if match == None:
+                    return False
+
+    return True

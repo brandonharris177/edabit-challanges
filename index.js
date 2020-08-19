@@ -1486,16 +1486,41 @@
 // 	}
 // }
 
-function lcm(n1, n2) {
-	let largestNum = n1
-	let smallestNum = n2
-	if (n2 > n1) {
-		largestNum = n2
-		smallestNum = n1
+// function lcm(n1, n2) {
+// 	let largestNum = n1
+// 	let smallestNum = n2
+// 	if (n2 > n1) {
+// 		largestNum = n2
+// 		smallestNum = n1
+// 	}
+// 	let LCM = largestNum
+// 	while (LCM%smallestNum !== 0) {
+// 		LCM = LCM + largestNum
+// 	}
+// 	return LCM
+// }
+
+function primeFactorize(num) {
+	let remainder = num
+	let prime = 2
+	let primes = []
+	while (remainder >= prime) {
+		prime = 2
+		while (remainder%prime !== 0){
+			prime += 1
+		}
+		primes.push(prime)
+		remainder = remainder/prime
 	}
-	let LCM = largestNum
-	while (LCM%smallestNum !== 0) {
-		LCM = LCM + largestNum
-	}
-	return LCM
+	return primes
 }
+
+primeFactorize(32)
+primeFactorize(17)
+primeFactorize(35)
+primeFactorize(2)
+primeFactorize(2)
+primeFactorize(1)
+primeFactorize(35)
+primeFactorize(2591)
+primeFactorize(2532)
