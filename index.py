@@ -299,22 +299,39 @@
             
 #     return even
 
-import re
+# import re
 
-def variableName(name):
-    startsWith = re.search("^[a-zA-Z]", name)
-    if startsWith == None:
-        startsWith = re.search("_", name)
-        if startsWith == None:
-            return False
+# def variableName(name):
+#     startsWith = re.search("^[a-zA-Z]", name)
+#     if startsWith == None:
+#         startsWith = re.search("_", name)
+#         if startsWith == None:
+#             return False
     
-    for char in name:    
-        match = re.search("[a-zA-Z]", char)
-        if match == None:
-            match = re.search("_", char)
-            if match == None:
-                match = re.search("[0-9]", char)
-                if match == None:
-                    return False
+#     for char in name:    
+#         match = re.search("[a-zA-Z]", char)
+#         if match == None:
+#             match = re.search("_", char)
+#             if match == None:
+#                 match = re.search("[0-9]", char)
+#                 if match == None:
+#                     return False
 
-    return True
+#     return True
+
+def alphabeticShift(inputString):
+    alphabet_hash = {}
+    alphabet_string_keys = string.ascii_lowercase
+    alphabet_string_values = alphabet_string_keys + 'a'
+    for index in range(0, 26):
+        alphabet_hash[alphabet_string_keys[index]] = alphabet_string_values[index + 1]
+    
+    inputList = list(inputString)
+        
+    for index in range(0, len(inputList)):
+        if inputList[index] in alphabet_hash:
+            inputList[index] = alphabet_hash[inputList[index]]
+
+    outputString = "".join(inputList)
+    
+    return outputString

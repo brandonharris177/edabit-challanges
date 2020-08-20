@@ -1500,27 +1500,44 @@
 // 	return LCM
 // }
 
-function primeFactorize(num) {
-	let remainder = num
-	let prime = 2
-	let primes = []
-	while (remainder >= prime) {
-		prime = 2
-		while (remainder%prime !== 0){
-			prime += 1
-		}
-		primes.push(prime)
-		remainder = remainder/prime
-	}
-	return primes
-}
+// function primeFactorize(num) {
+// 	let remainder = num
+// 	let prime = 2
+// 	let primes = []
+// 	while (remainder >= prime) {
+// 		prime = 2
+// 		while (remainder%prime !== 0){
+// 			prime += 1
+// 		}
+// 		primes.push(prime)
+// 		remainder = remainder/prime
+// 	}
+// 	return primes
+// }
 
-primeFactorize(32)
-primeFactorize(17)
-primeFactorize(35)
-primeFactorize(2)
-primeFactorize(2)
-primeFactorize(1)
-primeFactorize(35)
-primeFactorize(2591)
-primeFactorize(2532)
+// primeFactorize(32)
+// primeFactorize(17)
+// primeFactorize(35)
+// primeFactorize(2)
+// primeFactorize(2)
+// primeFactorize(1)
+// primeFactorize(35)
+// primeFactorize(2591)
+// primeFactorize(2532)
+
+function isPositiveDominant(a) {
+	let positiveSet = new Set()
+	let negativeSet = new Set()
+	for (i = 0; i < a.length; i++) {
+	 if (Math.sign(a[i]) === 1) {
+		 positiveSet.add(a[i])
+	 } else if (Math.sign(a[i]) === -1) {
+		 negativeSet.add(a[i])
+	 }
+	}
+	if (positiveSet.size > negativeSet.size) {
+		return true
+	} else {
+		return false
+	}
+}
