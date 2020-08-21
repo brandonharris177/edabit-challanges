@@ -1525,19 +1525,43 @@
 // primeFactorize(2591)
 // primeFactorize(2532)
 
-function isPositiveDominant(a) {
-	let positiveSet = new Set()
-	let negativeSet = new Set()
-	for (i = 0; i < a.length; i++) {
-	 if (Math.sign(a[i]) === 1) {
-		 positiveSet.add(a[i])
-	 } else if (Math.sign(a[i]) === -1) {
-		 negativeSet.add(a[i])
-	 }
+// function isPositiveDominant(a) {
+// 	let positiveSet = new Set()
+// 	let negativeSet = new Set()
+// 	for (i = 0; i < a.length; i++) {
+// 	 if (Math.sign(a[i]) === 1) {
+// 		 positiveSet.add(a[i])
+// 	 } else if (Math.sign(a[i]) === -1) {
+// 		 negativeSet.add(a[i])
+// 	 }
+// 	}
+// 	if (positiveSet.size > negativeSet.size) {
+// 		return true
+// 	} else {
+// 		return false
+// 	}
+// }
+
+function reverseOdd(str) {
+	let array = str.split(" ")
+	for (i = 0; i < array.length; i++) {
+  	if (array[i].length%2 !== 0) {
+		console.log("before", array[i])
+		let word_array = array[i].split("")
+		let reverseArray = word_array.reverse()
+    	let joinArray = reverseArray.join("")
+		array[i] = joinArray
+		console.log("after", array[i])
+		}
 	}
-	if (positiveSet.size > negativeSet.size) {
-		return true
-	} else {
-		return false
-	}
+	let newString = array.join(" ")
+	console.log(newString)
+	return newString
 }
+
+reverseOdd("One two three four")
+// reverseOdd('Make sure uoy only esrever sdrow of ddo length')
+// reverseOdd('')
+// reverseOdd('Bananas')
+// reverseOdd('Even even even even even even even even even')
+// reverseOdd('Odd odd odd odd odd odd odd odd odd odd odd')
