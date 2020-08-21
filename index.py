@@ -319,19 +319,62 @@
 
 #     return True
 
-def alphabeticShift(inputString):
-    alphabet_hash = {}
-    alphabet_string_keys = string.ascii_lowercase
-    alphabet_string_values = alphabet_string_keys + 'a'
-    for index in range(0, 26):
-        alphabet_hash[alphabet_string_keys[index]] = alphabet_string_values[index + 1]
+# def alphabeticShift(inputString):
+#     alphabet_hash = {}
+#     alphabet_string_keys = string.ascii_lowercase
+#     alphabet_string_values = alphabet_string_keys + 'a'
+#     for index in range(0, 26):
+#         alphabet_hash[alphabet_string_keys[index]] = alphabet_string_values[index + 1]
     
-    inputList = list(inputString)
+#     inputList = list(inputString)
         
-    for index in range(0, len(inputList)):
-        if inputList[index] in alphabet_hash:
-            inputList[index] = alphabet_hash[inputList[index]]
+#     for index in range(0, len(inputList)):
+#         if inputList[index] in alphabet_hash:
+#             inputList[index] = alphabet_hash[inputList[index]]
 
-    outputString = "".join(inputList)
+#     outputString = "".join(inputList)
     
-    return outputString
+#     return outputString
+
+def chessBoardCellColor(cell1, cell2):
+    color1 = ''
+    color2 = ''
+    alphabet_hash = {
+        "A":1,
+        "B":2,
+        "C":3,
+        "D":4,
+        "E":5,
+        "F":6,
+        "G":7,
+        "H":8
+    }
+    coord1 = alphabet_hash[cell1[0]]
+    coord2 = alphabet_hash[cell2[0]]
+    
+    if int(cell1[1])%2 == 0:
+        if int(coord1)%2 == 0:
+            color1 = "Black"
+        else:
+            color1 = "White"
+    else:
+        if int(coord1)%2 != 0:
+            color1 = "Black"
+        else:
+            color1 = "White"
+            
+    if int(cell2[1])%2 == 0:
+        if int(coord2)%2 == 0:
+            color2 = "Black"
+        else:
+            color2 = "White"
+    else:
+        if int(coord2)%2 != 0:
+            color2 = "Black"
+        else:
+            color2 = "White"
+            
+    if color1 == color2:
+        return True
+    else:
+        return False
