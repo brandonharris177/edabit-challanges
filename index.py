@@ -336,45 +336,55 @@
     
 #     return outputString
 
-def chessBoardCellColor(cell1, cell2):
-    color1 = ''
-    color2 = ''
-    alphabet_hash = {
-        "A":1,
-        "B":2,
-        "C":3,
-        "D":4,
-        "E":5,
-        "F":6,
-        "G":7,
-        "H":8
-    }
-    coord1 = alphabet_hash[cell1[0]]
-    coord2 = alphabet_hash[cell2[0]]
+# def chessBoardCellColor(cell1, cell2):
+#     color1 = ''
+#     color2 = ''
+#     alphabet_hash = {
+#         "A":1,
+#         "B":2,
+#         "C":3,
+#         "D":4,
+#         "E":5,
+#         "F":6,
+#         "G":7,
+#         "H":8
+#     }
+#     coord1 = alphabet_hash[cell1[0]]
+#     coord2 = alphabet_hash[cell2[0]]
     
-    if int(cell1[1])%2 == 0:
-        if int(coord1)%2 == 0:
-            color1 = "Black"
-        else:
-            color1 = "White"
-    else:
-        if int(coord1)%2 != 0:
-            color1 = "Black"
-        else:
-            color1 = "White"
+#     if int(cell1[1])%2 == 0:
+#         if int(coord1)%2 == 0:
+#             color1 = "Black"
+#         else:
+#             color1 = "White"
+#     else:
+#         if int(coord1)%2 != 0:
+#             color1 = "Black"
+#         else:
+#             color1 = "White"
             
-    if int(cell2[1])%2 == 0:
-        if int(coord2)%2 == 0:
-            color2 = "Black"
-        else:
-            color2 = "White"
-    else:
-        if int(coord2)%2 != 0:
-            color2 = "Black"
-        else:
-            color2 = "White"
+#     if int(cell2[1])%2 == 0:
+#         if int(coord2)%2 == 0:
+#             color2 = "Black"
+#         else:
+#             color2 = "White"
+#     else:
+#         if int(coord2)%2 != 0:
+#             color2 = "Black"
+#         else:
+#             color2 = "White"
             
-    if color1 == color2:
-        return True
+#     if color1 == color2:
+#         return True
+#     else:
+#         return False
+
+def circleOfNumbers(n, firstNumber):
+    halfway = n/2
+    number = firstNumber+ halfway
+    
+    if number < n:
+        return number
     else:
-        return False
+        number = number - n
+        return number

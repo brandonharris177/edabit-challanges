@@ -1542,26 +1542,41 @@
 // 	}
 // }
 
-function reverseOdd(str) {
-	let array = str.split(" ")
-	for (i = 0; i < array.length; i++) {
-  	if (array[i].length%2 !== 0) {
-		console.log("before", array[i])
-		let word_array = array[i].split("")
-		let reverseArray = word_array.reverse()
-    	let joinArray = reverseArray.join("")
-		array[i] = joinArray
-		console.log("after", array[i])
-		}
-	}
-	let newString = array.join(" ")
-	console.log(newString)
-	return newString
-}
+// function reverseOdd(str) {
+// 	let array = str.split(" ")
+// 	for (i = 0; i < array.length; i++) {
+//   	if (array[i].length%2 !== 0) {
+// 		console.log("before", array[i])
+// 		let word_array = array[i].split("")
+// 		let reverseArray = word_array.reverse()
+//     	let joinArray = reverseArray.join("")
+// 		array[i] = joinArray
+// 		console.log("after", array[i])
+// 		}
+// 	}
+// 	let newString = array.join(" ")
+// 	console.log(newString)
+// 	return newString
+// }
 
-reverseOdd("One two three four")
+// reverseOdd("One two three four")
 // reverseOdd('Make sure uoy only esrever sdrow of ddo length')
 // reverseOdd('')
 // reverseOdd('Bananas')
 // reverseOdd('Even even even even even even even even even')
 // reverseOdd('Odd odd odd odd odd odd odd odd odd odd odd')
+
+function commonElements(arr1, arr2) {
+	var Set1 = new Set()
+	var Set2 = new Set()
+	var i;
+	for (i = 0; i < arr1.length; i++) {
+		Set1.add(arr1[i])
+	}
+	for (i = 0; i < arr2.length; i++) {
+		if (Set1.has(arr2[i])) {
+			Set2.add(arr2[i])
+		} 
+	}
+	return Array.from(Set2)
+}
