@@ -1566,17 +1566,39 @@
 // reverseOdd('Even even even even even even even even even')
 // reverseOdd('Odd odd odd odd odd odd odd odd odd odd odd')
 
-function commonElements(arr1, arr2) {
-	var Set1 = new Set()
-	var Set2 = new Set()
+// function commonElements(arr1, arr2) {
+// 	var Set1 = new Set()
+// 	var Set2 = new Set()
+// 	var i;
+// 	for (i = 0; i < arr1.length; i++) {
+// 		Set1.add(arr1[i])
+// 	}
+// 	for (i = 0; i < arr2.length; i++) {
+// 		if (Set1.has(arr2[i])) {
+// 			Set2.add(arr2[i])
+// 		} 
+// 	}
+// 	return Array.from(Set2)
+// }
+
+function firstRepeat(chars) {
+	charsList = chars.split("");
+	characters = new Set()
 	var i;
-	for (i = 0; i < arr1.length; i++) {
-		Set1.add(arr1[i])
+	for (i = 0; i < charsList.length; i++) {
+		if (characters.has(charsList[i])) {
+			return charsList[i]
+		} else {
+			characters.add(charsList[i])
+		}
 	}
-	for (i = 0; i < arr2.length; i++) {
-		if (Set1.has(arr2[i])) {
-			Set2.add(arr2[i])
-		} 
-	}
-	return Array.from(Set2)
+	return "-1"
 }
+
+firstRepeat("legolas")
+// firstRepeat("Balrog")
+// firstRepeat("Isildur")
+// firstRepeat("Gollum")
+// firstRepeat("Galadriel")
+// firstRepeat("pippin")
+// firstRepeat("Saruman")

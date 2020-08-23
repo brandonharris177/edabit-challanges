@@ -379,12 +379,24 @@
 #     else:
 #         return False
 
-def circleOfNumbers(n, firstNumber):
-    halfway = n/2
-    number = firstNumber+ halfway
+# def circleOfNumbers(n, firstNumber):
+#     halfway = n/2
+#     number = firstNumber+ halfway
     
-    if number < n:
-        return number
-    else:
-        number = number - n
-        return number
+#     if number < n:
+#         return number
+#     else:
+#         number = number - n
+#         return number
+
+def depositProfit(deposit, rate, threshold):
+    difference = threshold - deposit
+    amount = deposit
+    rate = rate/100
+    interest = 1 + rate
+    periods = 0
+    while amount < threshold:
+        amount = amount * interest
+        periods += 1
+        
+    return periods
