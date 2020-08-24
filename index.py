@@ -389,14 +389,34 @@
 #         number = number - n
 #         return number
 
-def depositProfit(deposit, rate, threshold):
-    difference = threshold - deposit
-    amount = deposit
-    rate = rate/100
-    interest = 1 + rate
-    periods = 0
-    while amount < threshold:
-        amount = amount * interest
-        periods += 1
+# def depositProfit(deposit, rate, threshold):
+#     difference = threshold - deposit
+#     amount = deposit
+#     rate = rate/100
+#     interest = 1 + rate
+#     periods = 0
+#     while amount < threshold:
+#         amount = amount * interest
+#         periods += 1
         
-    return periods
+#     return periods
+
+def absoluteValuesSumMinimization(a):
+    lowest_value = 0
+    value = 0
+    for num1 in range(0, len(a)):
+        total = 0
+        for num2 in range(0, len(a)):
+            difference = abs(a[num1] - a[num2])
+            total = total + difference
+            if num2 == len(a)-1:
+                if num1 == 0:
+                    lowest_value = total
+                    value = a[num1]
+                if total < lowest_value:
+                    lowest_value = total
+                    value = a[num1]
+                if total == lowest_value and a[num1] < value:
+                    value = a[num1]
+    
+    return value

@@ -1581,24 +1581,34 @@
 // 	return Array.from(Set2)
 // }
 
-function firstRepeat(chars) {
-	charsList = chars.split("");
-	characters = new Set()
-	var i;
-	for (i = 0; i < charsList.length; i++) {
-		if (characters.has(charsList[i])) {
-			return charsList[i]
-		} else {
-			characters.add(charsList[i])
-		}
-	}
-	return "-1"
-}
+// function firstRepeat(chars) {
+// 	charsList = chars.split("");
+// 	characters = new Set()
+// 	var i;
+// 	for (i = 0; i < charsList.length; i++) {
+// 		if (characters.has(charsList[i])) {
+// 			return charsList[i]
+// 		} else {
+// 			characters.add(charsList[i])
+// 		}
+// 	}
+// 	return "-1"
+// }
 
-firstRepeat("legolas")
-// firstRepeat("Balrog")
-// firstRepeat("Isildur")
-// firstRepeat("Gollum")
-// firstRepeat("Galadriel")
-// firstRepeat("pippin")
-// firstRepeat("Saruman")
+// firstRepeat("legolas")
+// // firstRepeat("Balrog")
+// // firstRepeat("Isildur")
+// // firstRepeat("Gollum")
+// // firstRepeat("Galadriel")
+// // firstRepeat("pippin")
+// // firstRepeat("Saruman")
+
+function paths(n) {
+	let num = n
+	let value = 1
+	while (num !== 1) {
+		value = value * num
+		num -= 1
+	}
+	return value
+}
