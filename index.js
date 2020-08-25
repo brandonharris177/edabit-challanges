@@ -1603,12 +1603,22 @@
 // // firstRepeat("pippin")
 // // firstRepeat("Saruman")
 
-function paths(n) {
-	let num = n
-	let value = 1
-	while (num !== 1) {
-		value = value * num
-		num -= 1
+// function paths(n) {
+// 	let num = n
+// 	let value = 1
+// 	while (num !== 1) {
+// 		value = value * num
+// 		num -= 1
+// 	}
+// 	return value
+// }
+
+function getTotalPrice(groceries) {
+	total = 0
+	var i;
+	for (i = 0; i < groceries.length; i++) {
+		price = groceries[i].quantity * groceries[i].price
+		total = total + price
 	}
-	return value
+	return  parseFloat((total.toFixed(2)))
 }
