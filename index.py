@@ -401,22 +401,36 @@
         
 #     return periods
 
-def absoluteValuesSumMinimization(a):
-    lowest_value = 0
-    value = 0
-    for num1 in range(0, len(a)):
-        total = 0
-        for num2 in range(0, len(a)):
-            difference = abs(a[num1] - a[num2])
-            total = total + difference
-            if num2 == len(a)-1:
-                if num1 == 0:
-                    lowest_value = total
-                    value = a[num1]
-                if total < lowest_value:
-                    lowest_value = total
-                    value = a[num1]
-                if total == lowest_value and a[num1] < value:
-                    value = a[num1]
+# def absoluteValuesSumMinimization(a):
+#     lowest_value = 0
+#     value = 0
+#     for num1 in range(0, len(a)):
+#         total = 0
+#         for num2 in range(0, len(a)):
+#             difference = abs(a[num1] - a[num2])
+#             total = total + difference
+#             if num2 == len(a)-1:
+#                 if num1 == 0:
+#                     lowest_value = total
+#                     value = a[num1]
+#                 if total < lowest_value:
+#                     lowest_value = total
+#                     value = a[num1]
+#                 if total == lowest_value and a[num1] < value:
+#                     value = a[num1]
     
-    return value
+#     return value
+
+def extractEachKth(inputArray, k):
+    popList = []
+    popNum = k
+    while popNum <= len(inputArray):
+        popList.append(popNum)
+        popNum += k
+        
+    popList.reverse()
+        
+    for num in popList:
+        inputArray.pop(num-1)
+    
+    return inputArray
