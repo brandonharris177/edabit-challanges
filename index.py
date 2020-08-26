@@ -421,16 +421,24 @@
     
 #     return value
 
-def extractEachKth(inputArray, k):
-    popList = []
-    popNum = k
-    while popNum <= len(inputArray):
-        popList.append(popNum)
-        popNum += k
+# def extractEachKth(inputArray, k):
+#     popList = []
+#     popNum = k
+#     while popNum <= len(inputArray):
+#         popList.append(popNum)
+#         popNum += k
         
-    popList.reverse()
+#     popList.reverse()
         
-    for num in popList:
-        inputArray.pop(num-1)
+#     for num in popList:
+#         inputArray.pop(num-1)
     
-    return inputArray
+#     return inputArray
+
+import re
+
+def firstDigit(inputString):
+    for char in inputString:
+        x = re.search("[0-9]", char)
+        if x:
+            return char
