@@ -1613,12 +1613,38 @@
 // 	return value
 // }
 
-function getTotalPrice(groceries) {
-	total = 0
+// function getTotalPrice(groceries) {
+// 	total = 0
+// 	var i;
+// 	for (i = 0; i < groceries.length; i++) {
+// 		price = groceries[i].quantity * groceries[i].price
+// 		total = total + price
+// 	}
+// 	return  parseFloat((total.toFixed(2)))
+// }
+
+function prioritySort(arr, s) {
+	arr.sort(function(a, b){return a - b});
+	let setNums = []
 	var i;
-	for (i = 0; i < groceries.length; i++) {
-		price = groceries[i].quantity * groceries[i].price
-		total = total + price
+	for (i = 0; i < arr.length; i++) {
+		if (s.has(arr[i])){
+			value = arr.splice(i, 1)
+			setNums.push(value[0])
+			i -= 1
+		}
 	}
-	return  parseFloat((total.toFixed(2)))
+	setNums.sort(function(a, b){return a - b});
+	const finalArr = setNums.concat(arr)
+	return finalArr
 }
+
+// prioritySort([5, 4, 3, 2, 1], new Set([2, 3]))
+// prioritySort([], new Set([2, 3]))
+// prioritySort([], new Set())
+// prioritySort([1, 2, 3], new Set())
+// prioritySort([5, 4, 3, 2, 1], new Set([3, 6]))
+prioritySort([-5, -4, -3, -2, -1, 0], new Set([-4, -3]))
+// prioritySort([-10, 0, 10], new Set([0]))
+// prioritySort([4, 2, 2], new Set([1]))
+// prioritySort([1, 5, 5, 5, 5, 2, 1], new Set([1,5]))
