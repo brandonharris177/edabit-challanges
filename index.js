@@ -1623,28 +1623,59 @@
 // 	return  parseFloat((total.toFixed(2)))
 // }
 
-function prioritySort(arr, s) {
-	arr.sort(function(a, b){return a - b});
-	let setNums = []
-	var i;
-	for (i = 0; i < arr.length; i++) {
-		if (s.has(arr[i])){
-			value = arr.splice(i, 1)
-			setNums.push(value[0])
-			i -= 1
-		}
-	}
-	setNums.sort(function(a, b){return a - b});
-	const finalArr = setNums.concat(arr)
-	return finalArr
-}
+// function prioritySort(arr, s) {
+// 	arr.sort(function(a, b){return a - b});
+// 	let setNums = []
+// 	var i;
+// 	for (i = 0; i < arr.length; i++) {
+// 		if (s.has(arr[i])){
+// 			value = arr.splice(i, 1)
+// 			setNums.push(value[0])
+// 			i -= 1
+// 		}
+// 	}
+// 	setNums.sort(function(a, b){return a - b});
+// 	const finalArr = setNums.concat(arr)
+// 	return finalArr
+// }
 
 // prioritySort([5, 4, 3, 2, 1], new Set([2, 3]))
 // prioritySort([], new Set([2, 3]))
 // prioritySort([], new Set())
 // prioritySort([1, 2, 3], new Set())
 // prioritySort([5, 4, 3, 2, 1], new Set([3, 6]))
-prioritySort([-5, -4, -3, -2, -1, 0], new Set([-4, -3]))
+// prioritySort([-5, -4, -3, -2, -1, 0], new Set([-4, -3]))
 // prioritySort([-10, 0, 10], new Set([0]))
 // prioritySort([4, 2, 2], new Set([1]))
 // prioritySort([1, 5, 5, 5, 5, 2, 1], new Set([1,5]))
+
+function canConcatenate(arr, target) {
+	let concatArr = []
+	var i;
+	for (i = 0; i < arr.length; i++) {
+		concatArr = concatArr.concat(arr[i])
+	}
+	if (concatArr.length !== target.length) {
+		return false
+	}
+	concatArr.sort()
+	target.sort()
+	for (i = 0; i < target.length; i++) {
+		if (concatArr[i] !== target[i]) {
+			return false
+		}
+		return true
+	}
+}
+
+canConcatenate([[1, 2, 3, 4], [5, 6], [7]], [1, 2, 3, 4, 5, 6, 7])
+// canConcatenate([[2, 1, 3], [5, 4, 7, 6]], [1, 2, 3, 4, 5, 6, 7])
+// canConcatenate([[2, 1, 3], [5, 4, 7, 6]], [7, 6, 5, 4, 3, 2, 1])
+// canConcatenate([[2, 1, 3], [5, 4, 7, 6, 7]], [1, 2, 3, 4, 5, 6, 7])
+// canConcatenate([[2, 1, 3], [5, 4, 7]], [1, 2, 3, 4, 5, 6, 7])
+// canConcatenate([[1, 4], [3]], [1, 3, 4])
+// canConcatenate([[1, 4], [3]], [1, 2, 3, 4])
+// canConcatenate([[1, 4], [3]], [4, 3, 1])
+// canConcatenate([[1, 4], [2, 3]], [4, 3, 1, 2])
+// canConcatenate([[1], [2], [3, 4]], [4, 3, 1, 2])
+// canConcatenate([[1], [2], [3], [4]], [4, 3, 1, 2])
