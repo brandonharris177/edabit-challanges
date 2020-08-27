@@ -435,10 +435,17 @@
     
 #     return inputArray
 
-import re
+# import re
 
-def firstDigit(inputString):
-    for char in inputString:
-        x = re.search("[0-9]", char)
-        if x:
-            return char
+# def firstDigit(inputString):
+#     for char in inputString:
+#         x = re.search("[0-9]", char)
+#         if x:
+#             return char
+
+def differentSymbolsNaive(s):
+    letterSet = set()
+    for letter in s:
+        letterSet.add(letter)
+        
+    return len(letterSet)
