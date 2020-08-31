@@ -443,9 +443,31 @@
 #         if x:
 #             return char
 
-def differentSymbolsNaive(s):
-    letterSet = set()
-    for letter in s:
-        letterSet.add(letter)
+# def differentSymbolsNaive(s):
+#     letterSet = set()
+#     for letter in s:
+#         letterSet.add(letter)
         
-    return len(letterSet)
+#     return len(letterSet)
+
+def arrayMaxConsecutiveSum(inputArray, k):
+
+    end = 0
+    indexSum = 0
+    start = 0
+    
+    for index in range(0, k):
+        indexSum = indexSum + inputArray[index] 
+        end += 1
+            
+    largestNum = indexSum
+    
+    while end < len(inputArray):
+        indexSum = indexSum + inputArray[end]
+        indexSum = indexSum - inputArray[start]
+        if indexSum > largestNum:
+            largestNum = indexSum
+        end += 1
+        start += 1
+        
+    return largestNum
