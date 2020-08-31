@@ -1649,26 +1649,26 @@
 // prioritySort([4, 2, 2], new Set([1]))
 // prioritySort([1, 5, 5, 5, 5, 2, 1], new Set([1,5]))
 
-function canConcatenate(arr, target) {
-	let concatArr = []
-	var i;
-	for (i = 0; i < arr.length; i++) {
-		concatArr = concatArr.concat(arr[i])
-	}
-	if (concatArr.length !== target.length) {
-		return false
-	}
-	concatArr.sort()
-	target.sort()
-	for (i = 0; i < target.length; i++) {
-		if (concatArr[i] !== target[i]) {
-			return false
-		}
-		return true
-	}
-}
+// function canConcatenate(arr, target) {
+// 	let concatArr = []
+// 	var i;
+// 	for (i = 0; i < arr.length; i++) {
+// 		concatArr = concatArr.concat(arr[i])
+// 	}
+// 	if (concatArr.length !== target.length) {
+// 		return false
+// 	}
+// 	concatArr.sort()
+// 	target.sort()
+// 	for (i = 0; i < target.length; i++) {
+// 		if (concatArr[i] !== target[i]) {
+// 			return false
+// 		}
+// 		return true
+// 	}
+// }
 
-canConcatenate([[1, 2, 3, 4], [5, 6], [7]], [1, 2, 3, 4, 5, 6, 7])
+// canConcatenate([[1, 2, 3, 4], [5, 6], [7]], [1, 2, 3, 4, 5, 6, 7])
 // canConcatenate([[2, 1, 3], [5, 4, 7, 6]], [1, 2, 3, 4, 5, 6, 7])
 // canConcatenate([[2, 1, 3], [5, 4, 7, 6]], [7, 6, 5, 4, 3, 2, 1])
 // canConcatenate([[2, 1, 3], [5, 4, 7, 6, 7]], [1, 2, 3, 4, 5, 6, 7])
@@ -1679,3 +1679,36 @@ canConcatenate([[1, 2, 3, 4], [5, 6], [7]], [1, 2, 3, 4, 5, 6, 7])
 // canConcatenate([[1, 4], [2, 3]], [4, 3, 1, 2])
 // canConcatenate([[1], [2], [3, 4]], [4, 3, 1, 2])
 // canConcatenate([[1], [2], [3], [4]], [4, 3, 1, 2])
+
+function calculateScore(games) {
+	let Awins = 0
+	let Bwins = 0
+	var i;
+	for (i = 0; i < games.length; i++) {
+		if (games[i][0] === "R" && games[i][1] === "S") {
+			Awins += 1
+		} else if (games[i][0] === "P" && games[i][1] === "R") {
+			Awins += 1
+		} else if (games[i][0] === "S" && games[i][1] === "P") {
+			Awins += 1
+		} else if (games[i][0] === games[i][1]) {
+			Awins += 0
+		} else {
+			Bwins += 1
+		}
+	}
+	if (Awins === Bwins) {
+		return "Tie"
+	} else if (Awins > Bwins) {
+		return "Abigail"
+	} else {
+		return "Benson"
+	}
+}
+
+calculateScore([['R', 'P'], ['R', 'S'], ['S', 'P']])
+calculateScore([['R', 'R'], ['S', 'S']])
+calculateScore([['S', 'R'], ['R', 'S'], ['R', 'R']])
+calculateScore([['S', 'R'], ['P', 'R']])
+calculateScore([['S', 'S'], ['S', 'P'], ['R', 'S'], ['S', 'R'], ['R', 'R']])
+calculateScore([['S', 'R'], ['S', 'R'], ['S', 'R'], ['R', 'S'], ['R', 'S']])
