@@ -480,3 +480,19 @@ def growingPlant(upSpeed, downSpeed, desiredHeight):
     days = math.ceil(growthAmount/dailyGrowth) + 1
     
     return days
+
+def knapsackLight(value1, weight1, value2, weight2, maxW):
+    total = weight1 + weight2
+    if total <= maxW:
+        return value1 + value2
+        
+    if value1 > value2 and weight1 <= maxW:
+        return value1
+        
+    if weight2 <= maxW:
+        return value2
+        
+    if weight1 <= maxW:
+        return value1
+        
+    return 0
