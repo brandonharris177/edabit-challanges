@@ -1680,35 +1680,44 @@
 // canConcatenate([[1], [2], [3, 4]], [4, 3, 1, 2])
 // canConcatenate([[1], [2], [3], [4]], [4, 3, 1, 2])
 
-function calculateScore(games) {
-	let Awins = 0
-	let Bwins = 0
-	var i;
-	for (i = 0; i < games.length; i++) {
-		if (games[i][0] === "R" && games[i][1] === "S") {
-			Awins += 1
-		} else if (games[i][0] === "P" && games[i][1] === "R") {
-			Awins += 1
-		} else if (games[i][0] === "S" && games[i][1] === "P") {
-			Awins += 1
-		} else if (games[i][0] === games[i][1]) {
-			Awins += 0
-		} else {
-			Bwins += 1
-		}
-	}
-	if (Awins === Bwins) {
-		return "Tie"
-	} else if (Awins > Bwins) {
-		return "Abigail"
-	} else {
-		return "Benson"
-	}
-}
+// function calculateScore(games) {
+// 	let Awins = 0
+// 	let Bwins = 0
+// 	var i;
+// 	for (i = 0; i < games.length; i++) {
+// 		if (games[i][0] === "R" && games[i][1] === "S") {
+// 			Awins += 1
+// 		} else if (games[i][0] === "P" && games[i][1] === "R") {
+// 			Awins += 1
+// 		} else if (games[i][0] === "S" && games[i][1] === "P") {
+// 			Awins += 1
+// 		} else if (games[i][0] === games[i][1]) {
+// 			Awins += 0
+// 		} else {
+// 			Bwins += 1
+// 		}
+// 	}
+// 	if (Awins === Bwins) {
+// 		return "Tie"
+// 	} else if (Awins > Bwins) {
+// 		return "Abigail"
+// 	} else {
+// 		return "Benson"
+// 	}
+// }
 
-calculateScore([['R', 'P'], ['R', 'S'], ['S', 'P']])
-calculateScore([['R', 'R'], ['S', 'S']])
-calculateScore([['S', 'R'], ['R', 'S'], ['R', 'R']])
-calculateScore([['S', 'R'], ['P', 'R']])
-calculateScore([['S', 'S'], ['S', 'P'], ['R', 'S'], ['S', 'R'], ['R', 'R']])
-calculateScore([['S', 'R'], ['S', 'R'], ['S', 'R'], ['R', 'S'], ['R', 'S']])
+// calculateScore([['R', 'P'], ['R', 'S'], ['S', 'P']])
+// calculateScore([['R', 'R'], ['S', 'S']])
+// calculateScore([['S', 'R'], ['R', 'S'], ['R', 'R']])
+// calculateScore([['S', 'R'], ['P', 'R']])
+// calculateScore([['S', 'S'], ['S', 'P'], ['R', 'S'], ['S', 'R'], ['R', 'R']])
+// calculateScore([['S', 'R'], ['S', 'R'], ['S', 'R'], ['R', 'S'], ['R', 'S']])
+
+function countLayers(rug) {
+	let set = new Set()
+	var i;
+	for (i = 0; i < rug.length; i++) {
+		set.add(rug[i])
+	}
+	return set.size
+}
