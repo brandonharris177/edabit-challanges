@@ -472,27 +472,38 @@
         
 #     return largestNum
 
-def growingPlant(upSpeed, downSpeed, desiredHeight):
-    if upSpeed > desiredHeight:
-        return 1
-    growthAmount = desiredHeight - upSpeed 
-    dailyGrowth = upSpeed - downSpeed
-    days = math.ceil(growthAmount/dailyGrowth) + 1
+# def growingPlant(upSpeed, downSpeed, desiredHeight):
+#     if upSpeed > desiredHeight:
+#         return 1
+#     growthAmount = desiredHeight - upSpeed 
+#     dailyGrowth = upSpeed - downSpeed
+#     days = math.ceil(growthAmount/dailyGrowth) + 1
     
-    return days
+#     return days
 
-def knapsackLight(value1, weight1, value2, weight2, maxW):
-    total = weight1 + weight2
-    if total <= maxW:
-        return value1 + value2
+# def knapsackLight(value1, weight1, value2, weight2, maxW):
+#     total = weight1 + weight2
+#     if total <= maxW:
+#         return value1 + value2
         
-    if value1 > value2 and weight1 <= maxW:
-        return value1
+#     if value1 > value2 and weight1 <= maxW:
+#         return value1
         
-    if weight2 <= maxW:
-        return value2
+#     if weight2 <= maxW:
+#         return value2
         
-    if weight1 <= maxW:
-        return value1
+#     if weight1 <= maxW:
+#         return value1
         
-    return 0
+#     return 0
+
+def longestDigitsPrefix(inputString):
+    string = ""
+    for char in inputString:
+        try:
+            num = int(char)
+        except ValueError:
+            return string
+        string = string + char
+        
+    return string
