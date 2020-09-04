@@ -1713,12 +1713,49 @@
 // calculateScore([['S', 'S'], ['S', 'P'], ['R', 'S'], ['S', 'R'], ['R', 'R']])
 // calculateScore([['S', 'R'], ['S', 'R'], ['S', 'R'], ['R', 'S'], ['R', 'S']])
 
-function countLayers(rug) {
-	let set = new Set()
-	var i;
-	for (i = 0; i < rug.length; i++) {
-		set.add(rug[i])
-	}
-	return set.size
-}
+// function countLayers(rug) {
+// 	let set = new Set()
+// 	var i;
+// 	for (i = 0; i < rug.length; i++) {
+// 		set.add(rug[i])
+// 	}
+// 	return set.size
+// }
 
+// function leader(arr) {
+// 	var i;
+// 	index = 0
+// 	for (i = 1; i < arr.length; i++) {
+// 		if (arr[i] > arr[i-1]) {
+// 			index = i
+// 		}
+// 	}
+// 	if (index > 0) {
+// 		arr = arr.slice(index)
+// 	}
+// 	return arr
+// }
+
+// leader([2, 3, 20, 15, 8, 3])
+// leader([2, 3, 20, 15, 26, 3])
+// leader([1, 2, 3, 4, 3, 10])
+// leader([500, 400, 300, 200, 100, 50, 10, 5])
+// leader([8, 7, 1, 2, 10, 3, 5])
+
+function overlapping(arr) {
+	let range = arr[0]
+	var i;
+	for (i = 0; i < arr.length; i++) {
+		if (arr[i][0] > range[0]) {
+			range[0] = arr[i][0]			
+		}
+		if (arr[i][1] < range[1]) {
+			range[1] = arr[i][1]
+		}
+	}
+	if (range[0] > range[1]) {
+		return('No overlapping')
+	} else {
+		return range
+	}
+}
