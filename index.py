@@ -547,14 +547,74 @@
     
 #     return False
 
-def digitDegree(n):
-    count = 0
-    num = n
-    while len(str(num)) != 1:
-        total = 0
-        for num in str(num):
-            total = total + int(num)
-        num = total
-        count += 1
+# def digitDegree(n):
+#     count = 0
+#     num = n
+#     while len(str(num)) != 1:
+#         total = 0
+#         for num in str(num):
+#             total = total + int(num)
+#         num = total
+#         count += 1
         
-    return count
+#     return count
+
+# def stringsRearrangement(inputArray):
+#     hash_table = {}
+    
+#     for index1 in range(0, len(inputArray)):
+#         hash_table[inputArray[index1]] = []
+#         for index2 in range(0, len(inputArray)):
+#             differ = 0
+#             for index3 in range(0, len(inputArray[index1])):
+#                 if index1 != index2:
+#                     if inputArray[index1][index3] != inputArray[index2][index3]:
+#                         differ += 1
+#                     if index3 == len(inputArray[index1])-1 and differ == 1:
+#                         hash_table[inputArray[index1]].append(inputArray[index2])
+                                            
+#     for key, value in hash_table.items():
+#         if len(value) == 0:
+#             return False
+            
+#     letterSet = {inputArray[0]}
+    
+#     stack = [inputArray[0]]
+    
+#     while len(stack) > 0:
+#         if stack[0] in hash_table:
+#             for value in hash_table[stack[0]]:
+#                 letterSet.add(value)
+#                 stack.append(value)
+#             hash_table.pop(stack[0])
+#         stack.pop(0)
+        
+#     if len(letterSet) == len(inputArray):
+#         return True
+    
+#     return False
+
+import itertools
+
+def stringsRearrangement(inputArray):
+    permutations_object = itertools.permutations(inputArray)
+    permutations_list = list(permutations_object)
+    
+    iteration = 0
+
+    while iteration < len(permutations_list):
+        oneLetterChange = 0
+        for word in range(0, len(permutations_list[iteration])-1):
+            difference = 0
+            for letter in range(0, len(permutations_list[iteration][word])):
+                if permutations_list[iteration][word][letter] != permutations_list[iteration][word+1][letter]:
+                    difference += 1
+            if difference == 1:
+                oneLetterChange += 1
+            else:
+                iteration += 1
+                break
+        if oneLetterChange == len(inputArray)-1:
+            return True
+                
+    return False
