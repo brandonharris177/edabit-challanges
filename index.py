@@ -594,27 +594,66 @@
     
 #     return False
 
-import itertools
+# import itertools
 
-def stringsRearrangement(inputArray):
-    permutations_object = itertools.permutations(inputArray)
-    permutations_list = list(permutations_object)
+# def stringsRearrangement(inputArray):
+#     permutations_object = itertools.permutations(inputArray)
+#     permutations_list = list(permutations_object)
     
-    iteration = 0
+#     iteration = 0
 
-    while iteration < len(permutations_list):
-        oneLetterChange = 0
-        for word in range(0, len(permutations_list[iteration])-1):
-            difference = 0
-            for letter in range(0, len(permutations_list[iteration][word])):
-                if permutations_list[iteration][word][letter] != permutations_list[iteration][word+1][letter]:
-                    difference += 1
-            if difference == 1:
-                oneLetterChange += 1
-            else:
-                iteration += 1
-                break
-        if oneLetterChange == len(inputArray)-1:
-            return True
+#     while iteration < len(permutations_list):
+#         oneLetterChange = 0
+#         for word in range(0, len(permutations_list[iteration])-1):
+#             difference = 0
+#             for letter in range(0, len(permutations_list[iteration][word])):
+#                 if permutations_list[iteration][word][letter] != permutations_list[iteration][word+1][letter]:
+#                     difference += 1
+#             if difference == 1:
+#                 oneLetterChange += 1
+#             else:
+#                 iteration += 1
+#                 break
+#         if oneLetterChange == len(inputArray)-1:
+#             return True
                 
+#     return False
+
+def bishopAndPawn(bishop, pawn):
+    if bishop[0] == pawn[0] or bishop[1] == pawn[1]:
+        return False
+        
+    directions = []
+    hash_table = {
+        "a": 0,
+        "b": 1,
+        "c": 2,
+        "d": 3,
+        "e": 4,
+        "f": 5,
+        "g": 6,
+        "h": 7
+    }
+    movement = ["a", "b", "c", "d", "e", "f", "g", "h"]
+    
+    if bishop[0] > pawn[0]:
+        directions.append(-1)
+    else:
+        directions.append(1)
+        
+    if int(bishop[1]) > int(pawn[1]):
+        directions.append(-1)
+    else:
+        directions.append(1)
+        
+    while 0 < int(bishop[1]) <= 8:
+        print(bishop)
+        index = hash_table[bishop[0]] + directions[0] 
+        bishop = movement[index] + bishop[1]
+        bishop = bishop[0] + str(int(bishop[1]) + directions[1]) 
+        if bishop == pawn:
+            return True
+        if bishop[0] == "a" or bishop[0] == "h":
+            return False
+        
     return False
