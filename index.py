@@ -619,41 +619,75 @@
                 
 #     return False
 
-def bishopAndPawn(bishop, pawn):
-    if bishop[0] == pawn[0] or bishop[1] == pawn[1]:
-        return False
+# def bishopAndPawn(bishop, pawn):
+#     if bishop[0] == pawn[0] or bishop[1] == pawn[1]:
+#         return False
         
-    directions = []
-    hash_table = {
-        "a": 0,
-        "b": 1,
-        "c": 2,
-        "d": 3,
-        "e": 4,
-        "f": 5,
-        "g": 6,
-        "h": 7
-    }
-    movement = ["a", "b", "c", "d", "e", "f", "g", "h"]
+#     directions = []
+#     hash_table = {
+#         "a": 0,
+#         "b": 1,
+#         "c": 2,
+#         "d": 3,
+#         "e": 4,
+#         "f": 5,
+#         "g": 6,
+#         "h": 7
+#     }
+#     movement = ["a", "b", "c", "d", "e", "f", "g", "h"]
     
-    if bishop[0] > pawn[0]:
-        directions.append(-1)
-    else:
-        directions.append(1)
+#     if bishop[0] > pawn[0]:
+#         directions.append(-1)
+#     else:
+#         directions.append(1)
         
-    if int(bishop[1]) > int(pawn[1]):
-        directions.append(-1)
-    else:
-        directions.append(1)
+#     if int(bishop[1]) > int(pawn[1]):
+#         directions.append(-1)
+#     else:
+#         directions.append(1)
         
-    while 0 < int(bishop[1]) <= 8:
-        print(bishop)
-        index = hash_table[bishop[0]] + directions[0] 
-        bishop = movement[index] + bishop[1]
-        bishop = bishop[0] + str(int(bishop[1]) + directions[1]) 
-        if bishop == pawn:
-            return True
-        if bishop[0] == "a" or bishop[0] == "h":
+#     while 0 < int(bishop[1]) <= 8:
+#         print(bishop)
+#         index = hash_table[bishop[0]] + directions[0] 
+#         bishop = movement[index] + bishop[1]
+#         bishop = bishop[0] + str(int(bishop[1]) + directions[1]) 
+#         if bishop == pawn:
+#             return True
+#         if bishop[0] == "a" or bishop[0] == "h":
+#             return False
+        
+#     return False
+
+def isBeautifulString(inputString):
+    
+    sorted_characters = sorted(inputString)
+    sortedString = "". join(sorted_characters)
+    
+    hash_table = {}
+    lastLetter = sortedString[-1] 
+    alphabet = string.ascii_lowercase
+    letterList = []
+    
+    for letter in alphabet:
+        if letter != lastLetter:
+            letterList.append(letter)
+        else:
+            letterList.append(letter)
+            break
+    
+    for letter in sortedString:
+        if letter in hash_table:
+            hash_table[letter] += 1
+        else:
+            hash_table[letter] = 1
+            
+    for index in range(0, len(letterList)-1):
+        print(letterList[index])
+        if letterList[index] not in hash_table:
             return False
-        
-    return False
+        if letterList[index + 1] in hash_table:
+            if hash_table[letterList[index]] < hash_table[letterList[index+1]]:
+                return False
+            
+    return True
+            
