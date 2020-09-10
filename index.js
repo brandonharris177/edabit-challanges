@@ -1742,20 +1742,55 @@
 // leader([500, 400, 300, 200, 100, 50, 10, 5])
 // leader([8, 7, 1, 2, 10, 3, 5])
 
-function overlapping(arr) {
-	let range = arr[0]
-	var i;
-	for (i = 0; i < arr.length; i++) {
-		if (arr[i][0] > range[0]) {
-			range[0] = arr[i][0]			
-		}
-		if (arr[i][1] < range[1]) {
-			range[1] = arr[i][1]
+// function overlapping(arr) {
+// 	let range = arr[0]
+// 	var i;
+// 	for (i = 0; i < arr.length; i++) {
+// 		if (arr[i][0] > range[0]) {
+// 			range[0] = arr[i][0]			
+// 		}
+// 		if (arr[i][1] < range[1]) {
+// 			range[1] = arr[i][1]
+// 		}
+// 	}
+// 	if (range[0] > range[1]) {
+// 		return('No overlapping')
+// 	} else {
+// 		return range
+// 	}
+// }
+
+function isAutobiographical(n) {
+	let string = n.toString(10)
+	let dictionary = new Object()
+	for (i = 0; i < string.length; i++) {
+		if (string[i] in dictionary) {
+			dictionary[string[i]] += 1
+		} else {
+			dictionary[string[i]] = 1
 		}
 	}
-	if (range[0] > range[1]) {
-		return('No overlapping')
-	} else {
-		return range
+	console.log(dictionary)
+
+	for (i = 0; i < string.length; i++) {
+		let index = i.toString(10)
+		console.log(dictionary[index], parseInt(string[i]))
+		if (dictionary[index] != parseInt(string[i])) {
+			console.log("false")
+			return false
+		}
 	}
+	console.log("true")
+	return true
 }
+
+isAutobiographical(6210001000)
+isAutobiographical(12345)
+isAutobiographical(1210)
+isAutobiographical(638)
+isAutobiographical(0)
+isAutobiographical(10 ** 10)
+isAutobiographical(2020)
+isAutobiographical(3211000)
+isAutobiographical(3434343)
+isAutobiographical(2100)

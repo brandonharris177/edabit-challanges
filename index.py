@@ -658,36 +658,39 @@
         
 #     return False
 
-def isBeautifulString(inputString):
+# def isBeautifulString(inputString):
     
-    sorted_characters = sorted(inputString)
-    sortedString = "". join(sorted_characters)
+#     sorted_characters = sorted(inputString)
+#     sortedString = "". join(sorted_characters)
     
-    hash_table = {}
-    lastLetter = sortedString[-1] 
-    alphabet = string.ascii_lowercase
-    letterList = []
+#     hash_table = {}
+#     lastLetter = sortedString[-1] 
+#     alphabet = string.ascii_lowercase
+#     letterList = []
     
-    for letter in alphabet:
-        if letter != lastLetter:
-            letterList.append(letter)
-        else:
-            letterList.append(letter)
-            break
+#     for letter in alphabet:
+#         if letter != lastLetter:
+#             letterList.append(letter)
+#         else:
+#             letterList.append(letter)
+#             break
     
-    for letter in sortedString:
-        if letter in hash_table:
-            hash_table[letter] += 1
-        else:
-            hash_table[letter] = 1
+#     for letter in sortedString:
+#         if letter in hash_table:
+#             hash_table[letter] += 1
+#         else:
+#             hash_table[letter] = 1
             
-    for index in range(0, len(letterList)-1):
-        print(letterList[index])
-        if letterList[index] not in hash_table:
-            return False
-        if letterList[index + 1] in hash_table:
-            if hash_table[letterList[index]] < hash_table[letterList[index+1]]:
-                return False
+#     for index in range(0, len(letterList)-1):
+#         print(letterList[index])
+#         if letterList[index] not in hash_table:
+#             return False
+#         if letterList[index + 1] in hash_table:
+#             if hash_table[letterList[index]] < hash_table[letterList[index+1]]:
+#                 return False
             
-    return True
+#     return True
             
+def findEmailDomain(address):
+    addressList = address.split("@")
+    return addressList[-1]
