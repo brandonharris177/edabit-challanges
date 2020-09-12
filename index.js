@@ -1760,40 +1760,40 @@
 // 	}
 // }
 
-function isAutobiographical(n) {
-	let string = n.toString(10)
-	let dictionary = new Object()
-	for (i = 0; i < string.length; i++) {
-		if (string[i] in dictionary) {
-			dictionary[string[i]] += 1
-		} else {
-			dictionary[string[i]] = 1
-		}
-	}
-	console.log(dictionary)
+// function isAutobiographical(n) {
+// 	let string = n.toString(10)
+// 	let dictionary = new Object()
+// 	for (i = 0; i < string.length; i++) {
+// 		if (string[i] in dictionary) {
+// 			dictionary[string[i]] += 1
+// 		} else {
+// 			dictionary[string[i]] = 1
+// 		}
+// 	}
+// 	console.log(dictionary)
 
-	for (i = 0; i < string.length; i++) {
-		let index = i.toString(10)
-		// console.log(dictionary[index], parseInt(string[i]))
-		if (string[i] == "0" && string[i] in dictionary) {
-			return false
-		}
-		else if (dictionary[index] != parseInt(string[i]) && string[i] != "0") {
-			console.log("false")
-			return false
-		}
-	}
-	console.log("true")
-	return true
-}
+// 	for (i = 0; i < string.length; i++) {
+// 		let index = i.toString(10)
+// 		// console.log(dictionary[index], parseInt(string[i]))
+// 		if (string[i] == "0" && string[i] in dictionary) {
+// 			return false
+// 		}
+// 		else if (dictionary[index] != parseInt(string[i]) && string[i] != "0") {
+// 			console.log("false")
+// 			return false
+// 		}
+// 	}
+// 	console.log("true")
+// 	return true
+// }
 
-isAutobiographical(6210001000)
-isAutobiographical(12345)
-isAutobiographical(1210)
-isAutobiographical(638)
-isAutobiographical(0)
-isAutobiographical(10 ** 10)
-isAutobiographical(2020)
-isAutobiographical(3211000)
-isAutobiographical(3434343)
-isAutobiographical(2100)
+// isAutobiographical(6210001000)
+// isAutobiographical(12345)
+// isAutobiographical(1210)
+// isAutobiographical(638)
+// isAutobiographical(0)
+// isAutobiographical(10 ** 10)
+// isAutobiographical(2020)
+// isAutobiographical(3211000)
+// isAutobiographical(3434343)
+// isAutobiographical(2100)

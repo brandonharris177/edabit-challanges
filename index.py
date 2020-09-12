@@ -695,27 +695,52 @@
 #     addressList = address.split("@")
 #     return addressList[-1]
 
-def electionsWinners(votes, k):
-    current_winner = 0
-    tie = False
+# def electionsWinners(votes, k):
+#     current_winner = 0
+#     tie = False
     
-    for vote in votes:
-        if vote == current_winner:
-            tie = True
-        if vote > current_winner:
-            current_winner = vote
-            tie = False
+#     for vote in votes:
+#         if vote == current_winner:
+#             tie = True
+#         if vote > current_winner:
+#             current_winner = vote
+#             tie = False
             
-    if k == 0:
-        print(tie)
-        if tie == False:
-            return 1
-        if tie == True:
-            return 0
+#     if k == 0:
+#         print(tie)
+#         if tie == False:
+#             return 1
+#         if tie == True:
+#             return 0
     
-    potential_winners = 0
-    for vote in votes:
-        if vote+k > current_winner:
-            potential_winners += 1
+#     potential_winners = 0
+#     for vote in votes:
+#         if vote+k > current_winner:
+#             potential_winners += 1
             
-    return potential_winners
+#     return potential_winners
+
+def buildPalindrome(st):
+    index = math.ceil(len(st)/2)
+    st[index]
+    
+    pointer1 = index-1
+    pointer2 = index+1
+    
+    while 0 <= pointer1 and pointer2 < len(st):
+        if pointer1 == pointer2:
+            pointer1 -= 1
+            pointer2 += 1
+        else:
+            index += 1
+            pointer1 = index-1
+            pointer2 = index+1
+            
+        pointer1 -= 2
+    
+    while pointer1 >= 0:
+        print(pointer1)
+        st = st + st[pointer1]
+        pointer1 -= 1
+        
+    return st
