@@ -1774,8 +1774,11 @@ function isAutobiographical(n) {
 
 	for (i = 0; i < string.length; i++) {
 		let index = i.toString(10)
-		console.log(dictionary[index], parseInt(string[i]))
-		if (dictionary[index] != parseInt(string[i])) {
+		// console.log(dictionary[index], parseInt(string[i]))
+		if (string[i] == "0" && string[i] in dictionary) {
+			return false
+		}
+		else if (dictionary[index] != parseInt(string[i]) && string[i] != "0") {
 			console.log("false")
 			return false
 		}

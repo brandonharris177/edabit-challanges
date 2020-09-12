@@ -691,6 +691,31 @@
             
 #     return True
             
-def findEmailDomain(address):
-    addressList = address.split("@")
-    return addressList[-1]
+# def findEmailDomain(address):
+#     addressList = address.split("@")
+#     return addressList[-1]
+
+def electionsWinners(votes, k):
+    current_winner = 0
+    tie = False
+    
+    for vote in votes:
+        if vote == current_winner:
+            tie = True
+        if vote > current_winner:
+            current_winner = vote
+            tie = False
+            
+    if k == 0:
+        print(tie)
+        if tie == False:
+            return 1
+        if tie == True:
+            return 0
+    
+    potential_winners = 0
+    for vote in votes:
+        if vote+k > current_winner:
+            potential_winners += 1
+            
+    return potential_winners
