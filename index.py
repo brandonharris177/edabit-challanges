@@ -658,36 +658,89 @@
         
 #     return False
 
-def isBeautifulString(inputString):
+# def isBeautifulString(inputString):
     
-    sorted_characters = sorted(inputString)
-    sortedString = "". join(sorted_characters)
+#     sorted_characters = sorted(inputString)
+#     sortedString = "". join(sorted_characters)
     
-    hash_table = {}
-    lastLetter = sortedString[-1] 
-    alphabet = string.ascii_lowercase
-    letterList = []
+#     hash_table = {}
+#     lastLetter = sortedString[-1] 
+#     alphabet = string.ascii_lowercase
+#     letterList = []
     
-    for letter in alphabet:
-        if letter != lastLetter:
-            letterList.append(letter)
+#     for letter in alphabet:
+#         if letter != lastLetter:
+#             letterList.append(letter)
+#         else:
+#             letterList.append(letter)
+#             break
+    
+#     for letter in sortedString:
+#         if letter in hash_table:
+#             hash_table[letter] += 1
+#         else:
+#             hash_table[letter] = 1
+            
+#     for index in range(0, len(letterList)-1):
+#         print(letterList[index])
+#         if letterList[index] not in hash_table:
+#             return False
+#         if letterList[index + 1] in hash_table:
+#             if hash_table[letterList[index]] < hash_table[letterList[index+1]]:
+#                 return False
+            
+#     return True
+            
+# def findEmailDomain(address):
+#     addressList = address.split("@")
+#     return addressList[-1]
+
+# def electionsWinners(votes, k):
+#     current_winner = 0
+#     tie = False
+    
+#     for vote in votes:
+#         if vote == current_winner:
+#             tie = True
+#         if vote > current_winner:
+#             current_winner = vote
+#             tie = False
+            
+#     if k == 0:
+#         print(tie)
+#         if tie == False:
+#             return 1
+#         if tie == True:
+#             return 0
+    
+#     potential_winners = 0
+#     for vote in votes:
+#         if vote+k > current_winner:
+#             potential_winners += 1
+            
+#     return potential_winners
+
+def buildPalindrome(st):
+    index = math.ceil(len(st)/2)
+    st[index]
+    
+    pointer1 = index-1
+    pointer2 = index+1
+    
+    while 0 <= pointer1 and pointer2 < len(st):
+        if pointer1 == pointer2:
+            pointer1 -= 1
+            pointer2 += 1
         else:
-            letterList.append(letter)
-            break
+            index += 1
+            pointer1 = index-1
+            pointer2 = index+1
+            
+        pointer1 -= 2
     
-    for letter in sortedString:
-        if letter in hash_table:
-            hash_table[letter] += 1
-        else:
-            hash_table[letter] = 1
-            
-    for index in range(0, len(letterList)-1):
-        print(letterList[index])
-        if letterList[index] not in hash_table:
-            return False
-        if letterList[index + 1] in hash_table:
-            if hash_table[letterList[index]] < hash_table[letterList[index+1]]:
-                return False
-            
-    return True
-            
+    while pointer1 >= 0:
+        print(pointer1)
+        st = st + st[pointer1]
+        pointer1 -= 1
+        
+    return st
