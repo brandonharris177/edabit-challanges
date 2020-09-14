@@ -1797,3 +1797,22 @@
 // isAutobiographical(3211000)
 // isAutobiographical(3434343)
 // isAutobiographical(2100)
+
+function missingLetter(str) {
+	const alphabet = "abcdefghijklmnopqrstuvwxyz"
+	var i;
+	for (i = 0; i < alphabet.length; i++) {
+		if (alphabet.charAt(i) === str.charAt(0)) {
+			break
+		}
+	}
+	var j;
+	for (j = 0; j < str.length; j++) {
+		if (str.charAt(j) !== alphabet.charAt(i)){
+			return alphabet.charAt(i)
+		} else {
+			i += 1
+		}
+	}
+	return "No Missing Letter"
+}
