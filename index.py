@@ -720,33 +720,50 @@
             
 #     return potential_winners
 
-def buildPalindrome(st):
-    index = math.floor(len(st)/2)
-    pointer1 = index-1
-    pointer2 = index+1
+# def buildPalindrome(st):
+#     index = math.floor(len(st)/2)
+#     pointer1 = index-1
+#     pointer2 = index+1
     
-    while 0 <= pointer1 and pointer2 < len(st)-1:
-        if st[pointer1] == st[pointer2]:
-            pointer1 -= 1
-            pointer2 += 1
-        else:
-            index += 1
-            pointer1 = index-1
-            pointer2 = index+1
+#     while 0 <= pointer1 and pointer2 < len(st)-1:
+#         if st[pointer1] == st[pointer2]:
+#             pointer1 -= 1
+#             pointer2 += 1
+#         else:
+#             index += 1
+#             pointer1 = index-1
+#             pointer2 = index+1
                     
-    if index == len(st)-2 and st[pointer1] != st[pointer2]:
-        if st[index] != st[pointer2]:
-            pointer1 = index
-    elif st[pointer1] == st[pointer2]:
-        pointer1 -= 1
+#     if index == len(st)-2 and st[pointer1] != st[pointer2]:
+#         if st[index] != st[pointer2]:
+#             pointer1 = index
+#     elif st[pointer1] == st[pointer2]:
+#         pointer1 -= 1
     
-    while pointer1 >= 0:
-        first_half = st[0: int(math.floor(len(st)/2))]
-        second_half = st[int(math.ceil(len(st)/2)): len(st)]
-        reverse = second_half[::-1]
-        if first_half == reverse:
-            return st
-        st = st + st[pointer1]
-        pointer1 -= 1
+#     while pointer1 >= 0:
+#         first_half = st[0: int(math.floor(len(st)/2))]
+#         second_half = st[int(math.ceil(len(st)/2)): len(st)]
+#         reverse = second_half[::-1]
+#         if first_half == reverse:
+#             return st
+#         st = st + st[pointer1]
+#         pointer1 -= 1
     
-    return st
+#     return st
+
+import re
+
+def isMAC48Address(inputString):
+    inputList = inputString.split("-")
+    
+    if len(inputList) != 6:
+        return False
+    
+    for group in inputList:
+        if len(group) != 2:
+            return False
+        for char in group:
+            if re.search("[0-9]|[A-F]", char) == None:
+                return False
+                
+    return True
