@@ -751,19 +751,27 @@
     
 #     return st
 
-import re
+# import re
 
-def isMAC48Address(inputString):
-    inputList = inputString.split("-")
+# def isMAC48Address(inputString):
+#     inputList = inputString.split("-")
     
-    if len(inputList) != 6:
-        return False
+#     if len(inputList) != 6:
+#         return False
     
-    for group in inputList:
-        if len(group) != 2:
-            return False
-        for char in group:
-            if re.search("[0-9]|[A-F]", char) == None:
-                return False
+#     for group in inputList:
+#         if len(group) != 2:
+#             return False
+#         for char in group:
+#             if re.search("[0-9]|[A-F]", char) == None:
+#                 return False
                 
+#     return True
+
+import re 
+
+def isDigit(symbol):
+    if re.search("[0-9]", symbol) == None:
+        return False
+        
     return True
