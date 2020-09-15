@@ -1798,21 +1798,39 @@
 // isAutobiographical(3434343)
 // isAutobiographical(2100)
 
-function missingLetter(str) {
-	const alphabet = "abcdefghijklmnopqrstuvwxyz"
+// function missingLetter(str) {
+// 	const alphabet = "abcdefghijklmnopqrstuvwxyz"
+// 	var i;
+// 	for (i = 0; i < alphabet.length; i++) {
+// 		if (alphabet.charAt(i) === str.charAt(0)) {
+// 			break
+// 		}
+// 	}
+// 	var j;
+// 	for (j = 0; j < str.length; j++) {
+// 		if (str.charAt(j) !== alphabet.charAt(i)){
+// 			return alphabet.charAt(i)
+// 		} else {
+// 			i += 1
+// 		}
+// 	}
+// 	return "No Missing Letter"
+// }
+
+function findBrokenKeys(str1, str2) { 
+	let brokenKeys = new Set()
 	var i;
-	for (i = 0; i < alphabet.length; i++) {
-		if (alphabet.charAt(i) === str.charAt(0)) {
-			break
+	for (i = 0; i < str1.length; i++) {
+		if (str1.charAt(i) !== str2.charAt(i)) {
+			brokenKeys.add(str1.charAt(i))
 		}
 	}
-	var j;
-	for (j = 0; j < str.length; j++) {
-		if (str.charAt(j) !== alphabet.charAt(i)){
-			return alphabet.charAt(i)
-		} else {
-			i += 1
-		}
-	}
-	return "No Missing Letter"
+	return Array.from(brokenKeys)
 }
+
+// findBrokenKeys("happy birthday", "hawwy birthday")
+// findBrokenKeys("starry night", "starrq light")
+// findBrokenKeys("beethoven", "affthoif5")
+// findBrokenKeys("mozart", "aiwgvx")
+// findBrokenKeys("5678", "4678"), ["5"]
+// findBrokenKeys("!!??$$", "$$!!??")
