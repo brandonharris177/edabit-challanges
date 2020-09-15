@@ -768,10 +768,35 @@
                 
 #     return True
 
-import re 
+# import re 
 
-def isDigit(symbol):
-    if re.search("[0-9]", symbol) == None:
-        return False
+# def isDigit(symbol):
+#     if re.search("[0-9]", symbol) == None:
+#         return False
         
-    return True
+#     return True
+
+def lineEncoding(s):
+    
+    coded = ""
+    currentChar = s[0]
+    count = 0
+    
+    for index in range(0, len(s)):
+        if s[index] == currentChar:
+            count += 1
+        else:
+            if count > 1:
+                coded = coded + str(count) + currentChar
+            else:
+                coded = coded + currentChar
+            currentChar = s[index]
+            count = 1 
+            
+        if index == len(s)-1:
+            if count > 1:
+                coded = coded + str(count) + currentChar
+            else:
+                coded = coded + currentChar
+            
+    return coded
