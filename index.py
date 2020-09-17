@@ -776,27 +776,38 @@
         
 #     return True
 
-def lineEncoding(s):
+# def lineEncoding(s):
     
-    coded = ""
-    currentChar = s[0]
-    count = 0
+#     coded = ""
+#     currentChar = s[0]
+#     count = 0
     
-    for index in range(0, len(s)):
-        if s[index] == currentChar:
-            count += 1
-        else:
-            if count > 1:
-                coded = coded + str(count) + currentChar
-            else:
-                coded = coded + currentChar
-            currentChar = s[index]
-            count = 1 
+#     for index in range(0, len(s)):
+#         if s[index] == currentChar:
+#             count += 1
+#         else:
+#             if count > 1:
+#                 coded = coded + str(count) + currentChar
+#             else:
+#                 coded = coded + currentChar
+#             currentChar = s[index]
+#             count = 1 
             
-        if index == len(s)-1:
-            if count > 1:
-                coded = coded + str(count) + currentChar
-            else:
-                coded = coded + currentChar
+#         if index == len(s)-1:
+#             if count > 1:
+#                 coded = coded + str(count) + currentChar
+#             else:
+#                 coded = coded + currentChar
             
-    return coded
+#     return coded
+
+def deleteDigit(n):
+    numStr = str(n)
+    highestNum = 0
+    
+    for index in range(0, len(numStr)):
+        replace = int(numStr.replace(numStr[index], '', 1))
+        if replace > highestNum:
+            highestNum = replace
+                
+    return highestNum
