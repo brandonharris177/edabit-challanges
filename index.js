@@ -1817,16 +1817,16 @@
 // 	return "No Missing Letter"
 // }
 
-function findBrokenKeys(str1, str2) { 
-	let brokenKeys = new Set()
-	var i;
-	for (i = 0; i < str1.length; i++) {
-		if (str1.charAt(i) !== str2.charAt(i)) {
-			brokenKeys.add(str1.charAt(i))
-		}
-	}
-	return Array.from(brokenKeys)
-}
+// function findBrokenKeys(str1, str2) { 
+// 	let brokenKeys = new Set()
+// 	var i;
+// 	for (i = 0; i < str1.length; i++) {
+// 		if (str1.charAt(i) !== str2.charAt(i)) {
+// 			brokenKeys.add(str1.charAt(i))
+// 		}
+// 	}
+// 	return Array.from(brokenKeys)
+// }
 
 // findBrokenKeys("happy birthday", "hawwy birthday")
 // findBrokenKeys("starry night", "starrq light")
@@ -1834,3 +1834,24 @@ function findBrokenKeys(str1, str2) {
 // findBrokenKeys("mozart", "aiwgvx")
 // findBrokenKeys("5678", "4678"), ["5"]
 // findBrokenKeys("!!??$$", "$$!!??")
+
+function getFrequencies(arr) {
+	frequencies = {}
+	var i;
+	for (i = 0; i < arr.length; i++) {
+		if (arr[i] in frequencies) {
+			frequencies[arr[i]] += 1
+		} else {
+			frequencies[arr[i]] = 1
+		}
+	}
+	console.log(frequencies)
+	return frequencies
+}
+
+getFrequencies(['A', 'A'])
+getFrequencies(['A', 'B', 'A', 'A', 'A'])
+getFrequencies(['A', 'B', 'C', 'A', 'A'])
+getFrequencies([true, false, true, false, false])
+getFrequencies([1, 2, 3, 3, 2])
+getFrequencies([])

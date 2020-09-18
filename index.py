@@ -751,19 +751,79 @@
     
 #     return st
 
+# import re
+
+# def isMAC48Address(inputString):
+#     inputList = inputString.split("-")
+    
+#     if len(inputList) != 6:
+#         return False
+    
+#     for group in inputList:
+#         if len(group) != 2:
+#             return False
+#         for char in group:
+#             if re.search("[0-9]|[A-F]", char) == None:
+#                 return False
+                
+#     return True
+
+# import re 
+
+# def isDigit(symbol):
+#     if re.search("[0-9]", symbol) == None:
+#         return False
+        
+#     return True
+
+# def lineEncoding(s):
+    
+#     coded = ""
+#     currentChar = s[0]
+#     count = 0
+    
+#     for index in range(0, len(s)):
+#         if s[index] == currentChar:
+#             count += 1
+#         else:
+#             if count > 1:
+#                 coded = coded + str(count) + currentChar
+#             else:
+#                 coded = coded + currentChar
+#             currentChar = s[index]
+#             count = 1 
+            
+#         if index == len(s)-1:
+#             if count > 1:
+#                 coded = coded + str(count) + currentChar
+#             else:
+#                 coded = coded + currentChar
+            
+#     return coded
+
+# def deleteDigit(n):
+#     numStr = str(n)
+#     highestNum = 0
+    
+#     for index in range(0, len(numStr)):
+#         replace = int(numStr.replace(numStr[index], '', 1))
+#         if replace > highestNum:
+#             highestNum = replace
+                
+#     return highestNum
+
 import re
 
-def isMAC48Address(inputString):
-    inputList = inputString.split("-")
+def longestWord(text):
+    textList = re.split(' |, |_|-|!|\[|\]', text)
+    longestWord = ""
     
-    if len(inputList) != 6:
-        return False
-    
-    for group in inputList:
-        if len(group) != 2:
-            return False
-        for char in group:
-            if re.search("[0-9]|[A-F]", char) == None:
-                return False
-                
-    return True
+    for word in textList:
+        onlyLetters = re.findall("[a-z]|[A-Z]", word)
+        newWord = ""
+        for letter in onlyLetters:
+            newWord = newWord + letter
+        if len(newWord) > len(longestWord):
+            longestWord = newWord 
+        
+    return longestWord
