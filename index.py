@@ -801,13 +801,29 @@
             
 #     return coded
 
-def deleteDigit(n):
-    numStr = str(n)
-    highestNum = 0
+# def deleteDigit(n):
+#     numStr = str(n)
+#     highestNum = 0
     
-    for index in range(0, len(numStr)):
-        replace = int(numStr.replace(numStr[index], '', 1))
-        if replace > highestNum:
-            highestNum = replace
+#     for index in range(0, len(numStr)):
+#         replace = int(numStr.replace(numStr[index], '', 1))
+#         if replace > highestNum:
+#             highestNum = replace
                 
-    return highestNum
+#     return highestNum
+
+import re
+
+def longestWord(text):
+    textList = re.split(' |, |_|-|!|\[|\]', text)
+    longestWord = ""
+    
+    for word in textList:
+        onlyLetters = re.findall("[a-z]|[A-Z]", word)
+        newWord = ""
+        for letter in onlyLetters:
+            newWord = newWord + letter
+        if len(newWord) > len(longestWord):
+            longestWord = newWord 
+        
+    return longestWord
