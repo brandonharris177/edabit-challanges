@@ -1879,7 +1879,7 @@ function missing(arr) {
 		difference = key_list[1]
 		index = hashTable[key_list[0]]
 	}
-	console.log(arr[index] + difference)
+	return arr[index] + difference
 }
 
 missing([1, 3, 4, 5])
