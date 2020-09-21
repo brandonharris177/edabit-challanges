@@ -1835,23 +1835,58 @@
 // findBrokenKeys("5678", "4678"), ["5"]
 // findBrokenKeys("!!??$$", "$$!!??")
 
-function getFrequencies(arr) {
-	frequencies = {}
-	var i;
-	for (i = 0; i < arr.length; i++) {
-		if (arr[i] in frequencies) {
-			frequencies[arr[i]] += 1
+// function getFrequencies(arr) {
+// 	frequencies = {}
+// 	var i;
+// 	for (i = 0; i < arr.length; i++) {
+// 		if (arr[i] in frequencies) {
+// 			frequencies[arr[i]] += 1
+// 		} else {
+// 			frequencies[arr[i]] = 1
+// 		}
+// 	}
+// 	console.log(frequencies)
+// 	return frequencies
+// }
+
+// getFrequencies(['A', 'A'])
+// getFrequencies(['A', 'B', 'A', 'A', 'A'])
+// getFrequencies(['A', 'B', 'C', 'A', 'A'])
+// getFrequencies([true, false, true, false, false])
+// getFrequencies([1, 2, 3, 3, 2])
+// getFrequencies([])
+
+function missing(arr) {
+	let hashTable = {}
+	let key_list = []
+	var i
+	for(i=0; i<arr.length-1; i++) {
+		let diff = arr[i+1] - arr[i]
+		// console.log(i, arr[i], arr[i+1], diff)
+		if (diff in hashTable) {
+			hashTable[diff].push(i)
 		} else {
-			frequencies[arr[i]] = 1
+			key_list.push(diff)
+			hashTable[diff] = [i]
 		}
 	}
-	console.log(frequencies)
-	return frequencies
+	let difference = 0
+	let index = 0
+	if (key_list[0] < key_list[1]) {
+		difference = key_list[0]
+		index = hashTable[key_list[1]]
+	} else {
+		difference = key_list[1]
+		index = hashTable[key_list[0]]
+	}
+	console.log(arr[index] + difference)
 }
 
-getFrequencies(['A', 'A'])
-getFrequencies(['A', 'B', 'A', 'A', 'A'])
-getFrequencies(['A', 'B', 'C', 'A', 'A'])
-getFrequencies([true, false, true, false, false])
-getFrequencies([1, 2, 3, 3, 2])
-getFrequencies([])
+missing([1, 3, 4, 5])
+missing([2, 4, 6, 8, 10, 14, 16])
+missing([12, 15, 18, 21, 24, 30, 33])
+missing([0, 60, 180])
+missing([-1.25, 1.25, 2.5])
+missing([1, 19, 28])
+missing([100, 500, 900, 1300, 2100, 2500, 2900])
+missing([1.5, 2, 3])

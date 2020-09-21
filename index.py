@@ -812,18 +812,25 @@
                 
 #     return highestNum
 
-import re
+# import re
 
-def longestWord(text):
-    textList = re.split(' |, |_|-|!|\[|\]', text)
-    longestWord = ""
+# def longestWord(text):
+#     textList = re.split(' |, |_|-|!|\[|\]', text)
+#     longestWord = ""
     
-    for word in textList:
-        onlyLetters = re.findall("[a-z]|[A-Z]", word)
-        newWord = ""
-        for letter in onlyLetters:
-            newWord = newWord + letter
-        if len(newWord) > len(longestWord):
-            longestWord = newWord 
+#     for word in textList:
+#         onlyLetters = re.findall("[a-z]|[A-Z]", word)
+#         newWord = ""
+#         for letter in onlyLetters:
+#             newWord = newWord + letter
+#         if len(newWord) > len(longestWord):
+#             longestWord = newWord 
         
-    return longestWord
+#     return longestWord
+
+def validTime(time):
+    time = time.split(":")
+    if 0 <= int(time[0]) <= 23 and 0 <= int(time[1]) <= 59:
+        return True
+    else:
+        return False
