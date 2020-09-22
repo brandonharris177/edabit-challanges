@@ -1856,37 +1856,67 @@
 // getFrequencies([1, 2, 3, 3, 2])
 // getFrequencies([])
 
-function missing(arr) {
-	let hashTable = {}
-	let key_list = []
-	var i
-	for(i=0; i<arr.length-1; i++) {
-		let diff = arr[i+1] - arr[i]
-		// console.log(i, arr[i], arr[i+1], diff)
-		if (diff in hashTable) {
-			hashTable[diff].push(i)
-		} else {
-			key_list.push(diff)
-			hashTable[diff] = [i]
-		}
-	}
-	let difference = 0
-	let index = 0
-	if (key_list[0] < key_list[1]) {
-		difference = key_list[0]
-		index = hashTable[key_list[1]]
+// function missing(arr) {
+// 	let hashTable = {}
+// 	let key_list = []
+// 	var i
+// 	for(i=0; i<arr.length-1; i++) {
+// 		let diff = arr[i+1] - arr[i]
+// 		// console.log(i, arr[i], arr[i+1], diff)
+// 		if (diff in hashTable) {
+// 			hashTable[diff].push(i)
+// 		} else {
+// 			key_list.push(diff)
+// 			hashTable[diff] = [i]
+// 		}
+// 	}
+// 	let difference = 0
+// 	let index = 0
+// 	if (key_list[0] < key_list[1]) {
+// 		difference = key_list[0]
+// 		index = hashTable[key_list[1]]
+// 	} else {
+// 		difference = key_list[1]
+// 		index = hashTable[key_list[0]]
+// 	}
+// 	return arr[index] + difference
+// }
+
+// missing([1, 3, 4, 5])
+// missing([2, 4, 6, 8, 10, 14, 16])
+// missing([12, 15, 18, 21, 24, 30, 33])
+// missing([0, 60, 180])
+// missing([-1.25, 1.25, 2.5])
+// missing([1, 19, 28])
+// missing([100, 500, 900, 1300, 2100, 2500, 2900])
+// missing([1.5, 2, 3])
+
+function countIdenticalArrays(arr1, arr2, arr3, arr4) {
+	count = 1
+	set = new Set()
+	set.add(JSON.stringify(arr1))
+	if (set.has(JSON.stringify(arr2))) {
+		count += 1
 	} else {
-		difference = key_list[1]
-		index = hashTable[key_list[0]]
+		set.add(JSON.stringify(arr2))
 	}
-	return arr[index] + difference
+	if (set.has(JSON.stringify(arr3))) {
+		count += 1
+	} else {
+		set.add(JSON.stringify(arr3))
+	}
+	if (set.has(JSON.stringify(arr4))) {
+		count += 1
+	}
+	console.log(set)
+	console.log(count)
+	if (count > 1) {
+		return count
+	} else {
+		return 0
+	}
 }
 
-missing([1, 3, 4, 5])
-missing([2, 4, 6, 8, 10, 14, 16])
-missing([12, 15, 18, 21, 24, 30, 33])
-missing([0, 60, 180])
-missing([-1.25, 1.25, 2.5])
-missing([1, 19, 28])
-missing([100, 500, 900, 1300, 2100, 2500, 2900])
-missing([1.5, 2, 3])
+countIdenticalArrays([0, 0, 0], [0, 1, 2], [0, 0, 0], [2, 1, 0])
+countIdenticalArrays([0, 1, 0], [0, 1, 2], [0, 2, 0], [2, 1, 0])
+countIdenticalArrays([0, 1, 2], [0, 1, 2], [0, 1, 2], [2, 1, 0])
