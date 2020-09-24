@@ -828,9 +828,50 @@
         
 #     return longestWord
 
-def validTime(time):
-    time = time.split(":")
-    if 0 <= int(time[0]) <= 23 and 0 <= int(time[1]) <= 59:
-        return True
-    else:
-        return False
+# def validTime(time):
+#     time = time.split(":")
+#     if 0 <= int(time[0]) <= 23 and 0 <= int(time[1]) <= 59:
+#         return True
+#     else:
+#         return False
+
+# def sumUpNumbers(inputString):
+#     previousInt = False
+#     numberStr = ""
+    
+#     for char in inputString:
+#         is_int = True
+#         try: 
+#             int_char = int(char)
+#         except:
+#             is_int = False
+#         if is_int == True:
+#             numberStr = numberStr + char
+#             previousInt = True
+#         if is_int == False and previousInt == True:
+#             numberStr = numberStr + " "
+#             previousInt = False
+            
+#     numberList = numberStr.split()
+#     total = 0
+    
+#     for number in numberList:
+#         total = total + int(number)
+    
+#     return total
+
+def differentSquares(matrix):
+    hashTable = {}
+    coordinates = [[-1, -1], [-1, 0], [0, -1], [0, 0]]
+    unique = 0
+    for column in range(1, len(matrix)):
+        for row in range(1, len(matrix[column])):
+            fourByFour = ""
+            for coordinate in coordinates:
+                number = matrix[column + coordinate[0]][row + coordinate[1]]
+                fourByFour = fourByFour + str(number)
+            if fourByFour not in hashTable:
+                hashTable[fourByFour] = fourByFour
+                unique += 1
+    
+    return(unique)
