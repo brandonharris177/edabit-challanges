@@ -875,3 +875,78 @@
 #                 unique += 1
     
 #     return(unique)
+
+def digitsProduct(product):
+    if product == 0:
+        return 10
+    
+    if product < 10:
+        return product
+        
+    prime = 2
+    remainder = product
+    hash_table = {}
+    index = 0
+    keys = []
+    
+    while prime <= remainder:
+        if remainder % prime == 0:
+            if prime in hash_table:
+                hash_table[prime] += 1
+            else:
+                hash_table[prime] = 1
+                keys.append(prime)
+            remainder = remainder/prime
+        else:
+            prime += 1
+        index += 1
+            
+    if product in hash_table:
+        return -1
+        
+    for key in keys:
+        if key > 9:
+            return -1
+    
+    if 2 in hash_table and hash_table[2] >= 3:
+        eights = math.floor(hash_table[2]/3)
+        hash_table[2] -= eights * 3
+        hash_table[8] = eights
+        keys.append(8)
+        if hash_table[2] == 0:
+            hash_table.pop(2, None)
+            keys.remove(2)
+                  
+    if 3 in hash_table and hash_table[3] >= 2:
+        nines = math.floor(hash_table[3]/2)
+        hash_table[3] -= nines * 2
+        hash_table[9] = nines
+        keys.append(9)
+        if hash_table[3] == 0:
+            hash_table.pop(3, None)
+            keys.remove(3)
+            
+    if 2 in hash_table and 3 in hash_table:
+        hash_table[6] = 1
+        keys.append(6)
+        hash_table.pop(3, None)
+        keys.remove(3)
+        hash_table[2] -= 1
+        if hash_table[2] == 0:
+            hash_table.pop(2, None)
+            keys.remove(2)
+            
+    if 2 in hash_table and hash_table[2] == 2:
+        hash_table[4] = 1
+        keys.append(4)
+        hash_table.pop(2, None)
+        keys.remove(2)
+        
+    keys.sort()
+        
+    number = ""
+    for key in keys:
+        values = str(key) * hash_table[key]
+        number = number + values
+    
+    return int(number)
