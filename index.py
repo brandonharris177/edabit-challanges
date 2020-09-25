@@ -860,18 +860,18 @@
     
 #     return total
 
-def differentSquares(matrix):
-    hashTable = {}
-    coordinates = [[-1, -1], [-1, 0], [0, -1], [0, 0]]
-    unique = 0
-    for column in range(1, len(matrix)):
-        for row in range(1, len(matrix[column])):
-            fourByFour = ""
-            for coordinate in coordinates:
-                number = matrix[column + coordinate[0]][row + coordinate[1]]
-                fourByFour = fourByFour + str(number)
-            if fourByFour not in hashTable:
-                hashTable[fourByFour] = fourByFour
-                unique += 1
+# def differentSquares(matrix):
+#     hashTable = {}
+#     coordinates = [[-1, -1], [-1, 0], [0, -1], [0, 0]]
+#     unique = 0
+#     for column in range(1, len(matrix)):
+#         for row in range(1, len(matrix[column])):
+#             fourByFour = ""
+#             for coordinate in coordinates:
+#                 number = matrix[column + coordinate[0]][row + coordinate[1]]
+#                 fourByFour = fourByFour + str(number)
+#             if fourByFour not in hashTable:
+#                 hashTable[fourByFour] = fourByFour
+#                 unique += 1
     
-    return(unique)
+#     return(unique)
