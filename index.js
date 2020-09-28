@@ -1891,32 +1891,74 @@
 // missing([100, 500, 900, 1300, 2100, 2500, 2900])
 // missing([1.5, 2, 3])
 
-function countIdenticalArrays(arr1, arr2, arr3, arr4) {
-	count = 1
-	set = new Set()
-	set.add(JSON.stringify(arr1))
-	if (set.has(JSON.stringify(arr2))) {
-		count += 1
+// function countIdenticalArrays(arr1, arr2, arr3, arr4) {
+// 	count = 1
+// 	set = new Set()
+// 	set.add(JSON.stringify(arr1))
+// 	if (set.has(JSON.stringify(arr2))) {
+// 		count += 1
+// 	} else {
+// 		set.add(JSON.stringify(arr2))
+// 	}
+// 	if (set.has(JSON.stringify(arr3))) {
+// 		count += 1
+// 	} else {
+// 		set.add(JSON.stringify(arr3))
+// 	}
+// 	if (set.has(JSON.stringify(arr4))) {
+// 		count += 1
+// 	}
+// 	console.log(set)
+// 	console.log(count)
+// 	if (count > 1) {
+// 		return count
+// 	} else {
+// 		return 0
+// 	}
+// }
+
+// countIdenticalArrays([0, 0, 0], [0, 1, 2], [0, 0, 0], [2, 1, 0])
+// countIdenticalArrays([0, 1, 0], [0, 1, 2], [0, 2, 0], [2, 1, 0])
+// countIdenticalArrays([0, 1, 2], [0, 1, 2], [0, 1, 2], [2, 1, 0])
+
+function minMissPos(arr) {
+	arr.sort(function(a, b){return a-b});
+	arr = Array.from(new Set(arr))
+	console.log(arr)
+	console.log(arr[0], arr[arr.length-1])
+	if (arr[0] <= 0 && arr[arr.length-1] >= 1) {
+		i = 0
+		while (arr[i] < 1) {
+			i++
+		}
+		if (arr[i] > 1) {
+			console.log("1")
+			return 1
+		} else {
+			j = 1
+			while (arr[i] === j) {
+				i++
+				j++
+			}
+			console.log(j)
+			return j
+		}
+	} else if (arr[arr.length-1] <= 0) {
+		return 1
 	} else {
-		set.add(JSON.stringify(arr2))
-	}
-	if (set.has(JSON.stringify(arr3))) {
-		count += 1
-	} else {
-		set.add(JSON.stringify(arr3))
-	}
-	if (set.has(JSON.stringify(arr4))) {
-		count += 1
-	}
-	console.log(set)
-	console.log(count)
-	if (count > 1) {
-		return count
-	} else {
-		return 0
+		i = 0
+		j = arr[0]
+		while (arr[i] === j) {
+			i++
+			j++
+		}
+		return j
 	}
 }
 
-countIdenticalArrays([0, 0, 0], [0, 1, 2], [0, 0, 0], [2, 1, 0])
-countIdenticalArrays([0, 1, 0], [0, 1, 2], [0, 2, 0], [2, 1, 0])
-countIdenticalArrays([0, 1, 2], [0, 1, 2], [0, 1, 2], [2, 1, 0])
+// minMissPos([-2, 6, 4, 5, 7, -1, 7, 1, 3, 6, 6, -2, 9, 10, 2, 2])
+// minMissPos([5, 9, -2, 0, 1, 3, 9, 3, 8, 9])
+// minMissPos([0, 4, 4, -1, 9, 4, 5, 2, 10, 7, 6, 3, 10, 9])
+// minMissPos([4, 2, 9, 6, 1, 3, -2, 10, 3, 0, 9, 7, 3])
+// minMissPos([0, -4, -4, -1, -9, -4, -5, -2, -10, -7, -6, -3, -10, -9])
+minMissPos([7, 6, 5, 4, 3, 2, 1])
