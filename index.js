@@ -1962,3 +1962,19 @@ function minMissPos(arr) {
 // minMissPos([4, 2, 9, 6, 1, 3, -2, 10, 3, 0, 9, 7, 3])
 // minMissPos([0, -4, -4, -1, -9, -4, -5, -2, -10, -7, -6, -3, -10, -9])
 minMissPos([7, 6, 5, 4, 3, 2, 1])
+
+function convert(deg) {
+	const tempArray = deg.split("°")
+	const conversion = tempArray[tempArray.length-1]
+	if(conversion === "C") {
+		let temp = Math.round((parseInt(tempArray[0]) * 9/5) + 32)
+		const converted = `${temp}°F`
+		return converted
+	} else if (conversion === "F") {
+		let temp = Math.round((parseInt(tempArray[0]) - 32) * 5/9)
+		const converted = `${temp}°C`
+		return converted
+	} else {
+		return "Error"
+	}
+}

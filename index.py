@@ -951,19 +951,31 @@
     
 #     return int(number)
 
-def fileNaming(names):
-    hashTable ={}
-    for index in range(0, len(names)):
-        original_name = names[index]
-        if original_name in hashTable:
-            newName = original_name + "(" + str(hashTable[original_name]) + ")"
-            while newName in hashTable:
-                hashTable[original_name] += 1
-                newName = original_name + "(" + str(hashTable[original_name]) + ")"
-            hashTable[original_name] += 1
-            hashTable[newName] = 1
-            names[index] = newName
-        else:
-            hashTable[original_name] = 1
+# def fileNaming(names):
+#     hashTable ={}
+#     for index in range(0, len(names)):
+#         original_name = names[index]
+#         if original_name in hashTable:
+#             newName = original_name + "(" + str(hashTable[original_name]) + ")"
+#             while newName in hashTable:
+#                 hashTable[original_name] += 1
+#                 newName = original_name + "(" + str(hashTable[original_name]) + ")"
+#             hashTable[original_name] += 1
+#             hashTable[newName] = 1
+#             names[index] = newName
+#         else:
+#             hashTable[original_name] = 1
             
-    return names
+#     return names
+
+def messageFromBinaryCode(code):
+    decrypted = ""
+    start = 0
+    end = 8
+    while end <= len(code):
+        bit = chr(int(code[start: end], base=2))
+        decrypted = decrypted + bit
+        start += 8
+        end += 8
+        
+    return decrypted
