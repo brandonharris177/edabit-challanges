@@ -968,14 +968,57 @@
             
 #     return names
 
-def messageFromBinaryCode(code):
-    decrypted = ""
-    start = 0
-    end = 8
-    while end <= len(code):
-        bit = chr(int(code[start: end], base=2))
-        decrypted = decrypted + bit
-        start += 8
-        end += 8
+# def messageFromBinaryCode(code):
+#     decrypted = ""
+#     start = 0
+#     end = 8
+#     while end <= len(code):
+#         bit = chr(int(code[start: end], base=2))
+#         decrypted = decrypted + bit
+#         start += 8
+#         end += 8
         
-    return decrypted
+#     return decrypted
+
+def spiralNumbers(n):        
+    matrix = [ [ 0 for i in range(n) ] for j in range(n) ]
+        
+    number = 1
+    limit = n*n
+    row = 0
+    column = -1
+    while number <= limit:
+        while column < n-1:
+            column += 1
+            if matrix[row][column] == 0:
+                matrix[row][column] = number
+                number += 1
+            else:
+                column -= 1
+                break
+        while row < n-1: 
+            row += 1
+            if matrix[row][column] == 0:
+                matrix[row][column] = number
+                number += 1
+            else:
+                row -= 1
+                break    
+        while column >= 0: 
+            column -= 1
+            if matrix[row][column] == 0:
+                matrix[row][column] = number
+                number += 1
+            else:
+                column += 1
+                break
+        while row >= 0: 
+            row -= 1
+            if matrix[row][column] == 0:
+                matrix[row][column] = number
+                number += 1
+            else:
+                row += 1
+                break
+            
+    return matrix
