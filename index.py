@@ -1078,4 +1078,24 @@ def sudoku(grid):
         if check(value) == False:
             return False
         
-    return True          
+    return True   
+
+def newRoadSystem(roadRegister):
+    hashTable = {}
+    for inGoing in range(0, len(roadRegister)):
+        for outGoing in range(0, len(roadRegister[inGoing])):
+            if roadRegister[inGoing][outGoing] == True:
+                if inGoing in hashTable:
+                    hashTable[inGoing][0].append(outGoing)
+                else:
+                    hashTable[inGoing] = [[outGoing], []]
+                if outGoing in hashTable:
+                    hashTable[outGoing][1].append(inGoing)
+                else:
+                    hashTable[outGoing] = [[], [inGoing]]
+                    
+    for value in hashTable.values():
+        if len(value[0]) != len(value[1]):
+            return False
+            
+    return True       
