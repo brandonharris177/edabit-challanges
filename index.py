@@ -1133,3 +1133,31 @@ def roadsBuilding(cities, roads):
                 roadsToBuild.append(connection)
     
     return roadsToBuild
+
+def efficientRoadNetwork(n, roads):
+    if n == 1:
+        return True
+    
+    hashTable = {}
+        
+    for road in roads:
+        if road[0] not in hashTable:
+            hashTable[road[0]] = []
+        if road[1] not in hashTable:
+            hashTable[road[1]] = []
+        hashTable[road[0]].append(road[1])
+        hashTable[road[1]].append(road[0])
+    
+    city = 0
+        
+    while city < n:
+        if city not in hashTable:
+            return False
+        visited = set(hashTable[city])
+        for destination in hashTable[city]:
+            visited.update(hashTable[destination])
+        if len(visited) < n:
+            return False
+        city += 1
+                
+    return True
