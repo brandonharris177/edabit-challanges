@@ -1098,4 +1098,38 @@ def newRoadSystem(roadRegister):
         if len(value[0]) != len(value[1]):
             return False
             
-    return True       
+    return True      
+
+def largestNumber(n):
+    num = ["9"]*n
+    num = int("".join(num))
+    return num 
+
+def roadsBuilding(cities, roads):
+    hashTable = {}
+    key = 0
+    while key < cities-1:
+        hashTable[key] = []
+        connection = key+1
+        while connection < cities:
+            hashTable[key].append([key, connection])
+            connection += 1
+        key += 1
+        
+    for road in roads:
+        if road[0] > road[1]:
+            smallestValue = 1
+            largestValue = 0
+        else:
+            smallestValue = 0
+            largestValue = 1
+        hashTable[road[smallestValue]].remove([road[smallestValue], road[largestValue]])
+        
+    roadsToBuild = []
+    
+    for value in hashTable.values():
+        if len(value) > 0:
+            for connection in value:
+                roadsToBuild.append(connection)
+    
+    return roadsToBuild
