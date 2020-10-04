@@ -1161,3 +1161,18 @@ def efficientRoadNetwork(n, roads):
         city += 1
                 
     return True
+
+import copy
+
+def financialCrisis(roadRegister):
+    removeCity = 0
+    removedRegister = []
+    while removeCity < len(roadRegister):
+        registerCopy = copy.deepcopy(roadRegister)
+        registerCopy.pop(removeCity)
+        for rowIndex in range(0, len(registerCopy)):
+            registerCopy[rowIndex].pop(removeCity)
+        removedRegister.append(registerCopy)
+        removeCity += 1
+        
+    return removedRegister
