@@ -1176,3 +1176,21 @@ def financialCrisis(roadRegister):
         removeCity += 1
         
     return removedRegister
+
+def namingRoads(roads):
+    hashTable = {}
+    for road in roads:
+        if road[0] not in hashTable:
+            hashTable[road[0]] = []
+        if road[1] not in hashTable:
+            hashTable[road[1]] = []
+        hashTable[road[0]].append(road[2])
+        hashTable[road[1]].append(road[2])
+        
+    for value in hashTable.values():
+        sortedValues = sorted(value)
+        for integer in range(0, len(sortedValues)-1):
+            if sortedValues[integer] + 1 == sortedValues[integer + 1]:
+                return False
+                
+    return True
