@@ -1194,3 +1194,13 @@ def namingRoads(roads):
                 return False
                 
     return True
+
+def greatRenaming(roadRegister):
+    firstCity = roadRegister.pop()
+    roadRegister.insert(0, firstCity)
+    
+    for city in roadRegister:
+        shift = city.pop()
+        city.insert(0, shift)
+        
+    return roadRegister
