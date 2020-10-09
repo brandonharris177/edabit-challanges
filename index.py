@@ -1204,3 +1204,106 @@ def greatRenaming(roadRegister):
         city.insert(0, shift)
         
     return roadRegister
+
+def phoneCall(min1, min2_10, min11, s):
+    mins = 0
+    if s >= min1:
+        s = s-min1
+        mins = 1
+    else:
+        return 0
+
+    if s >= min2_10:
+        numMins = math.floor(s/min2_10)
+        if numMins >= 9:
+            s = s - 9*min2_10
+            mins = 10
+        else:
+            mins = mins + numMins
+            return mins
+    else:
+        return mins
+            
+    if s >= min11:
+        numMins = math.floor(s/min11)
+        return mins + numMins
+    else:
+        return mins  
+
+def mergingCities(roadRegister):
+    hashTable = {}
+    connected = []
+    for city in range(len(roadRegister)):
+        hashTable[city] = []
+        for road in range(len(roadRegister[city])):
+            if roadRegister[city][road] == True:
+                hashTable[city].append(road)
+                if road == 0 or road%2 == 0:
+                    if road in hashTable and city in hashTable[road] and city-1 == road:
+                        connected.append(road)
+                        connected.append(city)
+    
+    length = int(len(roadRegister) - len(connected)/2)   
+    
+    while len(connected) > 0:
+        hashTable[connected[0]] = list(set(hashTable[connected[0]] + hashTable[connected[1]]))
+        hashTable[connected[0]].remove(connected[0])
+        hashTable[connected[0]].remove(connected[1])
+        for pair in hashTable.items():
+            for index in range(len(pair[1])):
+                if hashTable[pair[0]][index] > connected[0]:
+                    hashTable[pair[0]][index] -= 1
+            if pair[0] > connected[1]:     
+                hashTable[pair[0]-1] = hashTable[pair[0]]
+        for index in range(len(connected)):
+            connected[index] = connected[index] - 1 
+        hashTable.pop(pair[0])
+        connected.pop(0)
+        connected.pop(0)           
+        
+    newRegister = []
+    for index in range(length):
+        cities = [False]*length
+        newRegister.append(cities)
+    
+    for key in range(length):
+        for value in hashTable[key]:
+            newRegister[key][value] = True   
+               
+    return newRegister
+
+def isButterfly(adj):
+
+    hashTable = {}
+
+    for rowIndex in range(len(adj)):
+        hashTable[rowIndex] = []
+        for colIndex in range(len(adj[rowIndex])):
+            if adj[rowIndex][colIndex] == True:
+                hashTable[rowIndex].append(colIndex)
+    
+    
+    not2 = []
+    for key in hashTable.keys():
+        if len(hashTable[key]) != 2:
+            not2.append(key)
+            
+    if len(not2) != 1:
+        return False
+        
+    centerpoint = not2[0]
+    
+    if len(hashTable[centerpoint]) != 4:
+        return False
+    
+    for key in hashTable.keys():
+        if int(key) in hashTable[key]:
+            return False
+        if key != centerpoint:
+            if int(centerpoint) not in hashTable[key]:
+                return False
+        for value in hashTable[key]:
+            if int(key) not in hashTable[value]:
+                return False
+    
+    return True
