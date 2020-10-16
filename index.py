@@ -1307,3 +1307,50 @@ def isButterfly(adj):
                 return False
     
     return True
+
+def countStars(adj):
+    hashTable = {}
+    centerpoints = []
+    keys = []
+    for rowIndex in range(len(adj)):
+        hashTable[rowIndex] = []
+        keys.append(rowIndex)
+        for columnIndex in range(len(adj[rowIndex])):
+            if adj[rowIndex][columnIndex] == True:
+                hashTable[rowIndex].append(columnIndex)
+                if len(hashTable[rowIndex]) > 1:
+                    centerpoints.append(rowIndex)
+                    if rowIndex in keys:
+                        keys.remove(rowIndex)
+    
+    keys = list(set(keys))
+    centerpoints = set(centerpoints)
+    
+    shapes = 0
+    isShape = False
+    
+    if len(centerpoints) > 0:             
+        for centerpoint in centerpoints:
+            if isShape == True:
+                shapes += 1
+            isShape = True
+            for point in hashTable[centerpoint]:
+                if point in keys:
+                    keys.remove(point)
+                if len(hashTable[point]) != 1 or hashTable[point][0] != centerpoint:
+                    isShape = False
+                    
+    if isShape == True:
+        shapes += 1
+      
+    visited = []
+        
+    if len(keys) > 0:             
+        for key in keys:
+            if key not in visited and len(hashTable[key]) > 0:
+                value = hashTable[key][0]
+                if len(hashTable[value]) > 0 and hashTable[value][0] == key and key != value:
+                    visited.append(value)
+                    shapes += 1 
+    
+    return shapes
