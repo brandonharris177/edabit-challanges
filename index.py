@@ -1354,3 +1354,31 @@ def countStars(adj):
                     shapes += 1 
     
     return shapes
+
+def knapsackLight(value1, weight1, value2, weight2, maxW):
+    if weight1 + weight2 <= maxW:
+        return value1 + value2
+        
+    if value1 > value2:
+        greaterValue = value1
+        greaterValueWeight = weight1
+        lesserValue = value2
+        lesserValueWeight = weight2
+    elif value2 > value1:
+        greaterValue = value2
+        greaterValueWeight = weight2
+        lesserValue = value1
+        lesserValueWeight = weight1
+    else:
+        if weight1 or weight2 <= maxW:
+            return value1
+        else:
+            return 0
+            
+    if greaterValueWeight <= maxW:
+        return greaterValue
+    
+    if lesserValueWeight <= maxW:
+        return lesserValue
+
+    return 0 
