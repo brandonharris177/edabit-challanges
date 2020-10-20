@@ -1382,3 +1382,12 @@ def knapsackLight(value1, weight1, value2, weight2, maxW):
         return lesserValue
 
     return 0 
+
+def isInfiniteProcess(a, b):
+    while b >= a:
+        if a == b: 
+            return False
+        a = a + 1
+        b = b - 1
+        
+    return True
