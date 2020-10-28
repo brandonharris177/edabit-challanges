@@ -1391,3 +1391,51 @@ def isInfiniteProcess(a, b):
         b = b - 1
         
     return True
+
+def isWheel(adj):
+    hashTable = {}
+    centerpoint = []
+    for rowIndex in range(len(adj)):
+        hashTable[rowIndex] = []
+        for columnIndex in range(len(adj[rowIndex])):
+            if adj[rowIndex][columnIndex] == True:
+                hashTable[rowIndex].append(columnIndex)
+                if len(hashTable[rowIndex]) == len(adj)-1:
+                    centerpoint.append(rowIndex)
+                    
+    if len(centerpoint) == 4 and len(centerpoint) == len(adj):
+        return True
+                    
+    if len(centerpoint) != 1:
+        return False
+        
+    centerpoint = centerpoint[0]
+    
+    centerList = hashTable[centerpoint]
+    
+    if centerpoint in centerList or len(centerList) != len(adj)-1:
+        return False
+    
+    if centerpoint == 0:
+        point = 1
+    else:
+        point = 0
+    
+    visited = []
+    previouspoint = ""
+    
+    while point not in visited:
+        if centerpoint not in hashTable[point] or len(hashTable[point]) != 3:
+            return False
+        listCopy = hashTable[point].copy()
+        listCopy.remove(centerpoint)
+        if previouspoint != "":
+            listCopy.remove(previouspoint)
+        previouspoint = point
+        visited.append(point)
+        point = listCopy[0]
+    
+    if len(visited) != len(adj)-1:
+        return False
+    
+    return True
