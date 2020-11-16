@@ -1460,3 +1460,16 @@ def tennisSet(score1, score2):
         return True
     
     return False 
+
+def arrayPacking(a):
+    a.reverse()
+    bins = ""
+    for num in a:
+        number = str(bin(num).replace("0b",""))
+        if len(number) < 8:
+            numZeros = 8 - len(number)
+            zeros = "0"*numZeros
+            number = zeros + number
+        bins = bins + number
+
+    return int(bins, 2)
