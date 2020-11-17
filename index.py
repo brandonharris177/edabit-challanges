@@ -1473,3 +1473,12 @@ def arrayPacking(a):
         bins = bins + number
 
     return int(bins, 2)
+
+    def rangeBitCount(a, b):
+    count = 0
+    num = a
+    while num <= b:
+        count += len(str(bin(num).replace("0b","").replace("0", "")))
+        num += 1
+        
+    return count
