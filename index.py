@@ -1482,3 +1482,6 @@ def arrayPacking(a):
         num += 1
         
     return count
+
+def mirrorBits(a):
+    return int(str(bin(a).replace("0b",""))[::-1], 2)
