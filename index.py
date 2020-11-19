@@ -1485,3 +1485,6 @@ def arrayPacking(a):
 
 def mirrorBits(a):
     return int(str(bin(a).replace("0b",""))[::-1], 2)
+
+def secondRightmostZeroBit(n):
+    return 2**(str(bin(n).replace("0b", "")[::-1].replace("0", "", 1)).find("0") + 1)
