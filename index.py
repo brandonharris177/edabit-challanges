@@ -1488,3 +1488,19 @@ def mirrorBits(a):
 
 def secondRightmostZeroBit(n):
     return 2**(str(bin(n).replace("0b", "")[::-1].replace("0", "", 1)).find("0") + 1)
+
+def swapAdjacentBits(n):
+    return swap(n)
+
+def swap(n):
+    binary = str(bin(n).replace("0b", ""))
+    if len(binary)%2 != 0:
+        binary = "0" + binary 
+        
+    count = 0
+    
+    while count <= len(binary)-1:
+        binary = ''.join((binary[:count], binary[count+1], binary[count], binary[count+2:]))
+        count += 2
+     
+    return int(binary, 2)
