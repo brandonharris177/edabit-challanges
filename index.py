@@ -1504,3 +1504,9 @@ def swap(n):
         count += 2
      
     return int(binary, 2)
+
+def differentRightmostBit(n, m):
+    return 2 ** len(bin(n^m)) if bin(n^m).replace("0b", "")[::-1].find("1") == -1 else 2 ** bin(n^m).replace("0b", "")[::-1].find("1")
+
+def equalPairOfBits(n, m):
+    return 2 ** len(bin(n^m).replace("0b", "")) if bin(n^m).replace("0b", "")[::-1].find("0") == -1 else 2 ** bin(n^m).replace("0b", "")[::-1].find("0")
