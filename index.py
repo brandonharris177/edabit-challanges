@@ -1510,3 +1510,12 @@ def differentRightmostBit(n, m):
 
 def equalPairOfBits(n, m):
     return 2 ** len(bin(n^m).replace("0b", "")) if bin(n^m).replace("0b", "")[::-1].find("0") == -1 else 2 ** bin(n^m).replace("0b", "")[::-1].find("0")
+
+def leastFactorial(n):
+    k = 1
+    m = 1
+    while k < n:
+        m += 1
+        k = k*m
+        
+    return k
