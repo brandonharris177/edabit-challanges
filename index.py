@@ -1519,3 +1519,25 @@ def leastFactorial(n):
         k = k*m
         
     return k
+
+def countSumOfTwoRepresentations2(n, l, r):
+    A = l
+    B = n-l
+    count = 0
+    if A + B == n and l <= A <= B <= r:
+        while l <= A <= B <= r:
+            count += 1
+            A += 1
+            B -= 1    
+        return count
+        
+    B = r
+    A = n-r
+    if A + B == n and l <= A <= B <= r:
+        while l <= A <= B <= r:
+            count += 1
+            A += 1
+            B -= 1        
+        return count
+        
+    return count
