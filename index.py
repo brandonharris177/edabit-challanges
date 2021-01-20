@@ -1541,3 +1541,57 @@ def countSumOfTwoRepresentations2(n, l, r):
         return count
         
     return count
+
+def magicalWell(a, b, n):
+    total = 0
+    while n > 0:
+        total = a*b + total
+        a += 1
+        b += 1
+        n -= 1
+        
+    return total
+
+def lineUp(commands):
+    directions = [0, 0]
+    same = 0
+    for command in commands:
+        if command == "L":
+            directions[0] += 1
+            directions[1] -= 1
+        if command == "R":
+            directions[0] -= 1
+            directions[1] += 1
+        if command == "A":
+            directions[0] += 2
+            directions[1] -= 2
+        if directions[0] == -1:
+            directions[0] = 3
+        if directions[1] == -1:
+            directions[1] = 3
+        if directions[0] == -2:
+            directions[0] = 2
+        if directions[1] == -2:
+            directions[1] = 2
+        if directions[0] > 3:
+            directions[0] = directions[0]%4
+        if directions[1] > 3:
+            directions[1] = directions[1]%4
+            
+        if directions[0] == directions[1]:
+            same += 1
+            
+    return same
+
+def increaseNumberRoundness(n):
+    string = str(n)[::-1]
+    index = 0
+    while string[index] == "0" and index < len(string):
+        string = string.replace('0','',1)
+        
+    roundness = string.find("0")
+    
+    if roundness == -1:
+        return False
+        
+    return True
