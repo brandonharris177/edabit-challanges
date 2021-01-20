@@ -1582,3 +1582,16 @@ def lineUp(commands):
             same += 1
             
     return same
+
+def increaseNumberRoundness(n):
+    string = str(n)[::-1]
+    index = 0
+    while string[index] == "0" and index < len(string):
+        string = string.replace('0','',1)
+        
+    roundness = string.find("0")
+    
+    if roundness == -1:
+        return False
+        
+    return True
