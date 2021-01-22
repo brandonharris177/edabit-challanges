@@ -1595,3 +1595,16 @@ def increaseNumberRoundness(n):
         return False
         
     return True
+
+def rounders(n):
+    numList = [int(x) for x in str(n)[::-1]] 
+    newNum = ''
+    
+    for num in range(len(numList)-1):
+        if numList[num] >= 5:
+            numList[num+1]+=1
+    
+    zeros = len(numList)-1
+    newNum = str(numList[-1]) + "0"*zeros
+        
+    return int(newNum)
