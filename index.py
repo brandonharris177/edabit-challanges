@@ -1608,3 +1608,14 @@ def rounders(n):
     newNum = str(numList[-1]) + "0"*zeros
         
     return int(newNum)
+
+def candles(candlesNumber, makeNew):
+    num = candlesNumber
+    leftOvers = candlesNumber
+    while leftOvers >= makeNew:
+        candles = math.floor(leftOvers/makeNew)
+        remainder = leftOvers - candles*makeNew
+        num = num + candles
+        leftOvers = candles + remainder
+        
+    return num
