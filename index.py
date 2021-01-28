@@ -1619,3 +1619,18 @@ def candles(candlesNumber, makeNew):
         leftOvers = candles + remainder
         
     return num
+
+def countBlackCells(n, m):
+    intersection = 0
+    black_cells = 0
+    row = 1
+    while row <= n:
+        next_intersection = (m/n) * row
+        amount = math.ceil(next_intersection) - math.floor(intersection)
+        if row != n and next_intersection == math.floor(next_intersection):
+            black_cells+=2
+        black_cells = black_cells + amount
+        intersection = next_intersection
+        row += 1
+        
+    return black_cells
