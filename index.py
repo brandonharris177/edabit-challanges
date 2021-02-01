@@ -1637,3 +1637,16 @@ def countBlackCells(n, m):
 
 def removeArrayPart(inputArray, l, r):
     return inputArray[0:l] + inputArray[r+1:len(inputArray)]
+
+def isSmooth(arr):
+    length = len(arr)
+    if length%2 != 0:
+        middle = arr[math.floor(length/2)]
+    else:
+        length = length/2
+        middle = arr[math.ceil(length)] + arr[math.floor(length-1)]
+        
+    if arr[0] == arr[-1] == middle:
+        return True
+    else:
+        return False
