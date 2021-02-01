@@ -1634,3 +1634,6 @@ def countBlackCells(n, m):
         row += 1
         
     return black_cells
+
+def removeArrayPart(inputArray, l, r):
+    return inputArray[0:l] + inputArray[r+1:len(inputArray)]
