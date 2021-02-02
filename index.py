@@ -1657,3 +1657,12 @@ def replaceMiddle(arr):
         arr[middle] = arr[middle] + arr[middle-1]
         del arr[middle-1]
     return arr
+
+def makeArrayConsecutive2(statues):
+    statues.sort()
+    missing = 0
+    for index in range(len(statues)-1):
+        between = statues[index+1] - statues[index] - 1
+        missing += between
+    
+    return missing
