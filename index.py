@@ -1650,3 +1650,10 @@ def isSmooth(arr):
         return True
     else:
         return False
+
+def replaceMiddle(arr):
+    if len(arr)%2 == 0:
+        middle = math.floor(len(arr)/2)
+        arr[middle] = arr[middle] + arr[middle-1]
+        del arr[middle-1]
+    return arr
