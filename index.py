@@ -1637,3 +1637,60 @@ def countBlackCells(n, m):
 
 def removeArrayPart(inputArray, l, r):
     return inputArray[0:l] + inputArray[r+1:len(inputArray)]
+
+def isSmooth(arr):
+    length = len(arr)
+    if length%2 != 0:
+        middle = arr[math.floor(length/2)]
+    else:
+        length = length/2
+        middle = arr[math.ceil(length)] + arr[math.floor(length-1)]
+        
+    if arr[0] == arr[-1] == middle:
+        return True
+    else:
+        return False
+
+def replaceMiddle(arr):
+    if len(arr)%2 == 0:
+        middle = math.floor(len(arr)/2)
+        arr[middle] = arr[middle] + arr[middle-1]
+        del arr[middle-1]
+    return arr
+
+def makeArrayConsecutive2(statues):
+    statues.sort()
+    missing = 0
+    for index in range(len(statues)-1):
+        between = statues[index+1] - statues[index] - 1
+        missing += between
+    
+    return missing
+
+def isSumOfConsecutive2(n):
+    divisor = 2
+    ways = 1
+    while divisor <= n:
+        count = 0
+        while n%divisor == 0:
+            n = n/divisor
+            count+=1
+        if count > 0 and divisor%2 != 0:
+            ways = ways*(1+count)
+        divisor+=1
+    
+    return ways-1
+
+def squareDigitsSequence(a0):
+    occored = set()
+    num = a0
+    count = 1
+    while num not in occored:
+        occored.add(num)
+        count+=1
+        stringNum = str(num)
+        num = 0
+        for integer in stringNum:
+            num = num + int(integer)**2
+            
+    return count
