@@ -1666,3 +1666,17 @@ def makeArrayConsecutive2(statues):
         missing += between
     
     return missing
+
+def isSumOfConsecutive2(n):
+    divisor = 2
+    ways = 1
+    while divisor <= n:
+        count = 0
+        while n%divisor == 0:
+            n = n/divisor
+            count+=1
+        if count > 0 and divisor%2 != 0:
+            ways = ways*(1+count)
+        divisor+=1
+    
+    return ways-1
