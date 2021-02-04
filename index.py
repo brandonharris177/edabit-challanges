@@ -1680,3 +1680,17 @@ def isSumOfConsecutive2(n):
         divisor+=1
     
     return ways-1
+
+def squareDigitsSequence(a0):
+    occored = set()
+    num = a0
+    count = 1
+    while num not in occored:
+        occored.add(num)
+        count+=1
+        stringNum = str(num)
+        num = 0
+        for integer in stringNum:
+            num = num + int(integer)**2
+            
+    return count
