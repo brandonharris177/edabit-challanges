@@ -1694,3 +1694,22 @@ def squareDigitsSequence(a0):
             num = num + int(integer)**2
             
     return count
+
+def pagesNumberingWithInk(current, numberOfDigits):
+    total = current-1
+    remainder = numberOfDigits 
+    digitsPerInt = len(str(total))
+    roundUp = int("1" + digitsPerInt * "0") - 1
+    amountToGo = roundUp-total
+    rounding = 0
+    while remainder-amountToGo*digitsPerInt >= 0:
+        rounding = 1
+        total = roundUp
+        digitsPerInt = len(str(total))
+        remainder -= amountToGo * digitsPerInt
+        roundUp = roundUp*10 + 9
+        amountToGo = roundUp - total
+        
+    total+=math.floor(remainder/(digitsPerInt + rounding))
+        
+    return total
