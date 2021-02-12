@@ -1758,3 +1758,9 @@ def properNounCorrection(noun):
     noun = noun[0].upper() + noun[1:].lower()
     
     return noun
+
+def isTandemRepeat(inputString):
+    concat = inputString[:int(len(inputString)/2)]
+    if concat + concat == inputString:
+        return True
+    return False
