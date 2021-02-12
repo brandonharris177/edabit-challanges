@@ -1713,3 +1713,54 @@ def pagesNumberingWithInk(current, numberOfDigits):
     total+=math.floor(remainder/(digitsPerInt + rounding))
         
     return total
+
+def weakNumbers(n):
+    if n <= 4:
+        return [0, n]
+    factorization = []
+    hashTable = {}
+    keys=[2]
+    answer = [0, 0]
+    for number in range(4, n+1):
+        copy=number
+        divisor = 2
+        while copy!=1:
+            count = 0
+            while copy%divisor == 0:
+                copy=copy/divisor
+                count+=1
+            if count > 0:
+                factorization.append(count)
+            divisor+=1
+        total=1
+        for power in factorization:
+            total*=(1+power)
+        if total > 2:
+            if total not in hashTable:
+                hashTable[total] = 0
+                keys.append(total)
+            hashTable[total]+=1
+        weakness = 0
+        index = -1
+        while keys[index] > total:
+            weakness+=hashTable[keys[index]]
+            index-=1
+        if weakness > answer[0]:
+            answer[0] = weakness
+            answer[1] = 1
+        elif weakness == answer[0]:
+            answer[1]+=1
+        factorization = []
+      
+    return answer
+
+def properNounCorrection(noun):
+    noun = noun[0].upper() + noun[1:].lower()
+    
+    return noun
+
+def isTandemRepeat(inputString):
+    concat = inputString[:int(len(inputString)/2)]
+    if concat + concat == inputString:
+        return True
+    return False
