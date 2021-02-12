@@ -1753,3 +1753,8 @@ def weakNumbers(n):
         factorization = []
       
     return answer
+
+def properNounCorrection(noun):
+    noun = noun[0].upper() + noun[1:].lower()
+    
+    return noun
