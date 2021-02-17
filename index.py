@@ -1764,3 +1764,16 @@ def isTandemRepeat(inputString):
     if concat + concat == inputString:
         return True
     return False
+
+def isCaseInsensitivePalindrome(inputString):
+    inputString = inputString.lower()
+    half = math.floor(len(inputString)/2)
+    if len(inputString)%2 == 0:
+        if inputString[:half] == inputString[half:len(inputString)][::-1]:
+            return True
+        else:
+            return False
+    print(inputString[:half], inputString[half+1:len(inputString)][::-1])   
+    if inputString[:half] == inputString[half+1:len(inputString)][::-1]:
+        return True
+    return False
