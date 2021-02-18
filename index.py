@@ -1777,3 +1777,21 @@ def isCaseInsensitivePalindrome(inputString):
     if inputString[:half] == inputString[half+1:len(inputString)][::-1]:
         return True
     return False
+
+def stringsConstruction(a, b):
+    hashTable = {}
+    for letter in a:
+        if letter not in hashTable:
+            hashTable[letter] = [0, 0]
+        hashTable[letter][0]+=1
+        
+    for element in b:
+        if element in hashTable:
+            hashTable[element][1]+=1
+            
+    minNum = math.floor(hashTable[a[0]][1]/hashTable[a[0]][0])
+    for values in hashTable.values():
+        if values[1]/values[0] < minNum:
+            minNum = math.floor(values[1]/values[0])
+        
+    return minNum
