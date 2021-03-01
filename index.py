@@ -1795,3 +1795,25 @@ def stringsConstruction(a, b):
             minNum = math.floor(values[1]/values[0])
         
     return minNum
+
+def isSubstitutionCipher(string1, string2):
+    hashtable = {}
+    value = 0
+    code1 = ''
+    for letter in string1:
+        if letter not in hashtable:
+            hashtable[letter] = value
+            value += 1
+        code1+=str(hashtable[letter])
+    hashtable = {}
+    value = 0
+    code2 = ''    
+    for letter in string2:
+        if letter not in hashtable:
+            hashtable[letter] = value
+            value += 1
+        code2+=str(hashtable[letter])
+    
+    if code1 == code2:
+        return True
+    return False
