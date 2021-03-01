@@ -1817,3 +1817,11 @@ def isSubstitutionCipher(string1, string2):
     if code1 == code2:
         return True
     return False
+
+def createAnagram(s, t):
+    for letter in s:
+        found = t.find(letter)
+        if found != -1:
+            t = t[0 : found : ] + t[found + 1 : :]
+        
+    return len(t)
