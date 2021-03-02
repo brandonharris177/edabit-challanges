@@ -1825,3 +1825,62 @@ def createAnagram(s, t):
             t = t[0 : found : ] + t[found + 1 : :]
         
     return len(t)
+
+# This funciton works if the shape of the letters must match the shape of the number
+
+def constructSquare(s):
+    hashTable = {}
+    largestPossible = math.floor(math.sqrt(int("9"*len(s))))
+    largestPossibleSquare=str(largestPossible**2)
+    counter = 0
+    
+    while len(largestPossibleSquare) == len(s) and counter < len(s):
+        for index in range(len(s)):
+            if s[index] not in hashTable:
+                hashTable[s[index]] = largestPossibleSquare[index]
+            if hashTable[s[index]] != largestPossibleSquare[index]: 
+                largestPossible-=1
+                largestPossibleSquare=str(largestPossible**2)
+                hashTable = {}
+                counter = 0
+                break
+            else:
+                counter+=1
+                
+    if len(largestPossibleSquare) < len(s):
+        return -1
+        
+    return int(largestPossibleSquare)
+
+# This works if you can re-arrange the letter values 
+
+def constructSquare(s):
+    hashTable = {}
+    largestPossible = math.floor(math.sqrt(int("9"*len(s))))
+    largestPossibleSquare=str(largestPossible**2)
+    codeSet = set()
+    sequence1 = []
+    sequence2 = []
+    
+    for letter in s:
+        if letter not in codeSet:
+            codeSet.add(letter)
+            sequence1.append(s.count(letter))
+        
+    sequence1.sort()
+    largestPossible+=1
+    
+    while sequence1 != sequence2:
+        codeSet = set()
+        sequence2 = []
+        largestPossible-=1
+        largestPossibleSquare=str(largestPossible**2)
+        if len(s) != len(largestPossibleSquare):
+            return -1
+        for integer in largestPossibleSquare:
+            if integer not in codeSet:
+                codeSet.add(integer)
+                sequence2.append(largestPossibleSquare.count(integer))
+        sequence2.sort()    
+        
+    return int(largestPossibleSquare)
