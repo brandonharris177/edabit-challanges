@@ -1925,3 +1925,15 @@ def numberOfClans(divisors, k):
         clans.add(clanNum)
             
     return len(clans)
+
+def differentSquares(matrix):
+    squares = set()
+    coordinates = [[0,0], [0, +1], [+1, 0], [+1, +1]]
+    for rowIndex in range(len(matrix)-1):
+        for value in range(len(matrix[rowIndex])-1):
+            possibleSquare = ''
+            for coordinate in coordinates:
+                possibleSquare+=str(matrix[rowIndex+coordinate[0]][value+coordinate[1]])
+            squares.add(possibleSquare)
+    
+    return len(squares)
