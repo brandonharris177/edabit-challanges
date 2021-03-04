@@ -1914,3 +1914,14 @@ def mostFrequentDigitSum(n):
         n = n-int(summation)
         
     return number
+
+def numberOfClans(divisors, k):
+    clans = set()
+    for integer in range(1, k+1):
+        clanNum = ''
+        for divisor in divisors:
+            if integer%divisor == 0:
+                clanNum+=str(divisor)
+        clans.add(clanNum)
+            
+    return len(clans)
