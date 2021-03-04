@@ -1884,3 +1884,33 @@ def constructSquare(s):
         sequence2.sort()    
         
     return int(largestPossibleSquare)
+
+def numbersGrouping(a):
+    total = set()
+
+    for num in a:
+        addition = math.ceil(num/(10000))
+        total.add(addition)
+        
+    return len(total)+len(a)
+
+def mostFrequentDigitSum(n):
+    hashTable = {}
+    number = 0
+    occorance = 0
+    while n > 0:
+        summation = 0
+        strN = str(n)
+        for value in strN:
+            summation+=int(value)
+        if summation not in hashTable:
+            hashTable[summation] = 0
+        hashTable[summation] += 1
+        if hashTable[summation] == occorance and summation > number:
+            number = summation
+        if hashTable[summation] > occorance:
+            number = summation
+            occorance = hashTable[summation]
+        n = n-int(summation)
+        
+    return number
