@@ -1960,4 +1960,18 @@ def houseOfCats(legs):
     combinations.append(people)
     return combinations
         
+def alphabetSubsequence(s):
+    hashTable = {}
+    index = 0
+    alphabet_string = string.ascii_lowercase
+    for letter in alphabet_string:
+        hashTable[letter] = index
+        index+=1
+        
+    for elem_index in range(len(s)-1):
+        if hashTable[s[elem_index]] >= hashTable[s[elem_index+1]]:
+            return False
+            
+    return True
+        
         
