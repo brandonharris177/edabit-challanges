@@ -1937,3 +1937,27 @@ def differentSquares(matrix):
             squares.add(possibleSquare)
     
     return len(squares)
+
+def houseOfCats(legs):
+    combinations = []
+    people = 0
+    if legs == 0:
+        return [0]
+    if legs%4 == 0:
+        combinations.append(people)
+    while legs > 4:
+        people+=1
+        legs-=2
+        if legs%4 == 0:
+            combinations.append(people)
+        
+    if legs == 4:
+        people+=2
+        combinations.append(people)
+        return combinations
+    
+    people+=1
+    combinations.append(people)
+    return combinations
+        
+        
