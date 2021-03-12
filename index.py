@@ -1974,4 +1974,11 @@ def alphabetSubsequence(s):
             
     return True
         
+def addBorder(picture):
+    picture.insert(0, "*"*len(picture[0]))
+    picture.append("*"*len(picture[0]))
+    for index in range(len(picture)):
+        picture[index] = "*"+picture[index]+"*"
+    return picture
         
+   
