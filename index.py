@@ -1980,5 +1980,23 @@ def addBorder(picture):
     for index in range(len(picture)):
         picture[index] = "*"+picture[index]+"*"
     return picture
+
+def timedReading(maxLength, text):
+    alphabet_string = string.ascii_uppercase + string.ascii_lowercase
+    alphabet_set = set(alphabet_string)
+    word_count = 0
+    letter_count = 0
+    for letter in text:
+        if letter == " ":
+            if letter_count <= maxLength:
+                word_count+=1
+            letter_count = 0
+        elif letter in alphabet_set:
+            letter_count+=1
+            
+    if 0 < letter_count <= maxLength:
+        word_count+=1
+            
+    return word_count
         
    
