@@ -1914,3 +1914,89 @@ def mostFrequentDigitSum(n):
         n = n-int(summation)
         
     return number
+
+def numberOfClans(divisors, k):
+    clans = set()
+    for integer in range(1, k+1):
+        clanNum = ''
+        for divisor in divisors:
+            if integer%divisor == 0:
+                clanNum+=str(divisor)
+        clans.add(clanNum)
+            
+    return len(clans)
+
+def differentSquares(matrix):
+    squares = set()
+    coordinates = [[0,0], [0, +1], [+1, 0], [+1, +1]]
+    for rowIndex in range(len(matrix)-1):
+        for value in range(len(matrix[rowIndex])-1):
+            possibleSquare = ''
+            for coordinate in coordinates:
+                possibleSquare+=str(matrix[rowIndex+coordinate[0]][value+coordinate[1]])
+            squares.add(possibleSquare)
+    
+    return len(squares)
+
+def houseOfCats(legs):
+    combinations = []
+    people = 0
+    if legs == 0:
+        return [0]
+    if legs%4 == 0:
+        combinations.append(people)
+    while legs > 4:
+        people+=1
+        legs-=2
+        if legs%4 == 0:
+            combinations.append(people)
+        
+    if legs == 4:
+        people+=2
+        combinations.append(people)
+        return combinations
+    
+    people+=1
+    combinations.append(people)
+    return combinations
+        
+def alphabetSubsequence(s):
+    hashTable = {}
+    index = 0
+    alphabet_string = string.ascii_lowercase
+    for letter in alphabet_string:
+        hashTable[letter] = index
+        index+=1
+        
+    for elem_index in range(len(s)-1):
+        if hashTable[s[elem_index]] >= hashTable[s[elem_index+1]]:
+            return False
+            
+    return True
+        
+def addBorder(picture):
+    picture.insert(0, "*"*len(picture[0]))
+    picture.append("*"*len(picture[0]))
+    for index in range(len(picture)):
+        picture[index] = "*"+picture[index]+"*"
+    return picture
+
+def timedReading(maxLength, text):
+    alphabet_string = string.ascii_uppercase + string.ascii_lowercase
+    alphabet_set = set(alphabet_string)
+    word_count = 0
+    letter_count = 0
+    for letter in text:
+        if letter == " ":
+            if letter_count <= maxLength:
+                word_count+=1
+            letter_count = 0
+        elif letter in alphabet_set:
+            letter_count+=1
+            
+    if 0 < letter_count <= maxLength:
+        word_count+=1
+            
+    return word_count
+        
+   
