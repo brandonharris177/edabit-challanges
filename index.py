@@ -1999,4 +1999,21 @@ def timedReading(maxLength, text):
             
     return word_count
         
-   
+def areSimilar(a, b):
+    list1 = []
+    list2 = []
+    for index in range(len(a)):
+        if a[index] != b[index]:
+            list1.append(a[index])
+            list2.append(b[index])
+            if len(list1) > 2:
+                return False
+                
+    list1.sort()
+    list2.sort()
+    
+    if list1 == list2:
+        return True
+        
+    return False
+
