@@ -2017,3 +2017,38 @@ def areSimilar(a, b):
         
     return False
 
+def higherVersion(ver1, ver2):
+    arr1 = []
+    arr2 = []
+    number = ""
+    for element in ver1:
+        if element == ".":
+            arr1.append(number)
+            number = ""
+        else:
+            number += element
+    arr1.append(number)
+    number = ""
+    for element in ver2:
+        if element == ".":
+            arr2.append(number)
+            number = ""
+        else:
+            number += element
+    arr2.append(number)
+    difference = len(arr1) - len(arr2)
+    if difference > 0:
+        arr2 = arr2 + [0] * difference
+    if difference < 0:
+        arr1 = arr1 + [0] * abs(difference)
+             
+    print(arr1, arr2)
+    for index in range(len(arr1)):
+        num1 = int(arr1[index])
+        num2 = int(arr2[index])
+        if num1 > num2:
+            return True
+        if num2 > num1:
+            return False
+    return False
+
