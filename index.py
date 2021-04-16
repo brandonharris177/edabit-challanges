@@ -2052,3 +2052,32 @@ def higherVersion(ver1, ver2):
             return False
     return False
 
+def pairOfShoes(shoes):
+    hashTable = {}
+    unpaired = 0
+    for shoe in shoes:
+        if shoe[0] == 0:
+            key = "1" + str(shoe[1])
+        else:
+            key = "0" + str(shoe[1])
+        if key in hashTable and hashTable[key] >= 1:
+            hashTable[key] -= 1
+            unpaired -= 1
+            # print(unpaired)
+            # print("1", hashTable)
+        else:
+            if shoe[0] == 0:
+                key = "0" + str(shoe[1])
+            else:
+                key = "1" + str(shoe[1])
+            if key not in hashTable:
+                hashTable[key] = 0
+            hashTable[key] += 1
+            # print("2", hashTable)
+            unpaired += 1
+            # print(unpaired)
+            
+    if unpaired > 0:
+        return False
+    
+    return True
