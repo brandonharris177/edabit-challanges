@@ -2106,4 +2106,6 @@ def combs(comb1, comb2):
     if len(comb1) > len(comb2)+shift:
        return len(comb1)
     return len(comb2)+shift
-            
+
+def findEmailDomain(address):      
+    return address[address.rfind("@")+1:len(address)]
