@@ -2081,3 +2081,29 @@ def pairOfShoes(shoes):
         return False
     
     return True
+
+def combs(comb1, comb2):
+    setComb = set()
+    listComb = []
+    for index in range(len(comb1)):
+        if comb1[index] == "*":
+            setComb.add(index)
+    for index in range(len(comb2)):
+        if comb2[index] == "*":
+            listComb.append(index)
+    if len(comb1) > len(comb2):
+        length = len(comb1)
+    else:
+        length = len(comb2)
+    longest = len(comb1)+len(comb2)
+    shift = 0
+    tooth = 0
+    while tooth < len(comb2)-1:
+        for tooth in listComb:
+            if (tooth+shift) in setComb:
+                shift+=1
+                break
+    if len(comb1) > len(comb2)+shift:
+       return len(comb1)
+    return len(comb2)+shift
+            
