@@ -1999,4 +1999,111 @@ def timedReading(maxLength, text):
             
     return word_count
         
-   
+def areSimilar(a, b):
+    list1 = []
+    list2 = []
+    for index in range(len(a)):
+        if a[index] != b[index]:
+            list1.append(a[index])
+            list2.append(b[index])
+            if len(list1) > 2:
+                return False
+                
+    list1.sort()
+    list2.sort()
+    
+    if list1 == list2:
+        return True
+        
+    return False
+
+def higherVersion(ver1, ver2):
+    arr1 = []
+    arr2 = []
+    number = ""
+    for element in ver1:
+        if element == ".":
+            arr1.append(number)
+            number = ""
+        else:
+            number += element
+    arr1.append(number)
+    number = ""
+    for element in ver2:
+        if element == ".":
+            arr2.append(number)
+            number = ""
+        else:
+            number += element
+    arr2.append(number)
+    difference = len(arr1) - len(arr2)
+    if difference > 0:
+        arr2 = arr2 + [0] * difference
+    if difference < 0:
+        arr1 = arr1 + [0] * abs(difference)
+             
+    print(arr1, arr2)
+    for index in range(len(arr1)):
+        num1 = int(arr1[index])
+        num2 = int(arr2[index])
+        if num1 > num2:
+            return True
+        if num2 > num1:
+            return False
+    return False
+
+def pairOfShoes(shoes):
+    hashTable = {}
+    unpaired = 0
+    for shoe in shoes:
+        if shoe[0] == 0:
+            key = "1" + str(shoe[1])
+        else:
+            key = "0" + str(shoe[1])
+        if key in hashTable and hashTable[key] >= 1:
+            hashTable[key] -= 1
+            unpaired -= 1
+            # print(unpaired)
+            # print("1", hashTable)
+        else:
+            if shoe[0] == 0:
+                key = "0" + str(shoe[1])
+            else:
+                key = "1" + str(shoe[1])
+            if key not in hashTable:
+                hashTable[key] = 0
+            hashTable[key] += 1
+            # print("2", hashTable)
+            unpaired += 1
+            # print(unpaired)
+            
+    if unpaired > 0:
+        return False
+    
+    return True
+
+def combs(comb1, comb2):
+    setComb = set()
+    listComb = []
+    for index in range(len(comb1)):
+        if comb1[index] == "*":
+            setComb.add(index)
+    for index in range(len(comb2)):
+        if comb2[index] == "*":
+            listComb.append(index)
+    if len(comb1) > len(comb2):
+        length = len(comb1)
+    else:
+        length = len(comb2)
+    longest = len(comb1)+len(comb2)
+    shift = 0
+    tooth = 0
+    while tooth < len(comb2)-1:
+        for tooth in listComb:
+            if (tooth+shift) in setComb:
+                shift+=1
+                break
+    if len(comb1) > len(comb2)+shift:
+       return len(comb1)
+    return len(comb2)+shift
+            
