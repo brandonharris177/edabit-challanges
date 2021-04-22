@@ -2109,3 +2109,6 @@ def combs(comb1, comb2):
 
 def findEmailDomain(address):      
     return address[address.rfind("@")+1:len(address)]
+
+def htmlEndTagByStartTag(startTag):
+    return "</"+startTag[1:startTag.find(" ")]+">"
