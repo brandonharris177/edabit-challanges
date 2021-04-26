@@ -2112,3 +2112,18 @@ def findEmailDomain(address):
 
 def htmlEndTagByStartTag(startTag):
     return "</"+startTag[1:startTag.find(" ")]+">"
+    
+def stringsCrossover(inputArray, result):
+    total = 0
+    for string1 in range(len(inputArray)):
+        for string2 in range(string1+1, len(inputArray)):
+            match = 0
+            for index in range(len(result)):
+                if result[index] != inputArray[string1][index] and result[index] != inputArray[string2][index]:
+                    match = 0
+                    break
+                else:
+                    match+=1
+            if match == len(result):
+                total+=1
+    return total
