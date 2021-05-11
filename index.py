@@ -2106,4 +2106,43 @@ def combs(comb1, comb2):
     if len(comb1) > len(comb2)+shift:
        return len(comb1)
     return len(comb2)+shift
-            
+
+def findEmailDomain(address):      
+    return address[address.rfind("@")+1:len(address)]
+
+def htmlEndTagByStartTag(startTag):
+    return "</"+startTag[1:startTag.find(" ")]+">"
+    
+def stringsCrossover(inputArray, result):
+    total = 0
+    for string1 in range(len(inputArray)):
+        for string2 in range(string1+1, len(inputArray)):
+            match = 0
+            for index in range(len(result)):
+                if result[index] != inputArray[string1][index] and result[index] != inputArray[string2][index]:
+                    match = 0
+                    break
+                else:
+                    match+=1
+            if match == len(result):
+                total+=1
+    return total
+    
+    def cipher26(message):
+    cypher = {}
+    alphabet = string.ascii_lowercase
+    for index in range(len(alphabet)):
+        cypher[alphabet[index]] = index
+        cypher[str(index)] = alphabet[index]
+    decoded = message[0]
+    lastValue = cypher[message[0]]
+    for index in range(1, len(message)):
+        currentValue = cypher[message[index]]
+        if currentValue < lastValue:
+            currentValue+=26
+        nextValue = currentValue - lastValue
+        decoded+=cypher[str(nextValue)]
+        lastValue = currentValue%26
+        
+    return decoded        
+        
