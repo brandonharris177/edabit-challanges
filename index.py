@@ -2127,3 +2127,22 @@ def stringsCrossover(inputArray, result):
             if match == len(result):
                 total+=1
     return total
+    
+    def cipher26(message):
+    cypher = {}
+    alphabet = string.ascii_lowercase
+    for index in range(len(alphabet)):
+        cypher[alphabet[index]] = index
+        cypher[str(index)] = alphabet[index]
+    decoded = message[0]
+    lastValue = cypher[message[0]]
+    for index in range(1, len(message)):
+        currentValue = cypher[message[index]]
+        if currentValue < lastValue:
+            currentValue+=26
+        nextValue = currentValue - lastValue
+        decoded+=cypher[str(nextValue)]
+        lastValue = currentValue%26
+        
+    return decoded        
+        
