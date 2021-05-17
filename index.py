@@ -2159,3 +2159,13 @@ def areIsomorphic(array1, array2):
         if len(array1[index]) != len(array2[index]):
             return False
     return True
+
+def reverseOnDiagonals(matrix):
+    start = 0
+    end = len(matrix)-1
+    while start < len(matrix)/2:
+        matrix[start][start], matrix[end][end] = matrix[end][end], matrix[start][start]
+        matrix[start][end], matrix[end][start] = matrix[end][start], matrix[start][end]
+        start+=1
+        end-=1
+    return matrix
