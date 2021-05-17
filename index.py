@@ -1474,7 +1474,7 @@ def arrayPacking(a):
 
     return int(bins, 2)
 
-    def rangeBitCount(a, b):
+def rangeBitCount(a, b):
     count = 0
     num = a
     while num <= b:
@@ -2128,7 +2128,7 @@ def stringsCrossover(inputArray, result):
                 total+=1
     return total
     
-    def cipher26(message):
+def cipher26(message):
     cypher = {}
     alphabet = string.ascii_lowercase
     for index in range(len(alphabet)):
@@ -2146,3 +2146,52 @@ def stringsCrossover(inputArray, result):
         
     return decoded        
         
+def extractMatrixColumn(matrix, column):
+    columnList = []
+    for row in matrix:
+        columnList.append(row[column])
+    return columnList
+
+def areIsomorphic(array1, array2):
+    if len(array1) != len(array2):
+        return False
+    for index in range(len(array1)):
+        if len(array1[index]) != len(array2[index]):
+            return False
+    return True
+
+def reverseOnDiagonals(matrix):
+    start = 0
+    end = len(matrix)-1
+    while start < len(matrix)/2:
+        matrix[start][start], matrix[end][end] = matrix[end][end], matrix[start][start]
+        matrix[start][end], matrix[end][start] = matrix[end][start], matrix[start][end]
+        start+=1
+        end-=1
+    return matrix
+
+def swapDiagonals(matrix):
+    start = 0
+    end = -1
+    for row in matrix:
+        row[start], row[end] = row[end], row[start]
+        start+=1
+        end-=1
+    return matrix 
+
+def crossingSum(matrix, a, b):
+    total = 0
+    for element in matrix[a]:
+        total+=element
+    for row in range(len(matrix)):
+        total+=matrix[row][b]
+    total-=(matrix[a][b])
+    return total
+
+def drawRectangle(canvas, rectangle):
+    side = ["*"] + ["-"]*(rectangle[2] - rectangle[0]-1) + ["*"]
+    canvas[rectangle[1]] = canvas[rectangle[1]][0:rectangle[0]] + side + canvas[rectangle[1]][rectangle[2]+1:len(canvas[rectangle[1]])]
+    canvas[rectangle[3]] = canvas[rectangle[3]][0:rectangle[0]] + side + canvas[rectangle[3]][rectangle[2]+1:len(canvas[rectangle[3]])]
+    for row in range(rectangle[1]+1, rectangle[3]):
+        canvas[row][rectangle[0]], canvas[row][rectangle[2]] = "|", "|"
+    return canvas 
