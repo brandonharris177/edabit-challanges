@@ -1474,7 +1474,7 @@ def arrayPacking(a):
 
     return int(bins, 2)
 
-    def rangeBitCount(a, b):
+def rangeBitCount(a, b):
     count = 0
     num = a
     while num <= b:
@@ -2128,7 +2128,7 @@ def stringsCrossover(inputArray, result):
                 total+=1
     return total
     
-    def cipher26(message):
+def cipher26(message):
     cypher = {}
     alphabet = string.ascii_lowercase
     for index in range(len(alphabet)):
@@ -2146,3 +2146,16 @@ def stringsCrossover(inputArray, result):
         
     return decoded        
         
+def extractMatrixColumn(matrix, column):
+    columnList = []
+    for row in matrix:
+        columnList.append(row[column])
+    return columnList
+
+def areIsomorphic(array1, array2):
+    if len(array1) != len(array2):
+        return False
+    for index in range(len(array1)):
+        if len(array1[index]) != len(array2[index]):
+            return False
+    return True
