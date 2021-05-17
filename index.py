@@ -2187,3 +2187,11 @@ def crossingSum(matrix, a, b):
         total+=matrix[row][b]
     total-=(matrix[a][b])
     return total
+
+def drawRectangle(canvas, rectangle):
+    side = ["*"] + ["-"]*(rectangle[2] - rectangle[0]-1) + ["*"]
+    canvas[rectangle[1]] = canvas[rectangle[1]][0:rectangle[0]] + side + canvas[rectangle[1]][rectangle[2]+1:len(canvas[rectangle[1]])]
+    canvas[rectangle[3]] = canvas[rectangle[3]][0:rectangle[0]] + side + canvas[rectangle[3]][rectangle[2]+1:len(canvas[rectangle[3]])]
+    for row in range(rectangle[1]+1, rectangle[3]):
+        canvas[row][rectangle[0]], canvas[row][rectangle[2]] = "|", "|"
+    return canvas 
