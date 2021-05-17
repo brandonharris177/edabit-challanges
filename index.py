@@ -2178,3 +2178,12 @@ def swapDiagonals(matrix):
         start+=1
         end-=1
     return matrix 
+
+def crossingSum(matrix, a, b):
+    total = 0
+    for element in matrix[a]:
+        total+=element
+    for row in range(len(matrix)):
+        total+=matrix[row][b]
+    total-=(matrix[a][b])
+    return total
