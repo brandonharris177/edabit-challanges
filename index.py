@@ -2169,3 +2169,12 @@ def reverseOnDiagonals(matrix):
         start+=1
         end-=1
     return matrix
+
+def swapDiagonals(matrix):
+    start = 0
+    end = -1
+    for row in matrix:
+        row[start], row[end] = row[end], row[start]
+        start+=1
+        end-=1
+    return matrix 
