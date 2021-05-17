@@ -2195,3 +2195,20 @@ def drawRectangle(canvas, rectangle):
     for row in range(rectangle[1]+1, rectangle[3]):
         canvas[row][rectangle[0]], canvas[row][rectangle[2]] = "|", "|"
     return canvas 
+
+def volleyballPositions(formation, k):
+    k=k%6
+    if k==0:
+        return formation
+    positionsList = [[0, 1], [1, 2], [3, 2], [2, 1], [3, 0], [1, 0]]
+    playerList = []
+    for position in positionsList:
+        playerList.append(formation[position[0]][position[1]])
+    playerList = playerList[k: len(playerList)] + playerList[0: k]
+    for index in range(len(playerList)):
+        formation[positionsList[index][0]][positionsList[index][1]] = playerList[index]
+        
+    return formation
+        
+    
+    
