@@ -2195,3 +2195,57 @@ def drawRectangle(canvas, rectangle):
     for row in range(rectangle[1]+1, rectangle[3]):
         canvas[row][rectangle[0]], canvas[row][rectangle[2]] = "|", "|"
     return canvas 
+
+def volleyballPositions(formation, k):
+    k=k%6
+    if k==0:
+        return formation
+    positionsList = [[0, 1], [1, 2], [3, 2], [2, 1], [3, 0], [1, 0]]
+    playerList = []
+    for position in positionsList:
+        playerList.append(formation[position[0]][position[1]])
+    playerList = playerList[k: len(playerList)] + playerList[0: k]
+    for index in range(len(playerList)):
+        formation[positionsList[index][0]][positionsList[index][1]] = playerList[index]
+        
+    return formation
+
+def sudoku(grid):
+    squareCheck = [set(), set(), set()]
+    columnCheck = []
+    
+    for row in range(len(grid)):
+        columnCheck.append(set())
+        
+    for row in range(len(grid)):
+        rowSet = set(grid[row])
+        if len(rowSet) != 9:
+            return(False)
+        if row > 0 and row%3 == 0:
+            for square in squareCheck:
+                if len(square) != 9:
+                    return False
+            squareCheck = [set(), set(), set()]
+        for column in range(len(grid[row])):
+            number = grid[row][column]
+            if column < 3:
+                squareCheck[0].add(number)
+            if 2 < column < 6:
+                squareCheck[1].add(number)
+            if column > 5:
+                squareCheck[2].add(number)
+            columnCheck[column].add(number)
+        rowCheck = set()
+        
+    for square in squareCheck:
+        if len(square) != 9:
+            return False
+            
+    for column in columnCheck:
+        if len(column) != 9:
+            return False
+        
+    return True
+
+
+    
