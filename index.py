@@ -2247,5 +2247,18 @@ def sudoku(grid):
         
     return True
 
+def minesweeper(matrix):
+    checks = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]]
+    newMatrix = []
+    for row in matrix:
+        newMatrix.append([0]*len(matrix[0]))
+    for rowIndex in range(len(matrix)):
+        for columnIndex in range(len(matrix[rowIndex])):
+            if matrix[rowIndex][columnIndex] == True:
+                for check in checks:
+                    if 0<=rowIndex+check[0]<len(matrix) and 0<=columnIndex+check[1]<len(matrix[rowIndex]):
+                        newMatrix[rowIndex+check[0]][columnIndex+check[1]]+=1
 
-    
+    return newMatrix
+            
+
