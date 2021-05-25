@@ -2260,5 +2260,26 @@ def minesweeper(matrix):
                         newMatrix[rowIndex+check[0]][columnIndex+check[1]]+=1
 
     return newMatrix
+
+def boxBlur(image):
+    coordinates = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 0], [0, 1], [1, -1], [1, 0], [1, 1]]
+    blurImage=[]
+    values=[]
+        
+    for rowIndex in range(1, len(image)-1):
+        row = []
+        for columnIndex in range(1, len(image[rowIndex])-1):
+            total=0
+            for coordinate in coordinates:
+                total+=image[rowIndex+coordinate[0]][columnIndex+coordinate[1]]
+                values.append(image[rowIndex+coordinate[0]][columnIndex+coordinate[1]])
+            print(total/9)
+            total=math.floor(total/9)
+            row.append(total)
+        blurImage.append(row)
+            
+        
+    return blurImage 
+
             
 
