@@ -2281,5 +2281,12 @@ def boxBlur(image):
         
     return blurImage 
 
-            
+def shuffledArray(shuffled):
+    total = 0
+    shuffled.sort()
+    for number in shuffled:
+        total+=number
+    for index in range(len(shuffled)):
+        if total-shuffled[index] == shuffled[index]:
+            return shuffled[0:index] + shuffled[index+1:len(shuffled)]  
 
