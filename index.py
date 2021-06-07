@@ -2290,3 +2290,16 @@ def shuffledArray(shuffled):
         if total-shuffled[index] == shuffled[index]:
             return shuffled[0:index] + shuffled[index+1:len(shuffled)]  
 
+def sortByHeight(a):
+    indexMap = []
+    order = []
+    for index in range(len(a)):
+        element = a[index]
+        if element != -1:
+            indexMap.append(index)
+            order.append(element)
+    order.sort()
+    for index in range(len(order)):
+        a[indexMap[index]] = order[index]
+        
+    return a
