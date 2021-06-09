@@ -2303,3 +2303,19 @@ def sortByHeight(a):
         a[indexMap[index]] = order[index]
         
     return a
+
+def sortByLength(inputArray):
+    hashTable = {}
+    lengths = []
+    outputArray = []
+    for string in inputArray:
+        length = len(string)
+        if length not in hashTable:
+            hashTable[length] = []
+            lengths.append(length)
+        hashTable[length].append(string)
+    lengths.sort()
+    for key in lengths:
+        outputArray += hashTable[key]
+        
+    return outputArray
