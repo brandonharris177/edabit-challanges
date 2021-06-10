@@ -2319,3 +2319,22 @@ def sortByLength(inputArray):
         outputArray += hashTable[key]
         
     return outputArray
+
+def maximumSum(a, q):
+    mentions = [0]*len(a)
+    total = 0
+    for pair in q:
+        for number in range(pair[0], pair[1]+1):
+            mentions[number] += 1
+    mentions.sort()
+    a.sort()
+    mentions.reverse()
+    a.reverse()
+    index = 0
+    while index < len(mentions) and mentions[index] > 0:
+        total+=(a[index]*mentions[index])
+        index += 1
+        
+    return total
+        
+        
