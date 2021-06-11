@@ -2337,4 +2337,23 @@ def maximumSum(a, q):
         
     return total
         
-        
+def rowsRearranging(matrix):
+    if len(matrix) == 1:
+        return True
+    hashTable = {}
+    keys = []
+    for rowIndex in range(len(matrix)):
+        key = matrix[rowIndex][0]
+        if key in hashTable:
+            return False
+        hashTable[key] = matrix[rowIndex]
+        keys.append(key)
+    keys.sort()
+    for column in range(1, len(matrix[0])):
+        lastNum = hashTable[keys[0]][column]
+        for keyIndex in range(1, len(keys)):
+            nextNum = hashTable[keys[keyIndex]][column]
+            if lastNum >= nextNum:
+                return False
+            lastNum = nextNum
+    return True
