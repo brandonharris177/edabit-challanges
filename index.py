@@ -2357,3 +2357,34 @@ def rowsRearranging(matrix):
                 return False
             lastNum = nextNum
     return True
+
+def digitDifferenceSort(a):
+    hashTable = {}
+    keys = []
+    array = []
+    for number in a:
+        stringNum = str(number)
+        if len(stringNum) == 1:
+            if 0 not in hashTable:
+                hashTable[0] = []
+                keys.append(0)
+            hashTable[0] = [number] + hashTable[0]
+        else:
+            largest = int(stringNum[0])
+            smallest = int(stringNum[0])
+            for element in stringNum:
+                intNum = int(element)
+                if intNum > largest:
+                    largest = intNum
+                if intNum < smallest:
+                    smallest = intNum
+            difference = largest-smallest
+            if difference not in hashTable:
+                hashTable[difference] = []
+                keys.append(difference)
+            hashTable[difference] = [number] + hashTable[difference] 
+        keys.sort()
+    for key in keys:
+        array = array + hashTable[key]
+               
+    return array
