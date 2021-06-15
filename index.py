@@ -2388,3 +2388,16 @@ def digitDifferenceSort(a):
         array = array + hashTable[key]
                
     return array
+
+def uniqueDigitProducts(a):
+    aSet = set()
+    for number in a:
+        stringNum = str(number)
+        if len(stringNum) == 1:
+            aSet.add(number)
+        else:
+            total = 1
+            for digit in stringNum:
+                total*=int(digit)
+            aSet.add(total)
+    return len(aSet)
