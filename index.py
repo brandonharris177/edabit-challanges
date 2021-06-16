@@ -2401,3 +2401,18 @@ def uniqueDigitProducts(a):
                 total*=int(digit)
             aSet.add(total)
     return len(aSet)
+
+def bishopAndPawn(bishop, pawn):
+    alphabet = {
+        "a": 1,
+        "b": 2,
+        "c": 3,
+        "d": 4,
+        "e": 5,
+        "f": 6,
+        "g": 7,
+        "h": 8
+    }
+    if abs(int(pawn[1]) - int(bishop[1])) == abs(alphabet[pawn[0]] - alphabet[bishop[0]]):
+        return True
+    return False
