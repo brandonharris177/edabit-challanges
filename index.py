@@ -2437,3 +2437,78 @@ def chessKnightMoves(cell):
             moveCount+=1
             
     return moveCount
+
+alphabet = {
+        "a": 1,
+        "b": 2,
+        "c": 3,
+        "d": 4,
+        "e": 5,
+        "f": 6,
+        "g": 7,
+        "h": 8,
+        1: "a",
+        2: "b", 
+        3: "c",
+        4: "d",
+        5: "e",
+        6: "f", 
+        7: "g",
+        8: "h"
+    }
+
+def bishopDiagonal(bishop1, bishop2):
+    
+    bishop1Dict = {
+        "horizontal": alphabet[bishop1[0]],
+        "vertical": int(bishop1[1]),
+        "horMove": 0,
+        "vertMove": 0
+    }
+    
+    bishop2Dict = {
+        "horizontal": alphabet[bishop2[0]],
+        "vertical": int(bishop2[1]),
+        "horMove": 0,
+        "vertMove": 0
+    }
+    
+    if abs(bishop1Dict["horizontal"] - bishop2Dict["horizontal"]) != abs(bishop1Dict["vertical"] - bishop2Dict["vertical"]):
+        return(chessOrder([bishop1, bishop2]))
+       
+    operations = [["horizontal", "horMove"], ["vertical", "vertMove"]]
+    
+    for operation in operations:
+        if bishop1Dict[operation[0]] < bishop2Dict[operation[0]]:
+            bishop1Dict[operation[1]] = bishop1Dict[operation[0]]*-1+1
+            bishop2Dict[operation[1]] = 8-bishop2Dict[operation[0]]
+        else:
+            bishop2Dict[operation[1]] = bishop2Dict[operation[0]]*-1+1
+            bishop1Dict[operation[1]] = 8-bishop1Dict[operation[0]]
+    
+    bishops = [bishop1Dict, bishop2Dict]
+    
+    for bishop in bishops:
+        if abs(bishop["horMove"]) <= abs(bishop["vertMove"]):
+            edgeCase = 1
+            if abs(bishop["vertMove"]) != bishop["vertMove"]:
+                edgeCase = -1
+            bishop["horizontal"]+=bishop["horMove"]
+            bishop["vertical"]+=abs(bishop["horMove"])*edgeCase
+        else:
+            edgeCase = 1
+            if abs(bishop["horMove"]) != bishop["horMove"]:
+                edgeCase = -1
+            bishop["horizontal"]+=abs(bishop["vertMove"])*edgeCase
+            bishop["vertical"]+=bishop["vertMove"]
+            
+            
+    bishops = [(alphabet[bishop1Dict["horizontal"]])+str(bishop1Dict["vertical"]), (alphabet[bishop2Dict["horizontal"]])+str(bishop2Dict["vertical"])]
+    
+    return chessOrder(bishops)
+        
+def chessOrder(bishops):
+    if alphabet[bishops[0][0]] > alphabet[bishops[1][0]]:
+        bishops[0], bishops[1] = bishops[1], bishops[0]
+    return bishops
+         
