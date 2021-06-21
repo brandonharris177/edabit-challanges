@@ -2524,7 +2524,7 @@ def threeSplit(a):
         for index in range(len(peice1), len(a)-1):
             total2+=a[index]
             if total1 == total2:
-                peice2 = a[len(peice1): index+1]
+                # peice2 = a[len(peice1): index+1]
                 total3 = 0
                 peice3 = a[index+1: len(a)]
                 for number in peice3:
