@@ -2511,4 +2511,31 @@ def chessOrder(bishops):
     if alphabet[bishops[0][0]] > alphabet[bishops[1][0]]:
         bishops[0], bishops[1] = bishops[1], bishops[0]
     return bishops
-         
+
+def threeSplit(a):
+    ways = 0
+    pointer1 = 0
+    peice1 = [a[0]]
+    total1 = a[0]
+    # container for possible cuts
+    # stable = []
+    while len(peice1) < len(a)-1:
+        total2 = 0
+        for index in range(len(peice1), len(a)-1):
+            total2+=a[index]
+            if total1 == total2:
+                peice2 = a[len(peice1): index+1]
+                total3 = 0
+                peice3 = a[index+1: len(a)]
+                for number in peice3:
+                    total3 += number
+                if total1 == total2 == total3:
+                    # can be used to capture possible cuts
+                    # stable.append([[peice1], [peice2], [peice3]])
+                    ways+=1
+        pointer1+=1
+        peice1 = a[0: pointer1+1]
+        total1+=a[pointer1]
+        
+    return ways
+        
