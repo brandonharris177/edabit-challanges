@@ -2538,4 +2538,33 @@ def threeSplit(a):
         total1+=a[pointer1]
         
     return ways
+
+def threeSplitAlt(a):
+    total = 0
+    for number in a:
+        total+=number
+    ways = 0
+    pointer1 = 0
+    total1 = a[pointer1]
+    total2 = a[1]
+    total3 = total-total1-total2
+        
+    while pointer1 < len(a)-2:
+        if total1 == total2 == total3:
+            ways+=1
+        pointer2 = pointer1+2
+        while pointer2 < len(a)-1:
+            total2 += a[pointer2]
+            total3 -= a[pointer2]
+            if total1 == total2 == total3:
+                ways+=1
+            pointer2+=1
+        total1+=a[pointer1-1]
+        total2=a[pointer1]
+        total3 = total-total1-total2
+        pointer1+=1
+    
+    return ways
+        
+
         
