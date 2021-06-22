@@ -2565,6 +2565,49 @@ def threeSplitAlt(a):
         pointer1+=1
     
     return ways
+
+def threeSplitFaster(a):
+    total = 0
+    zeros = 0
+    for number in a:
+        if number == 0:
+            zeros+=1
+        else:
+            total+=number
+    if zeros == len(a):
+        return zeros+1
+    ways = 0
+    pointer1 = 0
+    total1 = a[pointer1]
+    secondaryWays = 0
+        
+    while pointer1 < len(a)-2:
+        if (total-total1)/2 == total1:
+            pointer2 = pointer1+1
+            total2=a[pointer2]
+            if total1 == total2:
+                ways+=1
+            pointer2+=1
+            secondaryWays=0
+            while pointer2 < len(a)-1:
+                total2 += a[pointer2]
+                if total1 == total2:
+                    ways+=1
+                    secondaryWays+=1
+                pointer2+=1
+            pointer1+=1
+            while a[pointer1] == 0:
+                ways+=secondaryWays
+                pointer1+=1
+            total1+=a[pointer1]
+        else:
+            pointer1+=1
+            total1+=a[pointer1]
+
+    
+    return ways
+        
+
         
 
         
