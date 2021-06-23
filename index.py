@@ -2607,7 +2607,27 @@ def threeSplitFaster(a):
     
     return ways
         
-
+def polygonPerimeter(matrix):
+    parameter=0
+    rowAbove=set()
+    for row in range(len(matrix)):
+        leftCell=False
+        for column in range(len(matrix[row])):
+            cell = matrix[row][column]
+            if cell == True:
+                parameter+=4
+                if leftCell == True:
+                    parameter-=2
+                if column in rowAbove:
+                    parameter-=2
+                rowAbove.add(column)
+                leftCell = True
+            else:
+                if column in rowAbove:
+                    rowAbove.remove(column)
+                leftCell = False
+    return parameter
+                
         
 
         
