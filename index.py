@@ -2628,6 +2628,27 @@ def polygonPerimeter(matrix):
                 leftCell = False
     return parameter
                 
-        
+def gravitation(rows):
+    columns = {}
+    smallestColumns = []
+    smallest = len(rows)
+    for rowIndex in range(len(rows)):
+        for columnIndex in range(len(rows[rowIndex])):
+            if rows[rowIndex][columnIndex] == ".":
+                if columnIndex in columns:
+                    columns[columnIndex]+=1
+            else:
+                if columnIndex not in columns:
+                    columns[columnIndex] = 0
+            if rowIndex == len(rows)-1:
+                if columnIndex not in columns:
+                    columns[columnIndex] = 0
+                value = columns[columnIndex]
+                if value < smallest:
+                    smallest = value
+                    smallestColumns = [columnIndex]
+                elif value == smallest:
+                    smallestColumns.append(columnIndex)
+                    
+    return smallestColumns     
 
-        
