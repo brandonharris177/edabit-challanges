@@ -2674,26 +2674,25 @@ def alphanumericLess(s1, s2):
             pointer1+=1
             pointer2+=1
         else:
-            array = findNumber(s1, pointer1)
-            pointer1 = array[0]
             if s2[pointer2] in alphabetDict:
-                pointer2+=1 
+                return True
             else:
+                array = findNumber(s1, pointer1)
+                pointer1 = array[0]
                 number1 = array[1]
                 s1LeadingZeros = array[2]
                 array = findNumber(s2, pointer2)
                 pointer2 = array[0]
-                number2 = array[1] 
-                if number1 > number2:
+                if number1 > array[1]:
                     return False
-                if zeros == "" and s1LeadingZeros != array[2]:
+                if zeros == "" and s1LeadingZeros != array[2] and number1 == array[1]:
                     if s1LeadingZeros > array[2]:
-                        zeros = True
+                        zeros = "s1"
                     else:
-                        zeros = False
+                        zeros = "s2"
  
     if s1[-1] == s2[-1]:
-        if zeros == True:
+        if zeros == "s1":
             return True
         return False              
         
