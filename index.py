@@ -2652,3 +2652,61 @@ def gravitation(rows):
                     
     return smallestColumns     
 
+alphabetString = string.ascii_lowercase
+alphabetDict = {}
+value = 0
+for letter in alphabetString:
+    alphabetDict[letter] = value
+    value+=1
+    
+def alphanumericLess(s1, s2):
+    pointer1 = 0
+    pointer2 = 0
+    zeros = ""
+    while pointer1 < len(s1):
+        if pointer2 >= len(s2):
+            return False
+        char1 = s1[pointer1] 
+        char2 = s2[pointer2]
+        if char1 in alphabetDict:
+            if char2 not in alphabetDict or alphabetDict[char2] < alphabetDict[char1]:
+                return False
+            pointer1+=1
+            pointer2+=1
+        else:
+            array = findNumber(s1, pointer1)
+            pointer1 = array[0]
+            if s2[pointer2] in alphabetDict:
+                pointer2+=1 
+            else:
+                number1 = array[1]
+                s1LeadingZeros = array[2]
+                array = findNumber(s2, pointer2)
+                pointer2 = array[0]
+                number2 = array[1] 
+                if number1 > number2:
+                    return False
+                if zeros == "" and s1LeadingZeros != array[2]:
+                    if s1LeadingZeros > array[2]:
+                        zeros = True
+                    else:
+                        zeros = False
+ 
+    if s1[-1] == s2[-1]:
+        if zeros == True:
+            return True
+        return False              
+        
+    return True
+                
+def findNumber(s, pointer):
+    leadingZeros = 0
+    if s[pointer] == "0":
+        while s[pointer] == "0" and pointer<len(s)-1 and s[pointer] not in alphabetDict:
+            leadingZeros+=1
+            pointer+=1
+    number = "0"
+    while pointer<len(s) and s[pointer] not in alphabetDict:
+        number+=s[pointer]
+        pointer+=1
+    return([pointer, int(number), leadingZeros])
