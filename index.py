@@ -2728,3 +2728,40 @@ def reduce(total, part):
             p1, p2 = p2, p1
     return(part/p1, total/p1)
 
+def dayOfWeek(birthdayDate):
+    days = 0
+    day = int(birthdayDate[3:5])
+    year = int(birthdayDate[6:10])
+    startYear = int(birthdayDate[6:10])
+    if year%4 == 0 and int(birthdayDate[0:2]) < 3 and year%100 != 0:
+        if day < 29:
+            days+=366
+            year+=1
+        elif day == 29:
+            days+=1461
+            year+=4
+            return(leapDay(days, year)-startYear)
+    else:
+        days+=365
+        year+=1
+
+    return(nonLeapDay(days, year)-startYear)
+    
+def nonLeapDay(d, y):
+    while d%7 != 0:
+        if y%4 == 0 and y%100 != 0:
+            d+=366
+        else:
+            d+=365
+        y+=1
+    return(y)
+
+def leapDay(d, y):
+    while d%7 != 0:
+        d+=1461
+        y+=4
+        if y%100 == 0:
+            d+=1460
+            y+=4
+            leapDay(d, y)
+    return(y)
