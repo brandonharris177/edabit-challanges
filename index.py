@@ -2674,26 +2674,25 @@ def alphanumericLess(s1, s2):
             pointer1+=1
             pointer2+=1
         else:
-            array = findNumber(s1, pointer1)
-            pointer1 = array[0]
             if s2[pointer2] in alphabetDict:
-                pointer2+=1 
+                return True
             else:
+                array = findNumber(s1, pointer1)
+                pointer1 = array[0]
                 number1 = array[1]
                 s1LeadingZeros = array[2]
                 array = findNumber(s2, pointer2)
                 pointer2 = array[0]
-                number2 = array[1] 
-                if number1 > number2:
+                if number1 > array[1]:
                     return False
-                if zeros == "" and s1LeadingZeros != array[2]:
+                if zeros == "" and s1LeadingZeros != array[2] and number1 == array[1]:
                     if s1LeadingZeros > array[2]:
-                        zeros = True
+                        zeros = "s1"
                     else:
-                        zeros = False
+                        zeros = "s2"
  
     if s1[-1] == s2[-1]:
-        if zeros == True:
+        if zeros == "s1":
             return True
         return False              
         
@@ -2710,3 +2709,59 @@ def findNumber(s, pointer):
         number+=s[pointer]
         pointer+=1
     return([pointer, int(number), leadingZeros])
+
+def videoPart(part, total):
+    totalSec = (int(total[0:2])*3600) + (int(total[3:5])*60) + int(total[6:8])
+    partSec = (int(part[0:2])*3600) + (int(part[3:5])*60) + int(part[6:8])
+    if totalSec == partSec:
+        return(1, 1)
+    return reduce(totalSec, partSec)
+
+def reduce(total, part):
+    p1 = total
+    p2 = part
+    while True:
+        p1-=p2
+        if p1 == p2:
+            break
+        if p2 > p1: 
+            p1, p2 = p2, p1
+    return(part/p1, total/p1)
+
+def dayOfWeek(birthdayDate):
+    days = 0
+    day = int(birthdayDate[3:5])
+    year = int(birthdayDate[6:10])
+    startYear = int(birthdayDate[6:10])
+    if year%4 == 0 and int(birthdayDate[0:2]) < 3 and year%100 != 0:
+        if day < 29:
+            days+=366
+            year+=1
+        elif day == 29:
+            days+=1461
+            year+=4
+            return(leapDay(days, year)-startYear)
+    else:
+        days+=365
+        year+=1
+
+    return(nonLeapDay(days, year)-startYear)
+    
+def nonLeapDay(d, y):
+    while d%7 != 0:
+        if y%4 == 0 and y%100 != 0:
+            d+=366
+        else:
+            d+=365
+        y+=1
+    return(y)
+
+def leapDay(d, y):
+    while d%7 != 0:
+        d+=1461
+        y+=4
+        if y%100 == 0:
+            d+=1460
+            y+=4
+            leapDay(d, y)
+    return(y)
