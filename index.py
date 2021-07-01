@@ -2709,3 +2709,22 @@ def findNumber(s, pointer):
         number+=s[pointer]
         pointer+=1
     return([pointer, int(number), leadingZeros])
+
+def videoPart(part, total):
+    totalSec = (int(total[0:2])*3600) + (int(total[3:5])*60) + int(total[6:8])
+    partSec = (int(part[0:2])*3600) + (int(part[3:5])*60) + int(part[6:8])
+    if totalSec == partSec:
+        return(1, 1)
+    return reduce(totalSec, partSec)
+
+def reduce(total, part):
+    p1 = total
+    p2 = part
+    while True:
+        p1-=p2
+        if p1 == p2:
+            break
+        if p2 > p1: 
+            p1, p2 = p2, p1
+    return(part/p1, total/p1)
+
